@@ -1,0 +1,26 @@
+﻿<SkinItems version="1.0" application="DevExpress Skin Editor v2" assembly="SNOTES_SKIN" class="" extranamespace="">
+  <Item>
+    <ItemName>SNOTES</ItemName>
+    <TemplateName>Office 2013</TemplateName>
+    <SkinMaskColor />
+    <SkinMaskColor2 />
+  </Item>
+  <Item>
+    <ItemName>SNOTES_SUB</ItemName>
+    <TemplateName>SNOTES</TemplateName>
+    <SkinMaskColor />
+    <SkinMaskColor2 />
+  </Item>
+  <Item>
+    <ItemName>SNOTES_SUB2</ItemName>
+    <TemplateName>SNOTES</TemplateName>
+    <SkinMaskColor />
+    <SkinMaskColor2 />
+  </Item>
+  <Item>
+    <ItemName>SNOTES_DASH</ItemName>
+    <TemplateName>SNOTES</TemplateName>
+    <SkinMaskColor />
+    <SkinMaskColor2 />
+  </Item>
+</SkinItems>

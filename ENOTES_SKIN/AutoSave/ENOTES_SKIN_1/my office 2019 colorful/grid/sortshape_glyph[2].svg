@@ -1,0 +1,10 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" tag="Element2">
+  <g id="Inside_Border" tag="Element">
+    <polygon points="6,2 0,2 3,5 0,8 6,8 5,7 2,7 4,5 2,3 5,3  " fill="#707070" id="Mask" tag="Mask" />
+    <rect x="7" y="3" width="3" height="1" fill="#707070" class="Mask" tag="Mask1" />
+    <rect x="7" y="5" width="2" height="1" fill="#707070" class="Mask" tag="Mask2" />
+    <rect x="7" y="7" width="1" height="1" fill="#707070" class="Mask" tag="Mask3" />
+  </g>
+  <g id="Layer_2" tag="Element1" />
+</svg>

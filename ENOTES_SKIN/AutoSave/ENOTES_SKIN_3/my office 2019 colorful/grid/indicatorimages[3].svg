@@ -1,0 +1,11 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 10 10" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" tag="Element2">
+  <g id="Inside_Border" tag="Element">
+    <path d="M3, 3L3, 7L7, 7L7, 3L3, 3zM6, 6L4, 6L4, 4L6, 4L6, 6z" fill="#707070" class="Mask" tag="Mask" />
+    <polygon points="1,1 1,4 2,4 2,2 4,2 4,1  " fill="#707070" id="Mask" tag="Mask1" />
+    <polygon points="9,1 6,1 6,2 8,2 8,4 9,4  " fill="#707070" id="Mask" tag="Mask2" />
+    <polygon points="9,9 9,6 8,6 8,8 6,8 6,9  " fill="#707070" id="Mask" tag="Mask3" />
+    <polygon points="1,9 4,9 4,8 2,8 2,6 1,6  " fill="#707070" id="Mask" tag="Mask4" />
+  </g>
+  <g id="Layer_2" tag="Element1" />
+</svg>

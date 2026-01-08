@@ -1,0 +1,15 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" id="Layer_1" style="enable-background:new 0 0 32 32" tag="Element2">
+  <style type="text/css" tag="Element1">
+	.st0{opacity:0.25;}
+	.st1{fill:#AFAFAF;}
+	.st2{opacity:0.35;}
+	.st3{fill:#707070;}
+</style>
+  <g class="st0" tag="st00">
+    <path d="M30, 32L2, 32C0.9, 32 0, 31.1 0, 30L0, 2C0, 0.9 0.9, 0 2, 0L30, 0C31.1, 0 32, 0.9 32, 2L32, 30C32, 31.1 31.1, 32 30, 32z" class="st1" tag="st10" />
+  </g>
+  <g class="st2" tag="st20">
+    <path d="M0, 2L0, 30C0, 31.1 0.9, 32 2, 32L30, 32C31.1, 32 32, 31.1 32, 30L32, 2C32, 0.9 31.1, 0 30, 0L2, 0C0.9, 0 0, 0.9 0, 2zM30, 31L2, 31C1.4, 31 1, 30.6 1, 30L1, 2C1, 1.4 1.4, 1 2, 1L30, 1C30.6, 1 31, 1.4 31, 2L31, 30C31, 30.6 30.6, 31 30, 31z" class="st3" tag="st30" />
+  </g>
+</svg>

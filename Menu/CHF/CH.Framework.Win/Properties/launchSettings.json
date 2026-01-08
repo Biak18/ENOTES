@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "CH.Framework.Win": {
+      "commandName": "Project",
+      "commandLineArgs": "UPGRADE",
+      "workingDirectory": "D:\\NET\\ENOTES\\Dev_Deploy"
+    }
+  }
+}

@@ -1,0 +1,8 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 9 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" id="Layer_1" tag="Element2">
+  <g id="Inside_Border" tag="Element0">
+    <rect x="2" y="4" width="5" height="1" fill="#707070" class="st0" tag="st00" />
+  </g>
+  <g id="Layer_2" tag="Element1" />
+  <path d="M0, 0L0, 9L9, 9L9, 0L0, 0zM8, 8L1, 8L1, 1L8, 1L8, 8z" fill="#707070" class="st0" tag="st01" />
+</svg>

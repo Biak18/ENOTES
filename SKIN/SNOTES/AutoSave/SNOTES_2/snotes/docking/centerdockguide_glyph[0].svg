@@ -1,0 +1,22 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 112 112" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 112 112" xml:space="preserve" id="Layer_1" tag="Element7">
+  <style type="text/css" tag="Element1">
+	.st0{fill:#B0B0B0;}
+	.st1{fill:#FFFFFF;}
+</style>
+  <path d="M71, 72L41, 72C40.4, 72 40, 71.6 40, 71L40, 41C40, 40.4 40.4, 40 41, 40L71, 40C71.6, 40 72, 40.4 72, 41L72, 71C72, 71.6 71.6, 72 71, 72z" fill="#B0B0B0" class="st0" tag="st00" />
+  <path d="M72, 47L72, 46L66, 46L66, 40L65, 40L65, 46L47, 46L47, 40L46, 40L46, 46L40, 46L40, 47L46, 47L46, 65L40, 65L40, 66L46, 66L46, 72L47, 72L47, 66L65, 66L65, 72L66, 72L66, 66L72, 66L72, 65L66, 65L66, 47L72, 47zM65, 65L47, 65L47, 47L65, 47L65, 65z" fill="#FFFFFF" class="st1" tag="st10" />
+  <rect x="46" y="46" width="20" height="20" tag="Element2" />
+  <path d="M107, 72L77, 72C76.4, 72 76, 71.6 76, 71L76, 41C76, 40.4 76.4, 40 77, 40L107, 40C107.6, 40 108, 40.4 108, 41L108, 71C108, 71.6 107.6, 72 107, 72z" fill="#B0B0B0" class="st0" tag="st01" />
+  <path d="M108, 47L108, 46L102, 46L102, 40L101, 40L101, 46L83, 46L83, 40L82, 40L82, 46L76, 46L76, 47L82, 47L82, 65L76, 65L76, 66L82, 66L82, 72L83, 72L83, 66L101, 66L101, 72L102, 72L102, 66L108, 66L108, 65L102, 65L102, 47L108, 47zM101, 65L83, 65L83, 47L101, 47L101, 65z" fill="#FFFFFF" class="st1" tag="st11" />
+  <rect x="92" y="46" width="10" height="20" tag="Element3" />
+  <path d="M71, 36L41, 36C40.4, 36 40, 35.6 40, 35L40, 5C40, 4.4 40.4, 4 41, 4L71, 4C71.6, 4 72, 4.4 72, 5L72, 35C72, 35.6 71.6, 36 71, 36z" fill="#B0B0B0" class="st0" tag="st02" />
+  <path d="M72, 11L72, 10L66, 10L66, 4L65, 4L65, 10L47, 10L47, 4L46, 4L46, 10L40, 10L40, 11L46, 11L46, 29L40, 29L40, 30L46, 30L46, 36L47, 36L47, 30L65, 30L65, 36L66, 36L66, 30L72, 30L72, 29L66, 29L66, 11L72, 11zM65, 29L47, 29L47, 11L65, 11L65, 29z" fill="#FFFFFF" class="st1" tag="st12" />
+  <rect x="51" y="5" width="10" height="20" transform="matrix(0, -1, 1, 0, 41, 71)" tag="Element4" />
+  <path d="M71, 108L41, 108C40.4, 108 40, 107.6 40, 107L40, 77C40, 76.4 40.4, 76 41, 76L71, 76C71.6, 76 72, 76.4 72, 77L72, 107C72, 107.6 71.6, 108 71, 108z" fill="#B0B0B0" class="st0" tag="st03" />
+  <path d="M72, 83L72, 82L66, 82L66, 76L65, 76L65, 82L47, 82L47, 76L46, 76L46, 82L40, 82L40, 83L46, 83L46, 101L40, 101L40, 102L46, 102L46, 108L47, 108L47, 102L65, 102L65, 108L66, 108L66, 102L72, 102L72, 101L66, 101L66, 83L72, 83zM65, 101L47, 101L47, 83L65, 83L65, 101z" fill="#FFFFFF" class="st1" tag="st13" />
+  <rect x="51" y="87" width="10" height="20" transform="matrix(0, 1, -1, 0, 153, 41)" tag="Element5" />
+  <path d="M35, 72L5, 72C4.4, 72 4, 71.6 4, 71L4, 41C4, 40.4 4.4, 40 5, 40L35, 40C35.6, 40 36, 40.4 36, 41L36, 71C36, 71.6 35.6, 72 35, 72z" fill="#B0B0B0" class="st0" tag="st04" />
+  <path d="M36, 47L36, 46L30, 46L30, 40L29, 40L29, 46L11, 46L11, 40L10, 40L10, 46L4, 46L4, 47L10, 47L10, 65L4, 65L4, 66L10, 66L10, 72L11, 72L11, 66L29, 66L29, 72L30, 72L30, 66L36, 66L36, 65L30, 65L30, 47L36, 47zM29, 65L11, 65L11, 47L29, 47L29, 65z" fill="#FFFFFF" class="st1" tag="st14" />
+  <rect x="10" y="46" width="10" height="20" tag="Element6" />
+</svg>

@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "M_TEST_001": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\NET\\ENOTES\\Dev_Deploy"
+    }
+  }
+}

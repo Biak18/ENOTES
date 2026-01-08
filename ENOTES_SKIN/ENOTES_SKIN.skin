@@ -1,0 +1,14 @@
+﻿<SkinItems version="1.0" application="DevExpress Skin Editor v2" assembly="" class="" extranamespace="">
+  <Item>
+    <ItemName>My Basic</ItemName>
+    <TemplateName>Basic</TemplateName>
+    <SkinMaskColor />
+    <SkinMaskColor2 />
+  </Item>
+  <Item>
+    <ItemName>My Office 2019 Colorful</ItemName>
+    <TemplateName>Office 2019 Colorful</TemplateName>
+    <SkinMaskColor />
+    <SkinMaskColor2 />
+  </Item>
+</SkinItems>

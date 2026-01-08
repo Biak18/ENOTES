@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>disable</Nullable>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <RootNamespace>CH.Framework.Common</RootNamespace>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+        <Optimize>False</Optimize>
+        <WarningLevel>6</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+        <Optimize>False</Optimize>
+        <WarningLevel>6</WarningLevel>
+    </PropertyGroup>
+    <ItemGroup>
+        <PackageReference Include="DevExpress.Win" Version="22.1.6" />
+        <PackageReference Include="DevExpress.Win.Design" Version="22.1.6" />
+        <PackageReference Include="DevExpress.Win.Charts" Version="22.1.*-*" />
+        <PackageReference Include="DevExpress.Reporting.Core" Version="22.1.*-*" />
+        <PackageReference Include="DevExpress.Win.PivotGrid" Version="22.1.*-*" />
+    </ItemGroup>
+    <ItemGroup>
+        <Reference Include="CH.Helper">
+            <SpecificVersion>false</SpecificVersion>
+            <HintPath>$(SolutionDir)\..\Dev_Deploy\CH.Helper.dll</HintPath>
+        </Reference>
+        <Reference Include="CH.Grid">
+            <SpecificVersion>false</SpecificVersion>
+            <HintPath>$(SolutionDir)\..\Dev_Deploy\CH.Grid.dll</HintPath>
+        </Reference>
+        <Reference Include="CH.Framework.Win.Controls">
+            <SpecificVersion>false</SpecificVersion>
+            <HintPath>$(SolutionDir)\..\Dev_Deploy\CH.Framework.Win.Controls.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+    <PropertyGroup>
+        <PostBuildEvent>copy "$(TargetDir)$(MSBuildProjectName).dll" "$(SolutionDir)..\Dev_Deploy\"</PostBuildEvent>
+    </PropertyGroup>
+</Project>

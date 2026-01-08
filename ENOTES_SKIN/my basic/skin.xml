@@ -1,0 +1,280 @@
+<Skins>
+  <Skin1 SkinProduct="NavBar" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin1>
+  <Skin2 SkinProduct="Common" BasedOn="Basic" SkinName="My Basic">
+    <SvgPalette>
+      <SvgPalette Name="DefaultSkinPalette">
+        <SvgColor Name="Paint" Value="240,240,240" />
+        <SvgColor Name="Paint High" Value="255,255,255" />
+        <SvgColor Name="Paint Shadow" Value="Gainsboro" />
+        <SvgColor Name="Paint Deep Shadow" Value="210,210,210" />
+        <SvgColor Name="Brush" Value="40,40,40" />
+        <SvgColor Name="Brush High" Value="40,40,40" />
+        <SvgColor Name="Brush Light" Value="120,120,120" />
+        <SvgColor Name="Brush Major" Value="160,160,160" />
+        <SvgColor Name="Brush Minor" Value="200,200,200" />
+        <SvgColor Name="Accent Paint" Value="78,109,156" />
+        <SvgColor Name="Accent Paint Dark" Value="62,91,135" />
+        <SvgColor Name="Accent Paint Light" Value="206,221,245" />
+        <SvgColor Name="Accent Paint Lighter" Value="220,233,252" />
+        <SvgColor Name="Accent Brush" Value="255,255,255" />
+        <SvgColor Name="Accent Brush Light" Value="165,186,217" />
+        <SvgColor Name="Red" Value="208,49,68" />
+        <SvgColor Name="Green" Value="56,152,83" />
+        <SvgColor Name="Blue" Value="78,138,200" />
+        <SvgColor Name="Yellow" Value="241,151,63" />
+        <SvgColor Name="Black" Value="108,109,117" />
+        <SvgColor Name="Gray" Value="191,191,194" />
+        <SvgColor Name="White" Value="255,255,255" />
+      </SvgPalette>
+      <SvgPalette Name="Normal">
+        <SvgColor Name="Blue" Value="78,138,200" SkinColorId="Blue" />
+        <SvgColor Name="Green" Value="56,152,83" SkinColorId="Green" />
+        <SvgColor Name="Red" Value="208,49,68" SkinColorId="Red" />
+        <SvgColor Name="Yellow" Value="241,151,63" SkinColorId="Yellow" />
+        <SvgColor Name="Black" Value="108,109,117" SkinColorId="Black" />
+        <SvgColor Name="White" Value="255,255,255" SkinColorId="White" />
+      </SvgPalette>
+      <SvgPalette Name="Disabled">
+        <SvgColor Name="Black" Value="191,191,194" SkinColorId="Gray" />
+        <SvgColor Name="Blue" Value="191,191,194" SkinColorId="Gray" />
+        <SvgColor Name="Green" Value="191,191,194" SkinColorId="Gray" />
+        <SvgColor Name="Red" Value="191,191,194" SkinColorId="Gray" />
+        <SvgColor Name="Yellow" Value="191,191,194" SkinColorId="Gray" />
+        <SvgColor Name="White" Value="255,255,255" SkinColorId="White" />
+      </SvgPalette>
+    </SvgPalette>
+    <CustomSvgPalette>
+      <SvgPalette Name="Blue Dark" Index="1">
+        <SvgColor Name="Paint" Value="50,50,50" />
+        <SvgColor Name="Paint High" Value="35,35,35" />
+        <SvgColor Name="Paint Shadow" Value="55,55,55" />
+        <SvgColor Name="Paint Deep Shadow" Value="60,60,60" />
+        <SvgColor Name="Brush" Value="240,240,240" />
+        <SvgColor Name="Brush High" Value="240,240,240" />
+        <SvgColor Name="Brush Light" Value="120,120,120" />
+        <SvgColor Name="Brush Major" Value="75,75,75" />
+        <SvgColor Name="Brush Minor" Value="70,70,70" />
+        <SvgColor Name="Accent Paint" Value="78,109,156" />
+        <SvgColor Name="Accent Paint Dark" Value="62,91,135" />
+        <SvgColor Name="Accent Paint Light" Value="70,70,70" />
+        <SvgColor Name="Accent Paint Lighter" Value="55,55,55" />
+        <SvgColor Name="Accent Brush" Value="255,255,255" />
+        <SvgColor Name="Accent Brush Light" Value="165,186,217" />
+        <SvgColor Name="Red" Value="246,71,37" />
+        <SvgColor Name="Green" Value="52,166,63" />
+        <SvgColor Name="Blue" Value="35,158,244" />
+        <SvgColor Name="Yellow" Value="247,174,17" />
+        <SvgColor Name="Black" Value="200,200,200" />
+        <SvgColor Name="Gray" Value="100,100,100" />
+        <SvgColor Name="White" Value="35,35,35" />
+      </SvgPalette>
+      <SvgPalette Name="Pine Light" Index="2">
+        <SvgColor Name="Paint" Value="240,240,240" />
+        <SvgColor Name="Paint High" Value="255,255,255" />
+        <SvgColor Name="Paint Shadow" Value="Gainsboro" />
+        <SvgColor Name="Paint Deep Shadow" Value="210,210,210" />
+        <SvgColor Name="Brush" Value="40,40,40" />
+        <SvgColor Name="Brush High" Value="40,40,40" />
+        <SvgColor Name="Brush Light" Value="120,120,120" />
+        <SvgColor Name="Brush Major" Value="160,160,160" />
+        <SvgColor Name="Brush Minor" Value="200,200,200" />
+        <SvgColor Name="Accent Paint" Value="89,139,125" />
+        <SvgColor Name="Accent Paint Dark" Value="73,120,106" />
+        <SvgColor Name="Accent Paint Light" Value="209,233,226" />
+        <SvgColor Name="Accent Paint Lighter" Value="221,241,235" />
+        <SvgColor Name="Accent Brush" Value="255,255,255" />
+        <SvgColor Name="Accent Brush Light" Value="171,204,194" />
+        <SvgColor Name="Red" Value="208,49,68" />
+        <SvgColor Name="Green" Value="56,152,83" />
+        <SvgColor Name="Blue" Value="78,138,200" />
+        <SvgColor Name="Yellow" Value="241,151,63" />
+        <SvgColor Name="Black" Value="108,109,117" />
+        <SvgColor Name="Gray" Value="191,191,194" />
+        <SvgColor Name="White" Value="255,255,255" />
+      </SvgPalette>
+      <SvgPalette Name="Pine Dark" Index="3">
+        <SvgColor Name="Paint" Value="50,50,50" />
+        <SvgColor Name="Paint High" Value="35,35,35" />
+        <SvgColor Name="Paint Shadow" Value="55,55,55" />
+        <SvgColor Name="Paint Deep Shadow" Value="60,60,60" />
+        <SvgColor Name="Brush" Value="240,240,240" />
+        <SvgColor Name="Brush High" Value="240,240,240" />
+        <SvgColor Name="Brush Light" Value="120,120,120" />
+        <SvgColor Name="Brush Major" Value="75,75,75" />
+        <SvgColor Name="Brush Minor" Value="70,70,70" />
+        <SvgColor Name="Accent Paint" Value="89,139,125" />
+        <SvgColor Name="Accent Paint Dark" Value="73,120,106" />
+        <SvgColor Name="Accent Paint Light" Value="70,70,70" />
+        <SvgColor Name="Accent Paint Lighter" Value="55,55,55" />
+        <SvgColor Name="Accent Brush" Value="255,255,255" />
+        <SvgColor Name="Accent Brush Light" Value="171,204,194" />
+        <SvgColor Name="Red" Value="246,71,37" />
+        <SvgColor Name="Green" Value="52,166,63" />
+        <SvgColor Name="Blue" Value="35,158,244" />
+        <SvgColor Name="Yellow" Value="247,174,17" />
+        <SvgColor Name="Black" Value="200,200,200" />
+        <SvgColor Name="Gray" Value="100,100,100" />
+        <SvgColor Name="White" Value="35,35,35" />
+      </SvgPalette>
+      <SvgPalette Name="Violet Light" Index="4">
+        <SvgColor Name="Paint" Value="240,240,240" />
+        <SvgColor Name="Paint High" Value="255,255,255" />
+        <SvgColor Name="Paint Shadow" Value="Gainsboro" />
+        <SvgColor Name="Paint Deep Shadow" Value="210,210,210" />
+        <SvgColor Name="Brush" Value="40,40,40" />
+        <SvgColor Name="Brush High" Value="40,40,40" />
+        <SvgColor Name="Brush Light" Value="120,120,120" />
+        <SvgColor Name="Brush Major" Value="160,160,160" />
+        <SvgColor Name="Brush Minor" Value="200,200,200" />
+        <SvgColor Name="Accent Paint" Value="101,96,137" />
+        <SvgColor Name="Accent Paint Dark" Value="84,79,118" />
+        <SvgColor Name="Accent Paint Light" Value="218,215,236" />
+        <SvgColor Name="Accent Paint Lighter" Value="229,227,244" />
+        <SvgColor Name="Accent Brush" Value="255,255,255" />
+        <SvgColor Name="Accent Brush Light" Value="180,177,205" />
+        <SvgColor Name="Red" Value="208,49,68" />
+        <SvgColor Name="Green" Value="56,152,83" />
+        <SvgColor Name="Blue" Value="78,138,200" />
+        <SvgColor Name="Yellow" Value="241,151,63" />
+        <SvgColor Name="Black" Value="108,109,117" />
+        <SvgColor Name="Gray" Value="191,191,194" />
+        <SvgColor Name="White" Value="255,255,255" />
+      </SvgPalette>
+      <SvgPalette Name="Violet Dark" Index="5">
+        <SvgColor Name="Paint" Value="50,50,50" />
+        <SvgColor Name="Paint High" Value="35,35,35" />
+        <SvgColor Name="Paint Shadow" Value="55,55,55" />
+        <SvgColor Name="Paint Deep Shadow" Value="60,60,60" />
+        <SvgColor Name="Brush" Value="240,240,240" />
+        <SvgColor Name="Brush High" Value="240,240,240" />
+        <SvgColor Name="Brush Light" Value="120,120,120" />
+        <SvgColor Name="Brush Major" Value="75,75,75" />
+        <SvgColor Name="Brush Minor" Value="70,70,70" />
+        <SvgColor Name="Accent Paint" Value="101,96,137" />
+        <SvgColor Name="Accent Paint Dark" Value="84,79,118" />
+        <SvgColor Name="Accent Paint Light" Value="70,70,70" />
+        <SvgColor Name="Accent Paint Lighter" Value="55,55,55" />
+        <SvgColor Name="Accent Brush" Value="255,255,255" />
+        <SvgColor Name="Accent Brush Light" Value="180,177,205" />
+        <SvgColor Name="Red" Value="246,71,37" />
+        <SvgColor Name="Green" Value="52,166,63" />
+        <SvgColor Name="Blue" Value="35,158,244" />
+        <SvgColor Name="Yellow" Value="247,174,17" />
+        <SvgColor Name="Black" Value="200,200,200" />
+        <SvgColor Name="Gray" Value="100,100,100" />
+        <SvgColor Name="White" Value="35,35,35" />
+      </SvgPalette>
+    </CustomSvgPalette>
+    <Elements />
+  </Skin2>
+  <Skin3 SkinProduct="Editors" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin3>
+  <Skin4 SkinProduct="Tab" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin4>
+  <Skin5 SkinProduct="Grid" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin5>
+  <Skin6 SkinProduct="Bars" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin6>
+  <Skin7 SkinProduct="MetroUI" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin7>
+  <Skin8 SkinProduct="Docking" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin8>
+  <Skin9 SkinProduct="VGrid" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin9>
+  <Skin10 SkinProduct="Scheduler" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin10>
+  <Skin11 SkinProduct="NavPane" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin11>
+  <Skin12 SkinProduct="Form" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin12>
+  <Skin13 SkinProduct="Reports" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin13>
+  <Skin14 SkinProduct="Ribbon" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin14>
+  <Skin15 SkinProduct="Printing" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin15>
+  <Skin16 SkinProduct="RichEdit" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin16>
+  <Skin17 SkinProduct="Chart" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin17>
+  <Skin18 SkinProduct="Gauges" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin18>
+  <Skin19 SkinProduct="Dashboard" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin19>
+  <Skin20 SkinProduct="Sparkline" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin20>
+  <Skin21 SkinProduct="Spreadsheet" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin21>
+  <Skin22 SkinProduct="PdfViewer" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin22>
+  <Skin23 SkinProduct="Map" BasedOn="Basic" SkinName="My Basic">
+    <RestrictedColors>
+      <Criteria01 Value="True" ValueType="System.Boolean" />
+      <Criteria02 Value="True" ValueType="System.Boolean" />
+      <Criteria03 Value="True" ValueType="System.Boolean" />
+      <Gradient01 Value="True" ValueType="System.Boolean" />
+      <Gradient02 Value="True" ValueType="System.Boolean" />
+      <Palette01 Value="True" ValueType="System.Boolean" />
+      <Palette02 Value="True" ValueType="System.Boolean" />
+      <Palette03 Value="True" ValueType="System.Boolean" />
+      <Palette04 Value="True" ValueType="System.Boolean" />
+      <Palette05 Value="True" ValueType="System.Boolean" />
+      <Palette06 Value="True" ValueType="System.Boolean" />
+      <Palette07 Value="True" ValueType="System.Boolean" />
+      <Palette08 Value="True" ValueType="System.Boolean" />
+      <Palette09 Value="True" ValueType="System.Boolean" />
+      <Palette10 Value="True" ValueType="System.Boolean" />
+    </RestrictedColors>
+    <Elements />
+  </Skin23>
+  <Skin24 SkinProduct="NavigationPane" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin24>
+  <Skin25 SkinProduct="AccordionControl" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin25>
+  <Skin26 SkinProduct="TreeMap" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin26>
+  <Skin27 SkinProduct="HamburgerMenu" BasedOn="Basic" SkinName="My Basic">
+    <SvgPalette>
+      <SvgPalette Name="Normal">
+        <SvgColor Name="Black" Value="255,255,255" SkinColorId="Accent Brush" />
+        <SvgColor Name="Blue" Value="255,255,255" SkinColorId="Accent Brush" />
+        <SvgColor Name="Green" Value="255,255,255" SkinColorId="Accent Brush" />
+        <SvgColor Name="Red" Value="255,255,255" SkinColorId="Accent Brush" />
+        <SvgColor Name="Yellow" Value="255,255,255" SkinColorId="Accent Brush" />
+        <SvgColor Name="White" Value="71,71,71" SkinColorId="Accent Paint" />
+      </SvgPalette>
+    </SvgPalette>
+    <Elements />
+  </Skin27>
+  <Skin28 SkinProduct="Diagram" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin28>
+  <Skin29 SkinProduct="GanttControl" BasedOn="Basic" SkinName="My Basic">
+    <Elements />
+  </Skin29>
+</Skins>

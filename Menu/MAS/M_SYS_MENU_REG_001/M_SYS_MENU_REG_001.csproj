@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>Library</OutputType>
+        <TargetFramework>net8.0-windows</TargetFramework>
+        <Nullable>disable</Nullable>
+        <UseWindowsForms>true</UseWindowsForms>
+        <ImplicitUsings>disable</ImplicitUsings>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <UseVSHostingProcess>true</UseVSHostingProcess>
+        <StartAction>Program</StartAction>
+        <StartProgram>D:\NET\ENOTES\Dev_Deploy\ENOTES.exe</StartProgram>
+        <Optimize>False</Optimize>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="CH.Framework.Win">
+            <SpecificVersion>false</SpecificVersion>
+            <HintPath>$(SolutionDir)\..\Dev_Deploy\CH.Framework.Win.dll</HintPath>
+        </Reference>
+        <Reference Include="CH.Framework.Win.Controls">
+            <SpecificVersion>false</SpecificVersion>
+            <HintPath>$(SolutionDir)\..\Dev_Deploy\CH.Framework.Win.Controls.dll</HintPath>
+        </Reference>
+        <Reference Include="CH.Grid">
+            <SpecificVersion>false</SpecificVersion>
+            <HintPath>$(SolutionDir)\..\Dev_Deploy\CH.Grid.dll</HintPath>
+        </Reference>
+        <Reference Include="CH.Framework.Common">
+            <SpecificVersion>false</SpecificVersion>
+            <HintPath>$(SolutionDir)\..\Dev_Deploy\CH.Framework.Common.dll</HintPath>
+        </Reference>
+		<Reference Include="CH.Helper">
+			<SpecificVersion>false</SpecificVersion>
+			<HintPath>$(SolutionDir)\..\Dev_Deploy\CH.Helper.dll</HintPath>
+		</Reference>
+        <!--<Reference Include="DevExpress.XtraEditors.v22.1">
+			
+		</Reference>-->
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="DevExpress.Win" Version="22.1.6" />
+        <PackageReference Include="DevExpress.Win.Design" Version="22.1.6" />
+        <PackageReference Include="devexpress.win.treemap" Version="22.1.6" />
+        <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.3" />
+		<PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.1" />
+    </ItemGroup>
+    <PropertyGroup>
+        <PostBuildEvent>copy "$(TargetDir)$(MSBuildProjectName).dll" "$(SolutionDir)..\Dev_Deploy\"</PostBuildEvent>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <WarningLevel>6</WarningLevel>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+        <WarningLevel>6</WarningLevel>
+    </PropertyGroup>
+</Project>

@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" id="Layer_2" tag="Element2">
+  <g tag="Element0">
+    <path d="M32, 32L10, 32C4.5, 32 0, 27.5 0, 22L0, 10C0, 4.5 4.5, 0 10, 0L32, 0L32, 32z" fill="#AFAFAF" class="st0" tag="st00" />
+  </g>
+  <g tag="Element1">
+    <path d="M32, 32L32, 0L10, 0C4.5, 0 0, 4.5 0, 10L0, 22C0, 27.5 4.5, 32 10, 32L32, 32zM10, 1L31, 1L31, 31L10, 31C5, 31 1, 27 1, 22L1, 10C1, 5 5, 1 10, 1z" fill="#707070" class="st1" tag="st10" />
+  </g>
+</svg>

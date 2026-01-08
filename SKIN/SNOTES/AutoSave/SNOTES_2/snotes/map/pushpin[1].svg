@@ -1,0 +1,8 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 44 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" id="Layer_1" tag="Element0">
+  <circle cx="22" cy="22" r="22" fill="#FFFFFF" class="st0" tag="st00" />
+  <path d="M22, 0C9.8, 0 0, 9.8 0, 22C0, 34.2 9.8, 44 22, 44C34.2, 44 44, 34.2 44, 22C44, 9.8 34.2, 0 22, 0zM22, 42C11, 42 2, 33 2, 22C2, 11 11, 2 22, 2C33, 2 42, 11 42, 22C42, 33 33, 42 22, 42z" fill="#707070" class="st1" tag="st10" />
+  <path d="M22, 7.1C15.9, 7.1 11, 11 11, 18.1C11, 28 22, 37 22, 37C22, 37 33, 28 33, 18.1C33, 11 28.1, 7.1 22, 7.1z" fill="#707070" class="st1" tag="st11" />
+  <path d="M22, 9C17, 9 13, 12 13, 17.9C13, 26.7 22, 34 22, 34C22, 34 31, 26.7 31, 17.9C31, 12 27, 9 22, 9z" fill="#FFFFFF" class="st0" tag="st01" />
+  <circle cx="22" cy="17.3" r="3" fill="#707070" class="st1" tag="st12" />
+</svg>

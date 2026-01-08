@@ -1,0 +1,39 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 33 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" id="Layer_2" tag="Element13">
+  <g tag="Element1">
+    <circle cx="16.6" cy="2.5" r="2.5" tag="Element0" />
+  </g>
+  <g opacity="0.9" class="st0" tag="st00">
+    <circle cx="9.5" cy="4.5" r="2.5" opacity="0.9" tag="Element2" />
+  </g>
+  <g opacity="0" class="st1" tag="st10">
+    <circle cx="23.5" cy="4.5" r="2.5" opacity="0" tag="Element3" />
+  </g>
+  <g opacity="0.8" class="st2" tag="st20">
+    <circle cx="4.5" cy="9.5" r="2.5" opacity="0.8" tag="Element4" />
+  </g>
+  <g opacity="0.05" class="st3" tag="st30">
+    <circle cx="28.5" cy="9.5" r="2.5" opacity="0.05" tag="Element5" />
+  </g>
+  <g opacity="0.5" class="st4" tag="st40">
+    <circle cx="9.5" cy="28.5" r="2.5" opacity="0.5" tag="Element6" />
+  </g>
+  <g opacity="0.3" class="st5" tag="st50">
+    <circle cx="23.5" cy="28.5" r="2.5" opacity="0.3" tag="Element7" />
+  </g>
+  <g opacity="0.6" class="st6" tag="st60">
+    <circle cx="4.5" cy="23.5" r="2.5" opacity="0.6" tag="Element8" />
+  </g>
+  <g opacity="0.2" class="st7" tag="st70">
+    <circle cx="28.5" cy="23.5" r="2.5" opacity="0.2" tag="Element9" />
+  </g>
+  <g opacity="0.4" class="st8" tag="st80">
+    <circle cx="16.5" cy="30.5" r="2.5" opacity="0.4" tag="Element10" />
+  </g>
+  <g opacity="0.1" class="st9" tag="st90">
+    <circle cx="30.5" cy="16.5" r="2.5" opacity="0.1" tag="Element11" />
+  </g>
+  <g opacity="0.7" class="st10" tag="st100">
+    <circle cx="2.5" cy="16.5" r="2.5" opacity="0.7" tag="Element12" />
+  </g>
+</svg>

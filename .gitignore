@@ -14,3 +14,6 @@ obj/
 # Optional: temporary files
 *.log
 *.tmp
+
+# Database secrets
+DataBaseSettings.ini

@@ -11,12 +11,14 @@ public partial class ENOTES_LOGIN : Form
     Point mousePoint;
     ENOTES_D _D = new ENOTES_D();
 
+
     #region Initialize
     public ENOTES_LOGIN()
     {
         InitializeComponent();
         //ApplyBlurEffect();
         InitializeEvent();
+
     }
 
     private void InitializeEvent()

@@ -5,6 +5,7 @@ using System;
 using System.Data;
 using System.Data.Common;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 
 namespace CH.Helper;
@@ -23,8 +24,27 @@ public class DBStarter
 
     public DBStarter()
     {
-        //later I will get from config file
-        _connectionString = "Data Source=192.168.100.54,1433;Initial Catalog=THEDUMPDUMP;Integrated Security=False;User ID=CHAN;Password=CHAN;Encrypt=False;TrustServerCertificate=True;";
+        string iniPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataBaseSettings.ini");
+
+        string dataSource = IniFile.IniReadValue("Database", "DataSource", iniPath);
+        string catalog = IniFile.IniReadValue("Database", "InitialCatalog", iniPath);
+        string userId = IniFile.IniReadValue("Database", "UserId", iniPath);
+        string password = IniFile.IniReadValue("Database", "Password", iniPath);
+        string encrypt = IniFile.IniReadValue("Database", "Encrypt", iniPath);
+        string trustCert = IniFile.IniReadValue("Database", "TrustServerCertificate", iniPath);
+
+
+        if (string.IsNullOrWhiteSpace(dataSource))
+            throw new Exception("Database DataSource is missing in INI file.");
+
+        _connectionString =
+        $"Data Source={dataSource};" +
+        $"Initial Catalog={catalog};" +
+        $"Integrated Security=False;" +
+        $"User ID={userId};" +
+        $"Password={password};" +
+        $"Encrypt={encrypt};" +
+        $"TrustServerCertificate={trustCert};";
     }
 
     public DBStarter(string connectionString)

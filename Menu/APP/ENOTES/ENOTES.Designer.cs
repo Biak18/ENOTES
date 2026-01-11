@@ -350,6 +350,7 @@
             Controls.Add(topPanel);
             FormBorderStyle = FormBorderStyle.None;
             IsMdiContainer = true;
+            MinimumSize = new Size(900, 600);
             Name = "ENOTES";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";

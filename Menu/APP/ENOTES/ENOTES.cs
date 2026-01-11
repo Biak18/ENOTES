@@ -396,6 +396,53 @@ public partial class ENOTES : XtraForm
     //        node.TreeList.RefreshNode(node);
     //    }
     //}
+
+    #region Borderless Aero Snap
+    const int WM_NCCALCSIZE = 0x83;
+    const int WM_NCHITTEST = 0x84;
+    const int HTCAPTION = 0x2; // Title bar hit test
+    const int WS_THICKFRAME = 0x40000; // for Aero Snap
+    const int WS_CAPTION = 0xC00000; // for title bar functionality
+
+    protected override CreateParams CreateParams
+    {
+        get
+        {
+            CreateParams cp = base.CreateParams;
+            cp.Style |= WS_THICKFRAME | WS_CAPTION;
+            return cp;
+        }
+    }
+
+    protected override void WndProc(ref Message m)
+    {
+        if (m.Msg == WM_NCCALCSIZE && m.WParam.ToInt32() == 1)
+        {
+            m.Result = IntPtr.Zero;
+            return;
+        }
+
+        if (m.Msg == WM_NCHITTEST)
+        {
+            base.WndProc(ref m);
+            if (m.Result.ToInt32() == HTCAPTION)
+            {
+                Point screenPoint = new Point(m.LParam.ToInt32());
+                Point clientPoint = PointToClient(screenPoint);
+
+                if (topPanel.Bounds.Contains(clientPoint))
+                {
+                    m.Result = new IntPtr(HTCAPTION);
+                    return;
+                }
+            }
+            return;
+        }
+
+        base.WndProc(ref m);
+    }
+    #endregion
+
     #endregion
 
     #region ▶ Closing

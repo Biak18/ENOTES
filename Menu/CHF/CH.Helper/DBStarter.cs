@@ -7,9 +7,10 @@ using System.Data.Common;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Runtime.Versioning;
 
 namespace CH.Helper;
-
+[SupportedOSPlatform("windows")]
 public class DBStarter
 {
     private DbTransaction tran = null;
@@ -29,7 +30,7 @@ public class DBStarter
         string dataSource = IniFile.IniReadValue("Database", "DataSource", iniPath);
         string catalog = IniFile.IniReadValue("Database", "InitialCatalog", iniPath);
         string userId = IniFile.IniReadValue("Database", "UserId", iniPath);
-        string password = IniFile.IniReadValue("Database", "Password", iniPath);
+        string password = SecureStore.Unprotect(IniFile.IniReadValue("Database", "Password", iniPath));
         string encrypt = IniFile.IniReadValue("Database", "Encrypt", iniPath);
         string trustCert = IniFile.IniReadValue("Database", "TrustServerCertificate", iniPath);
 

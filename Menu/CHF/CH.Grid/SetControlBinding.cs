@@ -52,7 +52,7 @@ internal class SetControlBinding
     {
         _dt = ((CHTree)sender).DataSource as DataTable;
         string keyfield = ((CHTree)sender).KeyFieldName;
-        if (_dt.Rows.Count <= 0)
+        if (_dt.Rows.Count <= 0 || keyfield == "ID")
         {
             return;
         }
@@ -63,6 +63,7 @@ internal class SetControlBinding
         {
             Selected_Row = e.Node.Id;
             string keyvalue = A.GetString(e.Node.GetValue(keyfield));
+
             dataRow = _dt.AsEnumerable().FirstOrDefault((DataRow r) => r.RowState != DataRowState.Deleted && r[keyfield]?.ToString() == keyvalue);
             if (dataRow != null)
             {

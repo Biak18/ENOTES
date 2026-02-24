@@ -3,12 +3,14 @@ using CH.Helper;
 using DevExpress.XtraEditors;
 using Microsoft.AspNetCore.Identity;
 using System.Data;
+using System.IO;
 
 namespace ENOTES;
 
 public partial class ENOTES_LOGIN : Form
 {
     Point mousePoint;
+    string dirPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AppSettings.ini");
     ENOTES_D _D = new ENOTES_D();
 
     #region Initialize
@@ -16,7 +18,17 @@ public partial class ENOTES_LOGIN : Form
     {
         InitializeComponent();
         //ApplyBlurEffect();
+        InitializeControl();
         InitializeEvent();
+    }
+
+    private void InitializeControl()
+    {
+        string comCode = IniFile.IniReadValue("LoginInfo", "CompanyCode", dirPath);
+        string userId = IniFile.IniReadValue("LoginInfo", "UserId", dirPath);
+
+        BtnTxt_Company.EditValue = userId;
+        BtnTxt_CdUser.EditValue = userId;
     }
 
     private void InitializeEvent()
@@ -32,6 +44,27 @@ public partial class ENOTES_LOGIN : Form
         BtnTxt_Company.KeyDown += BtnTxt_KeyDown;
         BtnTxt_CdUser.KeyDown += BtnTxt_KeyDown;
         BtnTxt_Password.KeyDown += BtnTxt_KeyDown;
+
+        BtnConfig.Click += BtnConfig_Click;
+        BtnChgPassword.Click += BtnChgPassword_Click;
+    }
+    #endregion
+
+    #region Events
+
+    private void View_MouseDown(object sender, MouseEventArgs e)
+    {
+        BorderlessHelper.MouseMove(this.Handle);
+    }
+
+    private void BtnClose_Click(object sender, EventArgs e)
+    {
+        this.Close();
+    }
+
+    private void BtnLogin_Click(object sender, EventArgs e)
+    {
+        DoLogin();
     }
 
     private void BtnTxt_KeyDown(object sender, KeyEventArgs e)
@@ -55,29 +88,36 @@ public partial class ENOTES_LOGIN : Form
             }
         }
     }
-    #endregion
 
-    #region Events
-
-    private void View_MouseDown(object sender, MouseEventArgs e)
-    {
-        BorderlessHelper.MouseMove(this.Handle);
-    }
-
-    private void BtnClose_Click(object sender, EventArgs e)
-    {
-        this.Close();
-    }
-
-    private void BtnLogin_Click(object sender, EventArgs e)
-    {
-        DoLogin();
-    }
-
-    private void DoLogin()
+    private void BtnConfig_Click(object sender, EventArgs e)
     {
         try
         {
+            using (ENOTES_CONFIG enotes_config = new ENOTES_CONFIG())
+            {
+                if (enotes_config.ShowDialog() == DialogResult.OK)
+                {
+
+                }
+            };
+        }
+        catch (Exception ex)
+        {
+            Msg.ShowMessageBox(ex.Message, MessageType.Error);
+        }
+    }
+
+    private void BtnChgPassword_Click(object sender, EventArgs e)
+    {
+        //
+    }
+
+
+    private async void DoLogin()
+    {
+        try
+        {
+            LoadingHelper.StartLoading(this, "Loading...", "Please wait");
             string cdCom = BtnTxt_Company.Text.Trim();
             string cdUser = BtnTxt_CdUser.Text.Trim();
             string inputPassword = BtnTxt_Password.Text;
@@ -102,8 +142,24 @@ public partial class ENOTES_LOGIN : Form
                 BtnTxt_Password.Focus();
                 return;
             }
+            var hasher2 = new PasswordHasher<string>();
+            string hashedPassword = hasher2.HashPassword(null, inputPassword);
+            SysUser user = new SysUser
+            {
+                CdCom = "SYS",
+                CdUser = "SYSTEM",
+                DcPassword = hashedPassword,
+                NmUser = "SYSTEM",
+                FgRole = "SYSTEM",
+                DtReg = DateTime.UtcNow.ToString("yyyyMMdd"),
+                YnActive = "Y",
+                TmReg = DateTime.UtcNow
+            };
+            //await Init();
+            //await _client.From<SysUser>().Insert(user);
+            //var json = await _client.Rpc("ap_enotes_002_s", new Dictionary<string, object> { { "p_cd_com", "SYS" }, { "p_cd_user", "SYSTEM" } });
 
-            DataTable dt_user_info = _D.GetUserInfo(new object[] { cdCom, cdUser });
+            DataTable dt_user_info = await _D.GetUserInfoByWeb(new object[] { cdCom, cdUser });
 
             if (dt_user_info == null || dt_user_info.Rows.Count == 0)
             {
@@ -131,11 +187,15 @@ public partial class ENOTES_LOGIN : Form
                 Msg.ShowMessageBox("Invalid user or password.", MessageType.Error);
                 return;
             }
-
+            CH.AppContext.Login(dt_user_info.Rows[0]);
             this.Hide();
-            LoadingHelper.StartLoading(this, "Loading...", "Loading form");
+            //LoadingHelper.StartLoading(this, "Loading...", "Loading form");
             using (ENOTES mainPage = new ENOTES())
             {
+                IniFile.IniWriteSingle("LoginInfo", "CompanyCode", cdCom, dirPath);
+                IniFile.IniWriteSingle("LoginInfo", "CompanyName", "", dirPath);
+                IniFile.IniWriteSingle("LoginInfo", "UserId", cdUser, dirPath);
+                IniFile.IniWriteSingle("LoginInfo", "UserName", "", dirPath);
                 LoadingHelper.EndLoading();
                 mainPage.ShowDialog();
             }
@@ -143,9 +203,9 @@ public partial class ENOTES_LOGIN : Form
             this.Show();
 
         }
-        catch /*(Exception ex)*/
+        catch (Exception ex)
         {
-            throw;
+            Msg.ShowMessageBox(ex.Message, MessageType.Error);
         }
         finally
         {
@@ -167,8 +227,6 @@ public partial class ENOTES_LOGIN : Form
         {
             BorderlessHelper.SetWindowCorner(this, 16); // custom radius for older Windows
         }
-
-
     }
     #endregion
 }

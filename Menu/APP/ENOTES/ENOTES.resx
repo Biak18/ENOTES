@@ -189,7 +189,7 @@
   <data name="logo.EditValue" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAIAAAD/gAIDAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        vwAADr8BOAVTJAAABpBJREFUeF7t1vlPFGcYwHH/jKZaBm0Ed2pFJMoAIorHogGJRxGtCAUULbWK1mo8
+        vAAADrwBlbxySQAABpBJREFUeF7t1vlPFGcYwHH/jKZaBm0Ed2pFJMoAIorHogGJRxGtCAUULbWK1mo8
         AFeXBUE8UZal1AtQQbAFvK9GqdVatDGplVYLoitFDkV2Z695n2Z2GiSMRR+1jUkf8v1hmXnn+uy8M9uP
         4wXqJeunXkT9U4SFiLAQERYiwkJEWIgICxFhISIsRISFiLAQERYiwkJEWIgICxFhISIsRISFiLAQERYi
         wkJEWIgICxFhISIsRISFiLAQERYiwkJEWIgICxFhISIsRISFiLAQERYiwkJEWIgICxFhISIsRISFiLAQ
@@ -255,6 +255,12 @@
         //dWc4PZKAb8PsnRAjUEL360nusslL3z/zEGTph+ABEQVBE1NhKTAAAAAElFTkSuQmCCCw==
 </value>
   </data>
+  <metadata name="myTooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>203, 17</value>
+  </metadata>
+  <metadata name="xtraTabbedMdiManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>311, 17</value>
+  </metadata>
   <data name="editorButtonImageOptions1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAARFJREFUOE+V
@@ -265,10 +271,4 @@
         EIaiYAR9hb8UTRZz/V9gPZpslt6fwRYuPwE1B2c01C9LrAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="myTooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>203, 17</value>
-  </metadata>
-  <metadata name="xtraTabbedMdiManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>311, 17</value>
-  </metadata>
 </root>

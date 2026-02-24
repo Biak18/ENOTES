@@ -1,7 +1,8 @@
 ﻿using System.Data;
+using System.Runtime.Versioning;
 
 namespace CH.Helper;
-
+[SupportedOSPlatform("windows")]
 public static class DBHelper
 {
 
@@ -47,7 +48,7 @@ public static class DBHelper
     }
 
     // Simple DataSet retrieval
-    public static DataSet GetDataSet(string spName, object[] parameters)
+    public static DataSet GetDataSet(string spName, object[] parameters, string[] parameterNames = null)
     {
         try
         {
@@ -118,10 +119,19 @@ public static class DBHelper
         DBStarter dbStarter = DBStarter.GetInstance();
         try
         {
-            dbStarter.BeginTransaction();
-            bool result = dbStarter.Save(info);
-            dbStarter.CommitTransaction();
-            return result;
+            if (CH.AppContext.IsDbMode)
+            {
+                dbStarter.BeginTransaction();
+                bool result = dbStarter.Save(info);
+                dbStarter.CommitTransaction();
+                return result;
+            }
+            else
+            {
+                // later
+                return true;
+            }
+
         }
         catch
         {

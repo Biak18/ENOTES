@@ -12,6 +12,17 @@ internal class ENOTES_D
 
     internal DataTable GetUserInfo(object[] obj)
     {
+
         return DBHelper.GetDataTable("AP_ENOTES_002_S", obj);
+    }
+
+    internal async Task<DataTable> SearchMenuByWeb(object[] obj)
+    {
+        return await WebHelper.GetDataTable("AP_ENOTES_001_S", obj);
+    }
+
+    internal async Task<DataTable> GetUserInfoByWeb(object[] obj)
+    {
+        return await WebHelper.GetDataTable("AP_ENOTES_002_S", obj);
     }
 }

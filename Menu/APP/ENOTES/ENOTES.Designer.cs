@@ -45,20 +45,19 @@
             btnAdd = new CH.Framework.Win.Controls.CHRoundButton();
             btnSearch = new CH.Framework.Win.Controls.CHRoundButton();
             logo = new DevExpress.XtraEditors.PictureEdit();
-            leftPanel = new Panel();
-            menuTree = new DevExpress.XtraTreeList.TreeList();
             imageCollection1 = new DevExpress.Utils.ImageCollection(components);
-            btnFilterMenu = new DevExpress.XtraEditors.ButtonEdit();
             myTooltip = new ToolTip(components);
             xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(components);
-            mainPanel = new Panel();
+            leftPanel = new Panel();
+            menuTree = new DevExpress.XtraTreeList.TreeList();
+            btnFilterMenu = new DevExpress.XtraEditors.ButtonEdit();
             topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)imageCollection1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)xtraTabbedMdiManager1).BeginInit();
             leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)menuTree).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)imageCollection1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnFilterMenu.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)xtraTabbedMdiManager1).BeginInit();
             SuspendLayout();
             // 
             // topPanel
@@ -259,6 +258,27 @@
             logo.Size = new Size(210, 50);
             logo.TabIndex = 1;
             // 
+            // imageCollection1
+            // 
+            imageCollection1.ImageStream = (DevExpress.Utils.ImageCollectionStreamer)resources.GetObject("imageCollection1.ImageStream");
+            imageCollection1.Images.SetKeyName(0, "folder_4673908.png");
+            imageCollection1.Images.SetKeyName(1, "open-folder_12075797.png");
+            imageCollection1.Images.SetKeyName(2, "notes_6988438.png");
+            // 
+            // xtraTabbedMdiManager1
+            // 
+            xtraTabbedMdiManager1.AppearancePage.Header.Font = new Font("Myanmar Text", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            xtraTabbedMdiManager1.AppearancePage.Header.Options.UseFont = true;
+            xtraTabbedMdiManager1.AppearancePage.HeaderActive.BackColor = Color.White;
+            xtraTabbedMdiManager1.AppearancePage.HeaderActive.Options.UseBackColor = true;
+            xtraTabbedMdiManager1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            xtraTabbedMdiManager1.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
+            xtraTabbedMdiManager1.FloatOnDrag = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabbedMdiManager1.MdiParent = this;
+            xtraTabbedMdiManager1.PinPageButtonShowMode = DevExpress.XtraTab.PinPageButtonShowMode.InActiveTabPageHeader;
+            xtraTabbedMdiManager1.UseDocumentSelector = DevExpress.Utils.DefaultBoolean.True;
+            // 
             // leftPanel
             // 
             leftPanel.Controls.Add(menuTree);
@@ -267,7 +287,7 @@
             leftPanel.Location = new Point(0, 50);
             leftPanel.Name = "leftPanel";
             leftPanel.Size = new Size(210, 630);
-            leftPanel.TabIndex = 3;
+            leftPanel.TabIndex = 4;
             // 
             // menuTree
             // 
@@ -290,13 +310,6 @@
             menuTree.TabIndex = 0;
             menuTree.ViewStyle = DevExpress.XtraTreeList.TreeListViewStyle.TreeView;
             // 
-            // imageCollection1
-            // 
-            imageCollection1.ImageStream = (DevExpress.Utils.ImageCollectionStreamer)resources.GetObject("imageCollection1.ImageStream");
-            imageCollection1.Images.SetKeyName(0, "folder_4673908.png");
-            imageCollection1.Images.SetKeyName(1, "open-folder_12075797.png");
-            imageCollection1.Images.SetKeyName(2, "notes_6988438.png");
-            // 
             // btnFilterMenu
             // 
             btnFilterMenu.Dock = DockStyle.Top;
@@ -315,29 +328,6 @@
             btnFilterMenu.Size = new Size(210, 38);
             btnFilterMenu.TabIndex = 0;
             // 
-            // xtraTabbedMdiManager1
-            // 
-            xtraTabbedMdiManager1.AppearancePage.Header.Font = new Font("Myanmar Text", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            xtraTabbedMdiManager1.AppearancePage.Header.Options.UseFont = true;
-            xtraTabbedMdiManager1.AppearancePage.HeaderActive.BackColor = Color.White;
-            xtraTabbedMdiManager1.AppearancePage.HeaderActive.Options.UseBackColor = true;
-            xtraTabbedMdiManager1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            xtraTabbedMdiManager1.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
-            xtraTabbedMdiManager1.FloatOnDrag = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabbedMdiManager1.MdiParent = this;
-            xtraTabbedMdiManager1.PinPageButtonShowMode = DevExpress.XtraTab.PinPageButtonShowMode.InActiveTabPageHeader;
-            xtraTabbedMdiManager1.UseDocumentSelector = DevExpress.Utils.DefaultBoolean.True;
-            // 
-            // mainPanel
-            // 
-            mainPanel.BackgroundImageLayout = ImageLayout.Stretch;
-            mainPanel.Dock = DockStyle.Fill;
-            mainPanel.Location = new Point(210, 50);
-            mainPanel.Name = "mainPanel";
-            mainPanel.Size = new Size(950, 630);
-            mainPanel.TabIndex = 4;
-            // 
             // ENOTES
             // 
             Appearance.BackColor = Color.White;
@@ -345,7 +335,6 @@
             AutoScaleDimensions = new SizeF(6F, 13F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1160, 680);
-            Controls.Add(mainPanel);
             Controls.Add(leftPanel);
             Controls.Add(topPanel);
             FormBorderStyle = FormBorderStyle.None;
@@ -356,11 +345,11 @@
             Text = "Form1";
             topPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)logo.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)imageCollection1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)xtraTabbedMdiManager1).EndInit();
             leftPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)menuTree).EndInit();
-            ((System.ComponentModel.ISupportInitialize)imageCollection1).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnFilterMenu.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)xtraTabbedMdiManager1).EndInit();
             ResumeLayout(false);
         }
 
@@ -369,7 +358,6 @@
         private Panel topPanel;
         private DevExpress.XtraEditors.PictureEdit logo;
         private CH.Framework.Win.Controls.CHRoundButton btnSearch;
-        private Panel leftPanel;
         private CH.Framework.Win.Controls.CHRoundButton btnPrint;
         private CH.Framework.Win.Controls.CHRoundButton btnSave;
         private CH.Framework.Win.Controls.CHRoundButton btnDel;
@@ -379,9 +367,9 @@
         private CH.Framework.Win.Controls.CHRoundButton btnClose;
         private ToolTip myTooltip;
         private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
-        private Panel mainPanel;
-        private DevExpress.XtraTreeList.TreeList menuTree;
         private DevExpress.Utils.ImageCollection imageCollection1;
+        private Panel leftPanel;
+        private DevExpress.XtraTreeList.TreeList menuTree;
         private DevExpress.XtraEditors.ButtonEdit btnFilterMenu;
     }
 }

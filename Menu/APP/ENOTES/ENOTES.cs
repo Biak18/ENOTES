@@ -1,5 +1,6 @@
 ﻿using CH.Framework.Common;
 using CH.Framework.Win;
+using CH.Framework.Win.Controls;
 using CH.Helper;
 using DevExpress.XtraEditors;
 using DevExpress.XtraTreeList;
@@ -7,6 +8,7 @@ using DevExpress.XtraTreeList.Nodes;
 using System.Data;
 using System.IO;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace ENOTES;
 
@@ -25,6 +27,16 @@ public partial class ENOTES : XtraForm
     protected override void OnLoad(EventArgs e)
     {
         base.OnLoad(e);
+
+        foreach (Control ctl in this.Controls)
+        {
+            if (ctl is MdiClient client)
+            {
+                client.Dock = DockStyle.Fill;
+                client.BackColor = this.BackColor;
+            }
+        }
+
         _D = new ENOTES_D();
 
 
@@ -41,7 +53,7 @@ public partial class ENOTES : XtraForm
         InitializeEvent();
     }
 
-    private void InitializeTree()
+    private async void InitializeTree()
     {
         menuTree.OptionsBehavior.Editable = false;
         menuTree.OptionsSelection.KeepSelectedOnClick = false;
@@ -74,7 +86,7 @@ public partial class ENOTES : XtraForm
         menuTree.Appearance.HotTrackedRow.BackColor = hoverColor;
 
         menuTree.Appearance.Row.ForeColor = Color.White;
-        menuTree.Appearance.FocusedRow.ForeColor = Color.White;
+        menuTree.Appearance.FocusedRow.ForeColor = /*Color.White*/CHColor.Label_Normal;
         menuTree.Appearance.HideSelectionRow.ForeColor = Color.White;
         menuTree.Appearance.HotTrackedRow.ForeColor = Color.White;
 
@@ -88,7 +100,7 @@ public partial class ENOTES : XtraForm
 
 
 
-        DataTable dataTable = _D.SearchMenu(new object[] { "", "" });
+        DataTable dataTable = await _D.SearchMenuByWeb(new object[] { "", "" });
         menuTree.DataSource = dataTable;
         menuTree.KeyFieldName = "CD_MENU";
         menuTree.ParentFieldName = "CD_MENU_PARENT";
@@ -297,12 +309,12 @@ public partial class ENOTES : XtraForm
 
     private void XtraTabbedMdiManager1_PageRemoved(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
     {
-        mainPanel.Visible = (xtraTabbedMdiManager1.Pages.Count == 0);
+        //mainPanel.Visible = (xtraTabbedMdiManager1.Pages.Count == 0);
     }
 
     private void XtraTabbedMdiManager1_PageAdded(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
     {
-        mainPanel.Visible = !(xtraTabbedMdiManager1.Pages.Count > 0);
+        //mainPanel.Visible = !(xtraTabbedMdiManager1.Pages.Count > 0);
     }
 
 
@@ -356,7 +368,14 @@ public partial class ENOTES : XtraForm
         Assembly asm = Assembly.LoadFrom(dllPath);
 
         Type type = asm.GetType(cdModule + "." + cdMenu);
-        if (type == null) return;
+        if (type == null)
+        {
+            using (var dlg = new MsgDialog(MessageType.Error, $"Form class not found: {cdModule}.{cdMenu}"))
+            {
+                dlg.ShowDialog(this);
+            }
+            return;
+        }
 
         // Prevent duplicate open
         foreach (Form f in MdiChildren)
@@ -413,11 +432,41 @@ public partial class ENOTES : XtraForm
             return cp;
         }
     }
+    [DllImport("user32.dll")]
+    static extern bool IsZoomed(IntPtr hWnd);
 
+    [StructLayout(LayoutKind.Sequential)]
+    struct RECT
+    {
+        public int Left, Top, Right, Bottom;
+    }
+
+    [StructLayout(LayoutKind.Sequential)]
+    struct NCCALCSIZE_PARAMS
+    {
+        public RECT rgrc0, rgrc1, rgrc2;
+        public IntPtr lppos;
+    }
     protected override void WndProc(ref Message m)
     {
         if (m.Msg == WM_NCCALCSIZE && m.WParam.ToInt32() == 1)
         {
+            if (IsZoomed(this.Handle))
+            {
+                Screen screen = Screen.FromHandle(this.Handle);
+                Rectangle workingArea = screen.WorkingArea;
+
+                NCCALCSIZE_PARAMS ncp = (NCCALCSIZE_PARAMS)Marshal.PtrToStructure(
+                    m.LParam, typeof(NCCALCSIZE_PARAMS));
+
+                ncp.rgrc0.Left = workingArea.Left;
+                ncp.rgrc0.Top = workingArea.Top;
+                ncp.rgrc0.Right = workingArea.Right;
+                ncp.rgrc0.Bottom = workingArea.Bottom;
+
+                Marshal.StructureToPtr(ncp, m.LParam, false);
+            }
+
             m.Result = IntPtr.Zero;
             return;
         }

@@ -1,4 +1,7 @@
-﻿namespace ENOTES;
+﻿using Supabase.Postgrest.Attributes;
+using Supabase.Postgrest.Models;
+
+namespace ENOTES;
 
 public class MenuItemModel
 {
@@ -82,4 +85,56 @@ public static class Data
     }
 
 
+}
+
+[Table("sys_user")]
+public class SysUser : BaseModel
+{
+    [PrimaryKey("cd_com", false)]
+    [Column("cd_com")]
+    public string CdCom { get; set; }
+
+    [PrimaryKey("cd_user", false)]
+    [Column("cd_user")]
+    public string CdUser { get; set; }
+
+    [Column("dc_password")]
+    public string DcPassword { get; set; }
+
+    [Column("nm_user")]
+    public string NmUser { get; set; }
+
+    // Stored as CHAR(8) like YYYYMMDD
+    [Column("dt_reg")]
+    public string DtReg { get; set; }
+
+    [Column("dc_email")]
+    public string? DcEmail { get; set; }
+
+    [Column("dc_address1")]
+    public string? DcAddress1 { get; set; }
+
+    [Column("dc_address2")]
+    public string? DcAddress2 { get; set; }
+
+    [Column("no_tel")]
+    public string? NoTel { get; set; }
+
+    [Column("yn_active")]
+    public string YnActive { get; set; }
+
+    [Column("fg_role")]
+    public string FgRole { get; set; }
+
+    [Column("tm_reg")]
+    public DateTime? TmReg { get; set; }
+
+    [Column("cd_user_reg")]
+    public string? CdUserReg { get; set; }
+
+    [Column("tm_amd")]
+    public DateTime? TmAmd { get; set; }
+
+    [Column("cd_user_amd")]
+    public string? CdUserAmd { get; set; }
 }

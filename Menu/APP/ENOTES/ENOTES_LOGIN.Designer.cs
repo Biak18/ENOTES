@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ENOTES_LOGIN));
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions4 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject13 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject14 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject15 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject16 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
@@ -39,14 +44,11 @@
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
             DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions3 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject9 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject10 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject11 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject12 = new DevExpress.Utils.SerializableAppearanceObject();
             picBox_Logo = new PictureBox();
             BtnLogin = new CH.Framework.Win.Controls.CHRoundButton();
             panel_Main = new Panel();
+            BtnConfig = new CH.Framework.Win.Controls.CHRoundButton();
+            BtnChgPassword = new CH.Framework.Win.Controls.CHRoundButton();
             BtnClose = new CH.Framework.Win.Controls.CHRoundButton();
             lbl_Login = new DevExpress.XtraEditors.LabelControl();
             BtnTxt_Password = new CH.Framework.Win.Controls.CHTextBoxOutline();
@@ -94,6 +96,8 @@
             // 
             // panel_Main
             // 
+            panel_Main.Controls.Add(BtnConfig);
+            panel_Main.Controls.Add(BtnChgPassword);
             panel_Main.Controls.Add(BtnClose);
             panel_Main.Controls.Add(lbl_Login);
             panel_Main.Controls.Add(BtnTxt_Password);
@@ -105,6 +109,60 @@
             panel_Main.Name = "panel_Main";
             panel_Main.Size = new Size(360, 450);
             panel_Main.TabIndex = 3;
+            // 
+            // BtnConfig
+            // 
+            BtnConfig.BackColor = Color.Transparent;
+            BtnConfig.BackgroundColor = Color.Transparent;
+            BtnConfig.BackgroundImage = (Image)resources.GetObject("BtnConfig.BackgroundImage");
+            BtnConfig.BackgroundImageLayout = ImageLayout.Center;
+            BtnConfig.BorderColor = Color.FromArgb(147, 112, 147);
+            BtnConfig.BorderRadius = 40;
+            BtnConfig.BorderSize = 0;
+            BtnConfig.Cursor = Cursors.Hand;
+            BtnConfig.FlatAppearance.BorderSize = 0;
+            BtnConfig.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnConfig.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnConfig.FlatStyle = FlatStyle.Flat;
+            BtnConfig.Font = new Font("Segoe UI", 6.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            BtnConfig.ForeColor = Color.White;
+            BtnConfig.ImageAlign = ContentAlignment.TopCenter;
+            BtnConfig.Location = new Point(74, 371);
+            BtnConfig.Name = "BtnConfig";
+            BtnConfig.Size = new Size(90, 67);
+            BtnConfig.TabIndex = 9;
+            BtnConfig.Text = "Configuration";
+            BtnConfig.TextAlign = ContentAlignment.BottomCenter;
+            BtnConfig.TextColor = Color.White;
+            BtnConfig.UseCompatibleTextRendering = true;
+            BtnConfig.UseVisualStyleBackColor = false;
+            // 
+            // BtnChgPassword
+            // 
+            BtnChgPassword.BackColor = Color.Transparent;
+            BtnChgPassword.BackgroundColor = Color.Transparent;
+            BtnChgPassword.BackgroundImage = (Image)resources.GetObject("BtnChgPassword.BackgroundImage");
+            BtnChgPassword.BackgroundImageLayout = ImageLayout.Center;
+            BtnChgPassword.BorderColor = Color.FromArgb(147, 112, 147);
+            BtnChgPassword.BorderRadius = 40;
+            BtnChgPassword.BorderSize = 0;
+            BtnChgPassword.Cursor = Cursors.Hand;
+            BtnChgPassword.FlatAppearance.BorderSize = 0;
+            BtnChgPassword.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            BtnChgPassword.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            BtnChgPassword.FlatStyle = FlatStyle.Flat;
+            BtnChgPassword.Font = new Font("Segoe UI", 6.75F, FontStyle.Bold, GraphicsUnit.Point, 204);
+            BtnChgPassword.ForeColor = Color.White;
+            BtnChgPassword.ImageAlign = ContentAlignment.TopCenter;
+            BtnChgPassword.Location = new Point(216, 371);
+            BtnChgPassword.Name = "BtnChgPassword";
+            BtnChgPassword.Size = new Size(90, 67);
+            BtnChgPassword.TabIndex = 9;
+            BtnChgPassword.Text = "Change Password";
+            BtnChgPassword.TextAlign = ContentAlignment.BottomCenter;
+            BtnChgPassword.TextColor = Color.White;
+            BtnChgPassword.UseCompatibleTextRendering = true;
+            BtnChgPassword.UseVisualStyleBackColor = false;
             // 
             // BtnClose
             // 
@@ -154,8 +212,8 @@
             BtnTxt_Password.Properties.Appearance.Options.UseForeColor = true;
             BtnTxt_Password.Properties.AutoHeight = false;
             BtnTxt_Password.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            editorButtonImageOptions1.Image = (Image)resources.GetObject("editorButtonImageOptions1.Image");
-            BtnTxt_Password.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 25, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            editorButtonImageOptions4.Image = (Image)resources.GetObject("editorButtonImageOptions4.Image");
+            BtnTxt_Password.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 25, false, true, true, editorButtonImageOptions4, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject13, serializableAppearanceObject14, serializableAppearanceObject15, serializableAppearanceObject16, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
             BtnTxt_Password.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             BtnTxt_Password.Properties.PasswordChar = '*';
             BtnTxt_Password.Size = new Size(232, 40);
@@ -175,8 +233,8 @@
             BtnTxt_CdUser.Properties.Appearance.Options.UseForeColor = true;
             BtnTxt_CdUser.Properties.AutoHeight = false;
             BtnTxt_CdUser.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            editorButtonImageOptions2.Image = (Image)resources.GetObject("editorButtonImageOptions2.Image");
-            BtnTxt_CdUser.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 25, false, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            editorButtonImageOptions1.Image = (Image)resources.GetObject("editorButtonImageOptions1.Image");
+            BtnTxt_CdUser.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 25, false, true, true, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
             BtnTxt_CdUser.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             BtnTxt_CdUser.Size = new Size(232, 40);
             BtnTxt_CdUser.TabIndex = 5;
@@ -195,8 +253,8 @@
             BtnTxt_Company.Properties.Appearance.Options.UseForeColor = true;
             BtnTxt_Company.Properties.AutoHeight = false;
             BtnTxt_Company.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            editorButtonImageOptions3.Image = (Image)resources.GetObject("editorButtonImageOptions3.Image");
-            BtnTxt_Company.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 25, false, true, true, editorButtonImageOptions3, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject9, serializableAppearanceObject10, serializableAppearanceObject11, serializableAppearanceObject12, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
+            editorButtonImageOptions2.Image = (Image)resources.GetObject("editorButtonImageOptions2.Image");
+            BtnTxt_Company.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 25, false, true, true, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
             BtnTxt_Company.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             BtnTxt_Company.Size = new Size(232, 40);
             BtnTxt_Company.TabIndex = 4;
@@ -231,5 +289,7 @@
         private CH.Framework.Win.Controls.CHTextBoxOutline BtnTxt_CdUser;
         private DevExpress.XtraEditors.LabelControl lbl_Login;
         private CH.Framework.Win.Controls.CHRoundButton BtnClose;
+        private CH.Framework.Win.Controls.CHRoundButton BtnChgPassword;
+        private CH.Framework.Win.Controls.CHRoundButton BtnConfig;
     }
 }

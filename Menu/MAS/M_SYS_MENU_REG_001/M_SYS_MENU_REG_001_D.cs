@@ -1,13 +1,19 @@
 ﻿using CH.Helper;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace SYS;
 
 public class M_SYS_MENU_REG_001_D
 {
-    public DataTable Search(object[] obj)
+    //public DataTable Search(object[] obj)
+    //{
+    //    return DBHelper.GetDataTable("AP_CUS_REG_001_S", obj);
+    //}
+
+    public async Task<DataTable> Search(object[] obj)
     {
-        return DBHelper.GetDataTable("AP_CUS_REG_001_S", obj);
+        return await WebHelper.GetDataTable("AP_CUS_REG_001_S", obj);
     }
 
     internal bool Save(DataTable dtSaveMenu)

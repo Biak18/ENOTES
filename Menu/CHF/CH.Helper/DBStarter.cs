@@ -5,7 +5,6 @@ using System;
 using System.Data;
 using System.Data.Common;
 using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Runtime.Versioning;
 
@@ -23,29 +22,13 @@ public class DBStarter
 
     private static DBStarter instance;
 
+    private static bool _isDbValid;
+
+    private static string _cachedError;
+
     public DBStarter()
     {
-        string iniPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DataBaseSettings.ini");
-
-        string dataSource = IniFile.IniReadValue("Database", "DataSource", iniPath);
-        string catalog = IniFile.IniReadValue("Database", "InitialCatalog", iniPath);
-        string userId = IniFile.IniReadValue("Database", "UserId", iniPath);
-        string password = SecureStore.Unprotect(IniFile.IniReadValue("Database", "Password", iniPath));
-        string encrypt = IniFile.IniReadValue("Database", "Encrypt", iniPath);
-        string trustCert = IniFile.IniReadValue("Database", "TrustServerCertificate", iniPath);
-
-
-        if (string.IsNullOrWhiteSpace(dataSource))
-            throw new Exception("Database DataSource is missing in INI file.");
-
-        _connectionString =
-        $"Data Source={dataSource};" +
-        $"Initial Catalog={catalog};" +
-        $"Integrated Security=False;" +
-        $"User ID={userId};" +
-        $"Password={password};" +
-        $"Encrypt={encrypt};" +
-        $"TrustServerCertificate={trustCert};";
+        _connectionString = ConnectionFactory.GetDbConnectionString();
     }
 
     public DBStarter(string connectionString)
@@ -55,9 +38,15 @@ public class DBStarter
 
     public static DBStarter GetInstance()
     {
-        if (!CheckDbConnection())
+        if (_isDbValid != true)
         {
-            throw new Exception("Please check you internet.");
+            _isDbValid = DbConnectionTester.Test(
+                ConnectionFactory.GetDbConnectionString(),
+                out _cachedError
+            );
+
+            if (_isDbValid != true)
+                throw new Exception(_cachedError);
         }
 
         if (instance == null)
@@ -67,29 +56,6 @@ public class DBStarter
         }
 
         return instance;
-    }
-
-    private static bool CheckDbConnection()
-    {
-        try
-        {
-            string connectionString = "Data Source=192.168.100.54,1433;Initial Catalog=THEDUMPDUMP;Integrated Security=False;User ID=CHAN;Password=CHAN;Encrypt=False;TrustServerCertificate=True;";
-            SqlConnection val = new SqlConnection(connectionString);
-            try
-            {
-                ((DbConnection)(object)val).Open();
-                return true;
-            }
-            finally
-            {
-                ((IDisposable)val)?.Dispose();
-            }
-        }
-        catch
-        {
-            //throw new Exception(ex.Message);
-            return false;
-        }
     }
 
     public void InitializeSystemUserIfNeeded()

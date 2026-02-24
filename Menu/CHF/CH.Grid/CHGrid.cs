@@ -62,7 +62,7 @@ public partial class CHGrid : GridControl
     private string _RowFont;
     private string _RowFontSize;
     int _FocusedRowPrevhandle;
-    private IniFile _inifile = new IniFile();
+    //private IniFile IniFile = new IniFile();
     #region property
     private bool _isUpper = false;
     private GridView gridView1;
@@ -323,95 +323,95 @@ public partial class CHGrid : GridControl
             gridView.IndicatorWidth = Convert.ToInt32(((num <= 9) ? graphics.MeasureString("No.", gridView.PaintAppearance.Row.GetFont()) : graphics.MeasureString(num.ToString(), gridView.PaintAppearance.Row.GetFont())).Width + 1.5f) + GridPainter.Indicator.ImageSize.Width + 20;
         }
 
-        _EditableColumn = _inifile.IniReadValue("Color", "EditableColumn", _path);
+        _EditableColumn = IniFile.IniReadValue("Color", "EditableColumn", _path);
         if (_EditableColumn == string.Empty)
         {
-            _inifile.IniWriteValue("Color", "EditableColumn", "#696969", _path);
-            _EditableColumn = _inifile.IniReadValue("Color", "EditableColumn", _path);
+            IniFile.IniWriteSingle("Color", "EditableColumn", "#696969", _path);
+            _EditableColumn = IniFile.IniReadValue("Color", "EditableColumn", _path);
         }
 
-        _UneditableColumn = _inifile.IniReadValue("Color", "UneditableColumn", _path);
+        _UneditableColumn = IniFile.IniReadValue("Color", "UneditableColumn", _path);
         if (_UneditableColumn == string.Empty)
         {
-            _inifile.IniWriteValue("Color", "UneditableColumn", "#808080", _path);
-            _UneditableColumn = _inifile.IniReadValue("Color", "UneditableColumn", _path);
+            IniFile.IniWriteSingle("Color", "UneditableColumn", "#808080", _path);
+            _UneditableColumn = IniFile.IniReadValue("Color", "UneditableColumn", _path);
         }
 
-        _OddRow = _inifile.IniReadValue("Color", "OddRow", _path);
+        _OddRow = IniFile.IniReadValue("Color", "OddRow", _path);
         if (_OddRow == string.Empty)
         {
-            _inifile.IniWriteValue("Color", "OddRow", "#f7fbfe", _path);
-            _OddRow = _inifile.IniReadValue("Color", "OddRow", _path);
+            IniFile.IniWriteSingle("Color", "OddRow", "#f7fbfe", _path);
+            _OddRow = IniFile.IniReadValue("Color", "OddRow", _path);
         }
 
-        _EvenRow = _inifile.IniReadValue("Color", "EvenRow", _path);
+        _EvenRow = IniFile.IniReadValue("Color", "EvenRow", _path);
         if (_EvenRow == string.Empty)
         {
-            _inifile.IniWriteValue("Color", "EvenRow", "#ffffff", _path);
-            _EvenRow = _inifile.IniReadValue("Color", "EvenRow", _path);
+            IniFile.IniWriteSingle("Color", "EvenRow", "#ffffff", _path);
+            _EvenRow = IniFile.IniReadValue("Color", "EvenRow", _path);
         }
 
-        _FocusedCell = _inifile.IniReadValue("Color", "FocusedCell", _path);
+        _FocusedCell = IniFile.IniReadValue("Color", "FocusedCell", _path);
         if (_FocusedCell == string.Empty)
         {
-            _inifile.IniWriteValue("Color", "FocusedCell", "#96edf6", _path);
-            _FocusedCell = _inifile.IniReadValue("Color", "FocusedCell", _path);
+            IniFile.IniWriteSingle("Color", "FocusedCell", "#96edf6", _path);
+            _FocusedCell = IniFile.IniReadValue("Color", "FocusedCell", _path);
         }
 
-        _SelectedRow = _inifile.IniReadValue("Color", "SelectedRow", _path);
+        _SelectedRow = IniFile.IniReadValue("Color", "SelectedRow", _path);
         if (_SelectedRow == string.Empty)
         {
-            _inifile.IniWriteValue("Color", "SelectedRow", "#ddfcff", _path);
-            _SelectedRow = _inifile.IniReadValue("Color", "SelectedRow", _path);
+            IniFile.IniWriteSingle("Color", "SelectedRow", "#ddfcff", _path);
+            _SelectedRow = IniFile.IniReadValue("Color", "SelectedRow", _path);
         }
 
-        _GroupRow0 = _inifile.IniReadValue("Color", "GroupRow0", _path);
+        _GroupRow0 = IniFile.IniReadValue("Color", "GroupRow0", _path);
         if (_GroupRow0 == string.Empty)
         {
-            _inifile.IniWriteValue("Color", "GroupRow0", "#84e7e4", _path);
-            _GroupRow0 = _inifile.IniReadValue("Color", "GroupRow0", _path);
+            IniFile.IniWriteSingle("Color", "GroupRow0", "#84e7e4", _path);
+            _GroupRow0 = IniFile.IniReadValue("Color", "GroupRow0", _path);
         }
 
-        _GroupRow1 = _inifile.IniReadValue("Color", "GroupRow1", _path);
+        _GroupRow1 = IniFile.IniReadValue("Color", "GroupRow1", _path);
         if (_GroupRow1 == string.Empty)
         {
-            _inifile.IniWriteValue("Color", "GroupRow1", "#a8eeec", _path);
-            _GroupRow1 = _inifile.IniReadValue("Color", "GroupRow1", _path);
+            IniFile.IniWriteSingle("Color", "GroupRow1", "#a8eeec", _path);
+            _GroupRow1 = IniFile.IniReadValue("Color", "GroupRow1", _path);
         }
 
-        _GroupRow2 = _inifile.IniReadValue("Color", "GroupRow2", _path);
+        _GroupRow2 = IniFile.IniReadValue("Color", "GroupRow2", _path);
         if (_GroupRow2 == string.Empty)
         {
-            _inifile.IniWriteValue("Color", "GroupRow2", "#cdf5f4", _path);
-            _GroupRow2 = _inifile.IniReadValue("Color", "GroupRow2", _path);
+            IniFile.IniWriteSingle("Color", "GroupRow2", "#cdf5f4", _path);
+            _GroupRow2 = IniFile.IniReadValue("Color", "GroupRow2", _path);
         }
 
-        _FocusedRow = _inifile.IniReadValue("Color", "FocusedRow", _path);
+        _FocusedRow = IniFile.IniReadValue("Color", "FocusedRow", _path);
         if (_FocusedRow == string.Empty)
         {
-            _inifile.IniWriteValue("Color", "FocusedRow", "#ddfcff", _path);
-            _FocusedRow = _inifile.IniReadValue("Color", "FocusedRow", _path);
+            IniFile.IniWriteSingle("Color", "FocusedRow", "#ddfcff", _path);
+            _FocusedRow = IniFile.IniReadValue("Color", "FocusedRow", _path);
         }
 
-        _FooterPanel = _inifile.IniReadValue("Color", "FooterPanel", _path);
+        _FooterPanel = IniFile.IniReadValue("Color", "FooterPanel", _path);
         if (_FooterPanel == string.Empty)
         {
-            _inifile.IniWriteValue("Color", "FooterPanel", "#fffdee", _path);
-            _FooterPanel = _inifile.IniReadValue("Color", "FooterPanel", _path);
+            IniFile.IniWriteSingle("Color", "FooterPanel", "#fffdee", _path);
+            _FooterPanel = IniFile.IniReadValue("Color", "FooterPanel", _path);
         }
 
-        _RowFont = _inifile.IniReadValue("Font", "Font", _path);
+        _RowFont = IniFile.IniReadValue("Font", "Font", _path);
         if (_RowFont == string.Empty)
         {
-            _inifile.IniWriteValue("Font", "Font", "맑은 고딕", _path);
-            _RowFont = _inifile.IniReadValue("Font", "Font", _path);
+            IniFile.IniWriteSingle("Font", "Font", "맑은 고딕", _path);
+            _RowFont = IniFile.IniReadValue("Font", "Font", _path);
         }
 
-        _RowFontSize = _inifile.IniReadValue("Size", "Size", _path);
+        _RowFontSize = IniFile.IniReadValue("Size", "Size", _path);
         if (_RowFontSize == string.Empty)
         {
-            _inifile.IniWriteValue("Size", "Size", "12", _path);
-            _RowFontSize = _inifile.IniReadValue("Size", "Size", _path);
+            IniFile.IniWriteSingle("Size", "Size", "12", _path);
+            _RowFontSize = IniFile.IniReadValue("Size", "Size", _path);
         }
 
         ViewRepositoryCollection viewCollection = base.ViewCollection;

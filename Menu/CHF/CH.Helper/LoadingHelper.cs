@@ -5,6 +5,7 @@ using System.Windows.Forms;
 
 namespace CH.Helper;
 
+
 public class LoadingHelper
 {
     public static void StartLoading(Form _form, Type frmToShow)

@@ -28,40 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            progressPanel1 = new DevExpress.XtraWaitForm.ProgressPanel();
+            chLoadingPanel1 = new Controls.CHLoadingPanel();
             SuspendLayout();
             // 
-            // progressPanel1
+            // chLoadingPanel1
             // 
-            progressPanel1.Appearance.BackColor = System.Drawing.Color.Transparent;
-            progressPanel1.Appearance.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
-            progressPanel1.Appearance.ForeColor = System.Drawing.Color.FromArgb(40, 154, 221);
-            progressPanel1.Appearance.Options.UseBackColor = true;
-            progressPanel1.Appearance.Options.UseFont = true;
-            progressPanel1.Appearance.Options.UseForeColor = true;
-            progressPanel1.AppearanceCaption.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
-            progressPanel1.AppearanceCaption.ForeColor = System.Drawing.Color.FromArgb(40, 154, 221);
-            progressPanel1.AppearanceCaption.Options.UseFont = true;
-            progressPanel1.AppearanceCaption.Options.UseForeColor = true;
-            progressPanel1.AppearanceDescription.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
-            progressPanel1.AppearanceDescription.ForeColor = System.Drawing.Color.FromArgb(40, 154, 221);
-            progressPanel1.AppearanceDescription.Options.UseFont = true;
-            progressPanel1.AppearanceDescription.Options.UseForeColor = true;
-            progressPanel1.AutoHeight = true;
-            progressPanel1.AutoWidth = true;
-            progressPanel1.ContentAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            progressPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            progressPanel1.Location = new System.Drawing.Point(0, 0);
-            progressPanel1.Name = "progressPanel1";
-            progressPanel1.Size = new System.Drawing.Size(207, 74);
-            progressPanel1.TabIndex = 0;
+            chLoadingPanel1.BackColor = System.Drawing.Color.FromArgb(31, 42, 56);
+            chLoadingPanel1.Caption = "Please wait";
+            chLoadingPanel1.Description = "Loading...";
+            chLoadingPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            chLoadingPanel1.Location = new System.Drawing.Point(0, 0);
+            chLoadingPanel1.Name = "chLoadingPanel1";
+            chLoadingPanel1.Size = new System.Drawing.Size(280, 140);
+            chLoadingPanel1.TabIndex = 0;
             // 
             // LoadingForm
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(207, 74);
-            Controls.Add(progressPanel1);
+            ClientSize = new System.Drawing.Size(280, 140);
+            Controls.Add(chLoadingPanel1);
             Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 204);
             ForeColor = System.Drawing.Color.FromArgb(40, 154, 221);
             Name = "LoadingForm";
@@ -72,6 +58,6 @@
 
         #endregion
 
-        private DevExpress.XtraWaitForm.ProgressPanel progressPanel1;
+        private Controls.CHLoadingPanel chLoadingPanel1;
     }
 }

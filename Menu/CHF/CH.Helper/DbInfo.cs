@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using System.Linq;
 
 namespace CH.Helper;
 
@@ -57,4 +58,16 @@ public class DbInfo
         get => _dataValue;
         set => _dataValue = value;
     }
+
+    // Auto convert to WebInfo
+    public WebInfo ToWebInfo() => new WebInfo
+    {
+        DataValue = DataValue,
+        SpNameInsert = SpNameInsert?.ToLower(),
+        SpParamsInsert = SpParamsInsert?.Select(c => c.ToLower()).ToArray(),
+        SpNameUpdate = SpNameUpdate?.ToLower(),
+        SpParamsUpdate = SpParamsUpdate?.Select(c => c.ToLower()).ToArray(),
+        SpNameDelete = SpNameDelete?.ToLower(),
+        SpParamsDelete = SpParamsDelete?.Select(c => c.ToLower()).ToArray(),
+    };
 }

@@ -53,7 +53,7 @@ public partial class ENOTES : XtraForm
         InitializeEvent();
     }
 
-    private async void InitializeTree()
+    private void InitializeTree()
     {
         menuTree.OptionsBehavior.Editable = false;
         menuTree.OptionsSelection.KeepSelectedOnClick = false;
@@ -100,7 +100,7 @@ public partial class ENOTES : XtraForm
 
 
 
-        DataTable dataTable = await _D.SearchMenuByWeb(new object[] { "", "" });
+        DataTable dataTable = _D.SearchMenu(new object[] { "", "" });
         menuTree.DataSource = dataTable;
         menuTree.KeyFieldName = "CD_MENU";
         menuTree.ParentFieldName = "CD_MENU_PARENT";
@@ -219,6 +219,7 @@ public partial class ENOTES : XtraForm
             {
                 case nameof(btnSearch):
                     LoadingHelper.StartLoading(frm, "Please wait.", "Searching...");
+                    //LoadingHelper2.StartLoading(frm, "Please wait.", "Searching...");
                     //Thread.Sleep(5000);
                     frm.OnSearch();
                     break;

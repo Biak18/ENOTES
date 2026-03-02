@@ -1,6 +1,6 @@
-﻿using DevExpress.XtraWaitForm;
+﻿using CH.Helper;
+using DevExpress.XtraWaitForm;
 using System;
-using System.Drawing;
 using System.Runtime.Versioning;
 
 namespace CH.Framework.Win;
@@ -19,19 +19,38 @@ public partial class LoadingForm : WaitForm
     public override void SetCaption(string caption)
     {
         base.SetCaption(caption);
-        progressPanel1.Caption = caption;
+        chLoadingPanel1.Caption = caption;
+        //progressPanel1.Caption = caption;
     }
 
     public override void SetDescription(string description)
     {
         base.SetDescription(description);
-        progressPanel1.Description = description;
+        chLoadingPanel1.Description = description;
+        //  progressPanel1.Description = description;
 
-        using (Graphics g = progressPanel1.CreateGraphics())
+        //using (Graphics g = progressPanel1.CreateGraphics())
+        //{
+        //    SizeF size = g.MeasureString(description, progressPanel1.Appearance.Font);
+        //    int width = (int)size.Width + 20;
+        //    this.Width = (int)Math.Max(this.Width, width);
+        //}
+    }
+
+
+    #region Win
+    protected override void OnLoad(EventArgs e)
+    {
+        base.OnLoad(e);
+
+        if (Environment.OSVersion.Version.Build >= 22000) // Win11 check
         {
-            SizeF size = g.MeasureString(description, progressPanel1.Appearance.Font);
-            int width = (int)size.Width + 20;
-            this.Width = (int)Math.Max(this.Width, width);
+            BorderlessHelper.SetWindowCorner(this.Handle, BorderlessHelper.DwmWindowCornerPreference.Round);
+        }
+        else
+        {
+            BorderlessHelper.SetWindowCorner(this, 16); // custom radius for older Windows
         }
     }
+    #endregion
 }

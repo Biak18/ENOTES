@@ -3,7 +3,7 @@ using System.Runtime.Versioning;
 
 namespace CH.Helper;
 [SupportedOSPlatform("windows")]
-public static class DBHelper
+internal static class DBHelper
 {
 
     public static DataTable GetDataTable(string Query)

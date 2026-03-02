@@ -219,7 +219,7 @@ public static class WebStarter
             {
                 column.ColumnName = column.ColumnName.ToUpperInvariant();
             }
-
+            dataTable.AcceptChanges();
             Debug.WriteLine("■■■■■■■■■■FillDataTable■■■■■■■■■■");
             Debug.WriteLine("■■■■■spName = " + fnName);
             for (int i = 0; i < parameterValues.Length; i++)
@@ -311,6 +311,85 @@ public static class WebStarter
         }
 
         return table;
+    }
+
+    public static async Task<bool> Save(WebInfo info)
+    {
+        try
+        {
+            DataTable dt = info.DataValue;
+
+            foreach (DataRow row in dt.Rows)
+            {
+                if (row.RowState == DataRowState.Added)
+                    await ExecuteRpc(row, info.SpNameInsert, info.SpParamsInsert);
+                else if (row.RowState == DataRowState.Modified)
+                    await ExecuteRpc(row, info.SpNameUpdate, info.SpParamsUpdate);
+                else if (row.RowState == DataRowState.Deleted)
+                    await ExecuteRpc(row, info.SpNameDelete, info.SpParamsDelete);
+            }
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Msg.ShowMessageBox(ex.Message, Framework.Common.MessageType.Error);
+            return false;
+        }
+    }
+
+    public static async Task<bool> Save(WebInfoCollection collection)
+    {
+        try
+        {
+            foreach (var info in collection)
+            {
+                DataTable dt = info.DataValue;
+                foreach (DataRow row in dt.Rows)
+                {
+                    if (row.RowState == DataRowState.Added)
+                        await ExecuteRpc(row, info.SpNameInsert, info.SpParamsInsert);
+                    else if (row.RowState == DataRowState.Modified)
+                        await ExecuteRpc(row, info.SpNameUpdate, info.SpParamsUpdate);
+                    else if (row.RowState == DataRowState.Deleted)
+                        await ExecuteRpc(row, info.SpNameDelete, info.SpParamsDelete);
+                }
+            }
+            return true;
+        }
+        catch (Exception ex)
+        {
+            Msg.ShowMessageBox(ex.Message, Framework.Common.MessageType.Error);
+            return false;
+        }
+    }
+
+    private static async Task ExecuteRpc(DataRow dataRow, string fnName, string[] colNames)
+    {
+        await Init();
+
+        Debug.WriteLine($"Executing: {fnName}");
+
+        string[] paramNames = await GetFuncArgs(fnName);
+
+        if (paramNames.Length == 0) return;
+
+        if (colNames.Length != paramNames.Length)
+            throw new Exception("The number of columns does not match the number of parameters.");
+
+        var dict = new Dictionary<string, object>();
+        for (int i = 0; i < colNames.Length; i++)
+        {
+            string colName = colNames[i];
+            object value = dataRow.RowState == DataRowState.Deleted
+                ? dataRow[colName, DataRowVersion.Original]
+                : dataRow[colName];
+
+            dict[paramNames[i]] = value ?? DBNull.Value;
+
+            Debug.WriteLine($"■■■■■ {paramNames[i]} = {dict[paramNames[i]]}");
+        }
+
+        await _client.Rpc(fnName.ToLower(), dict);
     }
 }
 

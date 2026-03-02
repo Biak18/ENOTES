@@ -113,7 +113,7 @@ public partial class ENOTES_LOGIN : Form
     }
 
 
-    private async void DoLogin()
+    private void DoLogin()
     {
         try
         {
@@ -159,7 +159,7 @@ public partial class ENOTES_LOGIN : Form
             //await _client.From<SysUser>().Insert(user);
             //var json = await _client.Rpc("ap_enotes_002_s", new Dictionary<string, object> { { "p_cd_com", "SYS" }, { "p_cd_user", "SYSTEM" } });
 
-            DataTable dt_user_info = await _D.GetUserInfoByWeb(new object[] { cdCom, cdUser });
+            DataTable dt_user_info = _D.GetUserInfo(new object[] { cdCom, cdUser });
 
             if (dt_user_info == null || dt_user_info.Rows.Count == 0)
             {
@@ -197,7 +197,8 @@ public partial class ENOTES_LOGIN : Form
                 IniFile.IniWriteSingle("LoginInfo", "UserId", cdUser, dirPath);
                 IniFile.IniWriteSingle("LoginInfo", "UserName", "", dirPath);
                 LoadingHelper.EndLoading();
-                mainPage.ShowDialog();
+                Thread.Sleep(50);
+                mainPage.ShowDialog(this);
             }
 
             this.Show();

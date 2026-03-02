@@ -34,9 +34,9 @@ namespace SYS
             chTree1.SetBinding(chLayoutPanel2, new object[] { Txt_CdMenu });
         }
 
-        private async void InitializeTree()
+        private void InitializeTree()
         {
-            DataTable dataTable = await _D.Search(new object[] { "xxxx" });
+            DataTable dataTable = _D.Search(new object[] { "xxxx" });
 
             chTree1.DataSource = dataTable;
             chTree1.KeyFieldName = "CD_MENU";
@@ -61,22 +61,23 @@ namespace SYS
             ctr.SetCombobox(LookUp_Type, dt);
         }
 
-        public override async void OnSearch()
+        public override void OnSearch()
         {
             try
             {
                 base.OnSearch();
 
-                DataTable dataTable = await _D.Search(new object[] { Txt_MenuName.EditValue });
+                DataTable dataTable = _D.Search(new object[] { Txt_MenuName.EditValue });
 
-                chTree1.DataSource = dataTable;
+                //chTree1.DataSource = dataTable;
+                chTree1.Binding(dataTable);
 
-                chTree1.ClearSelection();
-                if (chTree1.Nodes.Count > 0)
-                {
-                    chTree1.SelectNode(chTree1.Nodes[0]);
-                    chTree1.FocusedNode = chTree1.Nodes[0];
-                }
+                //chTree1.ClearSelection();
+                //if (chTree1.Nodes.Count > 0)
+                //{
+                //    chTree1.SelectNode(chTree1.Nodes[0]);
+                //    chTree1.FocusedNode = chTree1.Nodes[0];
+                //}
                 chTree1.ExpandAll();
             }
             catch (Exception ex)

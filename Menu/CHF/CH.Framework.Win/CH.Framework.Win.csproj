@@ -33,10 +33,10 @@
             <SpecificVersion>false</SpecificVersion>
             <HintPath>$(SolutionDir)\..\Dev_Deploy\CH.Grid.dll</HintPath>
         </Reference>
-        <Reference Include="CH.Framework.Win.Controls">
-            <SpecificVersion>false</SpecificVersion>
-            <HintPath>$(SolutionDir)\..\Dev_Deploy\CH.Framework.Win.Controls.dll</HintPath>
-        </Reference>
+		<Reference Include="CH.Framework.Win.Controls">
+			<SpecificVersion>false</SpecificVersion>
+			<HintPath>$(SolutionDir)\..\Dev_Deploy\CH.Framework.Win.Controls.dll</HintPath>
+		</Reference>
         <Reference Include="CH.Framework.Common">
             <SpecificVersion>false</SpecificVersion>
             <HintPath>$(SolutionDir)\..\Dev_Deploy\CH.Framework.Common.dll</HintPath>

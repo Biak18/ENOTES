@@ -1,19 +1,13 @@
 ﻿using CH.Helper;
 using System.Data;
-using System.Threading.Tasks;
 
 namespace SYS;
 
 public class M_SYS_MENU_REG_001_D
 {
-    //public DataTable Search(object[] obj)
-    //{
-    //    return DBHelper.GetDataTable("AP_CUS_REG_001_S", obj);
-    //}
-
-    public async Task<DataTable> Search(object[] obj)
+    public DataTable Search(object[] obj)
     {
-        return await WebHelper.GetDataTable("AP_CUS_REG_001_S", obj);
+        return DataHelper.GetDataTable("AP_CUS_REG_001_S", obj);
     }
 
     internal bool Save(DataTable dtSaveMenu)
@@ -41,6 +35,6 @@ public class M_SYS_MENU_REG_001_D
             si.SpParamsInsert = new string[] { "CD_MENU", "NM_MENU", "NM_NETWINDOW", "FG_TYPE", "CD_MODULE", "NO_POS", "CD_MENU_PARENT" };
             si.SpParamsUpdate = new string[] { "CD_MENU", "NM_MENU", "NM_NETWINDOW", "FG_TYPE", "CD_MODULE", "NO_POS", "CD_MENU_PARENT" };
         }
-        return DBHelper.Save(si);
+        return DataHelper.Save(si);
     }
 }

@@ -170,7 +170,7 @@ namespace M_TEST_001
         public override void OnPrint()
         {
             base.OnPrint();
-            object obj = DBHelper.ExecuteScalar("select nm_menu from sys_menu where cd_menu = 'SN_CUS_REG_001';");
+            object obj = DataHelper.ExecuteScalar("select nm_menu from sys_menu where cd_menu = 'SN_CUS_REG_001';");
             MessageBox.Show(A.GetString(obj));
         }
 

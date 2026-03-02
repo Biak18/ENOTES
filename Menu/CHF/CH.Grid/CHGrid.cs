@@ -69,7 +69,13 @@ public partial class CHGrid : GridControl
 
     public CHGrid()
     {
-        InitializeComponent();
+        //DevExpress.Skins.SkinManager.EnableFormSkins();
+        //DevExpress.Skins.SkinManager.EnableMdiFormSkins();
+        //UserLookAndFeel.Default.SetSkinStyle("Office 2019 Colorful");
+        if (this.MainView is GridView gv)
+        {
+            gv.IndicatorWidth = 50;
+        }
     }
 
     public GridView SetGridview
@@ -430,7 +436,9 @@ public partial class CHGrid : GridControl
             item.Appearance.HeaderPanel.ForeColor = Color.FromArgb(38, 143, 205);
             item.Appearance.HeaderPanel.BorderColor = Color.FromArgb(227, 227, 227);
             item.Appearance.HeaderPanel.Options.UseBackColor = true;
-            item.Appearance.HeaderPanel.BackColor = Color.FromArgb(0, 0, 0);
+            //item.Appearance.HeaderPanel.BackColor = Color.FromArgb(0, 0, 0);
+            item.Appearance.HeaderPanel.BackColor = Color.FromArgb(34, 34, 34);
+            item.Appearance.HeaderPanel.Options.UseBackColor = true;
             item.Appearance.OddRow.BackColor = ColorTranslator.FromHtml(_OddRow);
             item.Appearance.EvenRow.BackColor = ColorTranslator.FromHtml(_EvenRow);
             item.Appearance.FocusedRow.BackColor = ColorTranslator.FromHtml(_FocusedRow);
@@ -438,6 +446,10 @@ public partial class CHGrid : GridControl
             item.Appearance.SelectedRow.BackColor = ColorTranslator.FromHtml(_SelectedRow);
             item.Appearance.FooterPanel.BackColor = ColorTranslator.FromHtml(_FooterPanel);
             item.Appearance.GroupRow.BackColor = ColorTranslator.FromHtml(_GroupRow0);
+
+            item.Appearance.HideSelectionRow.BackColor = ColorTranslator.FromHtml(_FocusedRow);
+            item.Appearance.HideSelectionRow.Options.UseBackColor = true;
+
             if (item.GetType() == typeof(BandedGridView))
             {
                 BandedGridView bandedGridView = item as BandedGridView;
@@ -471,44 +483,78 @@ public partial class CHGrid : GridControl
         gridView.CustomDrawColumnHeader += View_CustomDrawColumnHeader;
     }
 
+    //private void View_CustomDrawColumnHeader(object sender, ColumnHeaderCustomDrawEventArgs e)
+    //{
+    //    if (e.Column == null) return;
+    //    GridView gridView = sender as GridView;
+    //    var font = new Font(_RowFont, Convert.ToSingle(_RowFontSize), GraphicsUnit.Pixel);
+    //    var pen = gridView.PaintAppearance.HorzLine.GetBackPen(e.Cache);
+    //    StringFormat stringFormat = new StringFormat();
+    //    stringFormat.FormatFlags = StringFormatFlags.NoWrap;
+    //    stringFormat.Trimming = StringTrimming.EllipsisCharacter;
+    //    stringFormat.Alignment = StringAlignment.Center;
+    //    if (VerifyNotNull != null && Array.IndexOf(VerifyNotNull, e.Column.FieldName) >= 0)
+    //    {
+    //        bool flag = false;
+    //        e.DefaultDraw();
+    //        if (e.Appearance.ForeColor != Color.White)
+    //        {
+    //            flag = true;
+    //        }
+
+    //        e.Appearance.Font = new Font(_RowFont, Convert.ToSingle(_RowFontSize), FontStyle.Bold, GraphicsUnit.Pixel);
+
+    //        e.Appearance.DrawString(e.Cache, e.Column.Caption, e.Info.CaptionRect, new SolidBrush(Color.FromArgb(38, 143, 205)), stringFormat);
+    //        e.Info.InnerElements.DrawObjects(e.Info, e.Info.Cache, Point.Empty);
+    //        e.Handled = true;
+    //        if (flag)
+    //        {
+    //            e.Appearance.ForeColor = Color.White;
+    //            gridView.InvalidateColumnHeader(e.Column);
+    //        }
+    //    }
+    //    else
+    //    {
+    //        e.Info.AllowColoring = true;
+    //        e.Graphics.DrawRectangle(pen, new Rectangle(e.Bounds.X - (int)pen.Width, e.Bounds.Y - (int)pen.Width, e.Bounds.Width, e.Bounds.Height));//border
+    //        e.Appearance.DrawString(e.Cache, e.Column.Caption, e.Info.CaptionRect, new SolidBrush(Color.FromArgb(38, 143, 205)), stringFormat);
+    //        e.Handled = true;
+    //    }
+
+    //}
+
     private void View_CustomDrawColumnHeader(object sender, ColumnHeaderCustomDrawEventArgs e)
     {
         if (e.Column == null) return;
         GridView gridView = sender as GridView;
-        var font = new Font(_RowFont, Convert.ToSingle(_RowFontSize), GraphicsUnit.Pixel);
+
+        Color headerBackColor = Color.White;
+        e.Cache.FillRectangle(new SolidBrush(headerBackColor), e.Bounds);
+
+        //var pen = new Pen(Color.FromArgb(80, 80, 80));
         var pen = gridView.PaintAppearance.HorzLine.GetBackPen(e.Cache);
-        StringFormat stringFormat = new StringFormat();
-        stringFormat.FormatFlags = StringFormatFlags.NoWrap;
-        stringFormat.Trimming = StringTrimming.EllipsisCharacter;
-        stringFormat.Alignment = StringAlignment.Center;
-        if (VerifyNotNull != null && Array.IndexOf(VerifyNotNull, e.Column.FieldName) >= 0)
+        //e.Graphics.DrawRectangle(pen, new Rectangle(e.Bounds.X, e.Bounds.Y, e.Bounds.Width - 1, e.Bounds.Height - 1));
+        e.Graphics.DrawRectangle(pen, new Rectangle(e.Bounds.X - (int)pen.Width, e.Bounds.Y - (int)pen.Width, e.Bounds.Width, e.Bounds.Height));//border
+
+        StringFormat sf = new StringFormat
         {
-            bool flag = false;
-            e.DefaultDraw();
-            if (e.Appearance.ForeColor != Color.White)
-            {
-                flag = true;
-            }
+            FormatFlags = StringFormatFlags.NoWrap,
+            Trimming = StringTrimming.EllipsisCharacter,
+            Alignment = StringAlignment.Center,
+            LineAlignment = StringAlignment.Center
+        };
 
-            e.Appearance.Font = new Font(_RowFont, Convert.ToSingle(_RowFontSize), FontStyle.Bold, GraphicsUnit.Pixel);
+        Color captionColor = Color.FromArgb(38, 143, 205);
 
-            e.Appearance.DrawString(e.Cache, e.Column.Caption, e.Info.CaptionRect, new SolidBrush(Color.FromArgb(38, 143, 205)), stringFormat);
-            e.Info.InnerElements.DrawObjects(e.Info, e.Info.Cache, Point.Empty);
-            e.Handled = true;
-            if (flag)
-            {
-                e.Appearance.ForeColor = Color.White;
-                gridView.InvalidateColumnHeader(e.Column);
-            }
-        }
-        else
-        {
-            e.Info.AllowColoring = true;
-            e.Graphics.DrawRectangle(pen, new Rectangle(e.Bounds.X - (int)pen.Width, e.Bounds.Y - (int)pen.Width, e.Bounds.Width, e.Bounds.Height));//border
-            e.Appearance.DrawString(e.Cache, e.Column.Caption, e.Info.CaptionRect, new SolidBrush(Color.FromArgb(38, 143, 205)), stringFormat);
-            e.Handled = true;
-        }
+        Font font = (VerifyNotNull != null && Array.IndexOf(VerifyNotNull, e.Column?.FieldName) >= 0)
+            ? new Font(_RowFont ?? "맑은 고딕", Convert.ToSingle(_RowFontSize ?? "12"), FontStyle.Bold, GraphicsUnit.Pixel)
+            : new Font(_RowFont ?? "맑은 고딕", Convert.ToSingle(_RowFontSize ?? "12"), GraphicsUnit.Pixel);
 
+        e.Graphics.DrawString(e.Column.Caption, font, new SolidBrush(captionColor), e.Info.CaptionRect, sf);
+
+        e.Info.InnerElements.DrawObjects(e.Info, e.Cache, Point.Empty);
+
+        e.Handled = true;
     }
 
 
@@ -1578,7 +1624,7 @@ public partial class CHGrid : GridControl
     private void gridView_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
     {
         GridView view = sender as GridView;
-        var font = new Font(_RowFont, Convert.ToSingle(_RowFontSize), GraphicsUnit.Pixel);
+        var font = new Font(_RowFont ?? "맑은 고딕", Convert.ToSingle(_RowFontSize ?? "12"), GraphicsUnit.Pixel);
         var pen = view.PaintAppearance.HorzLine.GetBackPen(e.Cache);
         if (e.Info.IsRowIndicator && e.RowHandle >= 0)
         {
@@ -2653,13 +2699,19 @@ public partial class CHGrid : GridControl
     public void Binding(object dataSource, bool autoWidth)
     {
         GridView view = this.MainView as GridView;
-
-        this.BeginUpdate();
-
-
-        this.DataSource = dataSource;
-
+        view.EndSorting -= View_EndSorting;
+        BeginUpdate();
+        DataSource = dataSource;
         this.EndUpdate();
+        view.EndSorting += View_EndSorting;
+
+        if (view != null && view.RowCount > 0)
+        {
+            view.FocusedRowHandle = 0;
+            view.SelectRow(0);
+            view.InvalidateRow(0);
+            this.Invalidate();
+        }
     }
 
     #endregion
@@ -2670,7 +2722,16 @@ public partial class CHGrid : GridControl
         this.DataSourceChanged += AGrid_DataSourceChanged;
         this.MouseWheel += AGrid_MouseWheel;
         this.MouseDown += AGrid_MouseDown;
+
         base.InitLayout();
+        ViewRepositoryCollection viewCollection = base.ViewCollection;
+        foreach (GridView item in viewCollection)
+        {
+
+            item.CustomDrawRowIndicator += gridView_CustomDrawRowIndicator;
+            item.RowCountChanged += gridView_RowCountChanged;
+            item.CustomDrawColumnHeader += View_CustomDrawColumnHeader;
+        }
     }
 
     private static string GetString(object val)
@@ -2730,7 +2791,9 @@ public partial class CHGrid : GridControl
         this.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
         this.gridView1});
         this.LookAndFeel.UseDefaultLookAndFeel = false;
-        this.LookAndFeel.SetSkinStyle(SkinStyle.Office2013LightGray);
+        this.LookAndFeel.Style = LookAndFeelStyle.Flat;
+        this.LookAndFeel.UseDefaultLookAndFeel = false;
+        UserLookAndFeel.Default.SetSkinStyle("DevExpress Style");
         ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();
         ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
         this.ResumeLayout(false);

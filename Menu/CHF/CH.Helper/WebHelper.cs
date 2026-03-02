@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 namespace CH.Helper;
 
 [SupportedOSPlatform("windows")]
-public class WebHelper
+internal class WebHelper
 {
     public static async Task<DataTable> GetDataTable(string spName, object[] parameters)
     {

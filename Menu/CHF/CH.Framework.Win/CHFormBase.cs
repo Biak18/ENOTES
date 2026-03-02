@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Versioning;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CH.Framework.Win;
@@ -93,6 +94,18 @@ public partial class CHFormBase : FormBase
     }
 
     public virtual void OnSave()
+    {
+        try
+        {
+
+        }
+        catch (Exception ex)
+        {
+            HandleException(ex);
+        }
+    }
+
+    public virtual async Task OnSaveAsync()
     {
         try
         {

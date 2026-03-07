@@ -1,0 +1,453 @@
+<Skins>
+  <Skin1 SkinProduct="NavBar" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin1>
+  <Skin2 SkinProduct="Common" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Properties>
+      <ColorizationMode Value="1" ValueType="System.Int32" />
+    </Properties>
+    <SvgPalette>
+      <SvgPalette Name="DefaultSkinPalette">
+        <SvgColor Name="Paint" Value="248,248,248" />
+        <SvgColor Name="Paint High" Value="255,255,255" />
+        <SvgColor Name="Paint Shadow" Value="240,240,240" />
+        <SvgColor Name="Paint Deep Shadow" Value="230,230,230" />
+        <SvgColor Name="Brush" Value="72,70,68" />
+        <SvgColor Name="Brush High" Value="72,70,68" />
+        <SvgColor Name="Brush Light" Value="119,119,119" />
+        <SvgColor Name="Brush Major" Value="171,171,171" />
+        <SvgColor Name="Brush Minor" Value="210,210,210" />
+        <SvgColor Name="Accent Paint" Value="16,110,190" />
+        <SvgColor Name="Accent Paint Dark" Value="0,90,158" />
+        <SvgColor Name="Accent Paint Light" Value="205,230,247" />
+        <SvgColor Name="Accent Paint Lighter" Value="230,242,250" />
+        <SvgColor Name="Accent Brush" Value="255,255,255" />
+        <SvgColor Name="Accent Brush Light" Value="179,214,242" />
+        <SvgColor Name="Red" Value="237,61,59" />
+        <SvgColor Name="Green" Value="48,144,72" />
+        <SvgColor Name="Blue" Value="30,139,205" />
+        <SvgColor Name="Yellow" Value="251,152,59" />
+        <SvgColor Name="Black" Value="87,87,85" />
+        <SvgColor Name="Gray" Value="169,168,168" />
+        <SvgColor Name="White" Value="248,248,248" />
+      </SvgPalette>
+      <SvgPalette Name="Normal">
+        <SvgColor Name="Blue" Value="30,139,205" SkinColorId="Blue" />
+        <SvgColor Name="Green" Value="48,144,72" SkinColorId="Green" />
+        <SvgColor Name="Red" Value="237,61,59" SkinColorId="Red" />
+        <SvgColor Name="Yellow" Value="251,152,59" SkinColorId="Yellow" />
+        <SvgColor Name="Black" Value="87,87,85" SkinColorId="Black" />
+        <SvgColor Name="White" Value="248,248,248" SkinColorId="White" />
+      </SvgPalette>
+      <SvgPalette Name="Disabled">
+        <SvgColor Name="Black" Value="169,168,168" SkinColorId="Gray" />
+        <SvgColor Name="Blue" Value="169,168,168" SkinColorId="Gray" />
+        <SvgColor Name="Green" Value="169,168,168" SkinColorId="Gray" />
+        <SvgColor Name="Red" Value="169,168,168" SkinColorId="Gray" />
+        <SvgColor Name="Yellow" Value="169,168,168" SkinColorId="Gray" />
+        <SvgColor Name="White" Value="248,248,248" SkinColorId="White" />
+      </SvgPalette>
+    </SvgPalette>
+    <CustomSvgPalette>
+      <SvgPalette Name="Forest" Index="1">
+        <SvgColor Name="Paint" Value="248,248,248" />
+        <SvgColor Name="Paint High" Value="255,255,255" />
+        <SvgColor Name="Paint Shadow" Value="240,240,240" />
+        <SvgColor Name="Paint Deep Shadow" Value="230,230,230" />
+        <SvgColor Name="Brush" Value="72,70,68" />
+        <SvgColor Name="Brush High" Value="72,70,68" />
+        <SvgColor Name="Brush Light" Value="119,119,119" />
+        <SvgColor Name="Brush Major" Value="171,171,171" />
+        <SvgColor Name="Brush Minor" Value="210,210,210" />
+        <SvgColor Name="Accent Paint" Value="33,115,70" />
+        <SvgColor Name="Accent Paint Dark" Value="14,92,47" />
+        <SvgColor Name="Accent Paint Light" Value="206,239,221" />
+        <SvgColor Name="Accent Paint Lighter" Value="224,247,234" />
+        <SvgColor Name="Accent Brush" Value="255,255,255" />
+        <SvgColor Name="Accent Brush Light" Value="170,204,181" />
+        <SvgColor Name="Red" Value="237,61,59" />
+        <SvgColor Name="Green" Value="48,144,72" />
+        <SvgColor Name="Blue" Value="30,139,205" />
+        <SvgColor Name="Yellow" Value="251,152,59" />
+        <SvgColor Name="Black" Value="87,87,85" />
+        <SvgColor Name="Gray" Value="169,168,168" />
+        <SvgColor Name="White" Value="255,255,255" />
+      </SvgPalette>
+      <SvgPalette Name="Plum" Index="2">
+        <SvgColor Name="Paint" Value="248,248,248" />
+        <SvgColor Name="Paint High" Value="255,255,255" />
+        <SvgColor Name="Paint Shadow" Value="240,240,240" />
+        <SvgColor Name="Paint Deep Shadow" Value="230,230,230" />
+        <SvgColor Name="Brush" Value="72,70,68" />
+        <SvgColor Name="Brush High" Value="72,70,68" />
+        <SvgColor Name="Brush Light" Value="119,119,119" />
+        <SvgColor Name="Brush Major" Value="171,171,171" />
+        <SvgColor Name="Brush Minor" Value="210,210,210" />
+        <SvgColor Name="Accent Paint" Value="128,57,123" />
+        <SvgColor Name="Accent Paint Dark" Value="108,47,104" />
+        <SvgColor Name="Accent Paint Light" Value="235,194,232" />
+        <SvgColor Name="Accent Paint Lighter" Value="248,223,246" />
+        <SvgColor Name="Accent Brush" Value="255,255,255" />
+        <SvgColor Name="Accent Brush Light" Value="224,191,222" />
+        <SvgColor Name="Red" Value="237,61,59" />
+        <SvgColor Name="Green" Value="48,144,72" />
+        <SvgColor Name="Blue" Value="30,139,205" />
+        <SvgColor Name="Yellow" Value="251,152,59" />
+        <SvgColor Name="Black" Value="87,87,85" />
+        <SvgColor Name="Gray" Value="169,168,168" />
+        <SvgColor Name="White" Value="255,255,255" />
+      </SvgPalette>
+      <SvgPalette Name="Amber" Index="3">
+        <SvgColor Name="Paint" Value="248,248,248" />
+        <SvgColor Name="Paint High" Value="255,255,255" />
+        <SvgColor Name="Paint Shadow" Value="240,240,240" />
+        <SvgColor Name="Paint Deep Shadow" Value="230,230,230" />
+        <SvgColor Name="Brush" Value="72,70,68" />
+        <SvgColor Name="Brush High" Value="72,70,68" />
+        <SvgColor Name="Brush Light" Value="119,119,119" />
+        <SvgColor Name="Brush Major" Value="171,171,171" />
+        <SvgColor Name="Brush Minor" Value="210,210,210" />
+        <SvgColor Name="Accent Paint" Value="183,71,42" />
+        <SvgColor Name="Accent Paint Dark" Value="169,43,26" />
+        <SvgColor Name="Accent Paint Light" Value="254,223,213" />
+        <SvgColor Name="Accent Paint Lighter" Value="255,237,231" />
+        <SvgColor Name="Accent Brush" Value="255,255,255" />
+        <SvgColor Name="Accent Brush Light" Value="239,191,173" />
+        <SvgColor Name="Red" Value="237,61,59" />
+        <SvgColor Name="Green" Value="48,144,72" />
+        <SvgColor Name="Blue" Value="30,139,205" />
+        <SvgColor Name="Yellow" Value="251,152,59" />
+        <SvgColor Name="Black" Value="87,87,85" />
+        <SvgColor Name="Gray" Value="169,168,168" />
+        <SvgColor Name="White" Value="255,255,255" />
+      </SvgPalette>
+      <SvgPalette Name="Pine" Index="4">
+        <SvgColor Name="Paint" Value="248,248,248" />
+        <SvgColor Name="Paint High" Value="255,255,255" />
+        <SvgColor Name="Paint Shadow" Value="240,240,240" />
+        <SvgColor Name="Paint Deep Shadow" Value="230,230,230" />
+        <SvgColor Name="Brush" Value="72,70,68" />
+        <SvgColor Name="Brush High" Value="72,70,68" />
+        <SvgColor Name="Brush Light" Value="119,119,119" />
+        <SvgColor Name="Brush Major" Value="171,171,171" />
+        <SvgColor Name="Brush Minor" Value="210,210,210" />
+        <SvgColor Name="Accent Paint" Value="7,117,104" />
+        <SvgColor Name="Accent Paint Dark" Value="35,100,92" />
+        <SvgColor Name="Accent Paint Light" Value="208,238,234" />
+        <SvgColor Name="Accent Paint Lighter" Value="226,246,243" />
+        <SvgColor Name="Accent Brush" Value="255,255,255" />
+        <SvgColor Name="Accent Brush Light" Value="168,207,202" />
+        <SvgColor Name="Red" Value="237,61,59" />
+        <SvgColor Name="Green" Value="48,144,72" />
+        <SvgColor Name="Blue" Value="30,139,205" />
+        <SvgColor Name="Yellow" Value="251,152,59" />
+        <SvgColor Name="Black" Value="87,87,85" />
+        <SvgColor Name="Gray" Value="169,168,168" />
+        <SvgColor Name="White" Value="255,255,255" />
+      </SvgPalette>
+      <SvgPalette Name="Yale" Index="5">
+        <SvgColor Name="Paint" Value="248,248,248" />
+        <SvgColor Name="Paint High" Value="255,255,255" />
+        <SvgColor Name="Paint Shadow" Value="240,240,240" />
+        <SvgColor Name="Paint Deep Shadow" Value="230,230,230" />
+        <SvgColor Name="Brush" Value="72,70,68" />
+        <SvgColor Name="Brush High" Value="72,70,68" />
+        <SvgColor Name="Brush Light" Value="119,119,119" />
+        <SvgColor Name="Brush Major" Value="171,171,171" />
+        <SvgColor Name="Brush Minor" Value="210,210,210" />
+        <SvgColor Name="Accent Paint" Value="43,87,154" />
+        <SvgColor Name="Accent Paint Dark" Value="18,64,120" />
+        <SvgColor Name="Accent Paint Light" Value="213,225,242" />
+        <SvgColor Name="Accent Paint Lighter" Value="229,238,249" />
+        <SvgColor Name="Accent Brush" Value="255,255,255" />
+        <SvgColor Name="Accent Brush Light" Value="165,185,210" />
+        <SvgColor Name="Red" Value="237,61,59" />
+        <SvgColor Name="Green" Value="48,144,72" />
+        <SvgColor Name="Blue" Value="30,139,205" />
+        <SvgColor Name="Yellow" Value="251,152,59" />
+        <SvgColor Name="Black" Value="87,87,85" />
+        <SvgColor Name="Gray" Value="169,168,168" />
+        <SvgColor Name="White" Value="255,255,255" />
+      </SvgPalette>
+      <SvgPalette Name="Fire Brick" Index="6">
+        <SvgColor Name="Paint" Value="248,248,248" />
+        <SvgColor Name="Paint High" Value="255,255,255" />
+        <SvgColor Name="Paint Shadow" Value="240,240,240" />
+        <SvgColor Name="Paint Deep Shadow" Value="230,230,230" />
+        <SvgColor Name="Brush" Value="72,70,68" />
+        <SvgColor Name="Brush High" Value="72,70,68" />
+        <SvgColor Name="Brush Light" Value="119,119,119" />
+        <SvgColor Name="Brush Major" Value="171,171,171" />
+        <SvgColor Name="Brush Minor" Value="210,210,210" />
+        <SvgColor Name="Accent Paint" Value="164,55,58" />
+        <SvgColor Name="Accent Paint Dark" Value="145,44,47" />
+        <SvgColor Name="Accent Paint Light" Value="250,220,221" />
+        <SvgColor Name="Accent Paint Lighter" Value="251,233,234" />
+        <SvgColor Name="Accent Brush" Value="255,255,255" />
+        <SvgColor Name="Accent Brush Light" Value="218,175,176" />
+        <SvgColor Name="Red" Value="237,61,59" />
+        <SvgColor Name="Green" Value="48,144,72" />
+        <SvgColor Name="Blue" Value="30,139,205" />
+        <SvgColor Name="Yellow" Value="251,152,59" />
+        <SvgColor Name="Black" Value="87,87,85" />
+        <SvgColor Name="Gray" Value="169,168,168" />
+        <SvgColor Name="White" Value="255,255,255" />
+      </SvgPalette>
+    </CustomSvgPalette>
+    <Elements />
+  </Skin2>
+  <Skin3 SkinProduct="Editors" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin3>
+  <Skin4 SkinProduct="Tab" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements>
+      <TabHeader>
+        <ContentMargins Bottom="3" Top="3" Left="6" Right="6" />
+        <ContentMarginsCompact Left="5" Right="5" Top="2" Bottom="2" />
+        <Image ImageSize="Width=32,Height=160" ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="tab\tabheader.png">
+          <SvgPalette>
+            <SvgPalette Name="" Index="0">
+              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Paint Shadow" />
+              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Minor" ToneDelta="-0.25" />
+            </SvgPalette>
+            <SvgPalette Name="" Index="1">
+              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Accent Paint Lighter" ToneDelta="0.1" />
+              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Minor" ToneDelta="-0.15" />
+            </SvgPalette>
+            <SvgPalette Name="" Index="2">
+              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint" UseToneDelta="False" />
+              <SvgColor Name="st20" Value="112,112,112" SkinColorId="Paint" Opacity="0" />
+              <SvgColor Name="st30" Value="112,112,112" SkinColorId="Brush Major" ToneDelta="-0.25" />
+            </SvgPalette>
+            <SvgPalette Name="" Index="3">
+              <SvgColor Name="Paint" Value="242,242,242" SkinColorId="Paint Shadow" />
+              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Minor" ToneDelta="-0.25" />
+            </SvgPalette>
+            <SvgPalette Name="" Index="4">
+              <SvgColor Name="Brush" Value="90,90,90" SkinColorId="Brush Minor" />
+            </SvgPalette>
+          </SvgPalette>
+          <SvgImageNames>
+            <SvgImage Index="0" Name="tab\tabheader[0].svg" />
+            <SvgImage Index="2" Name="tab\tabheader[2].svg" />
+          </SvgImageNames>
+          <SizingMargins Top="1" Left="1" Right="1" />
+        </Image>
+        <Properties>
+          <AllowCompact Value="True" ValueType="System.Boolean" />
+          <AllowTouch Value="True" ValueType="System.Boolean" />
+          <DxSolidColor Value="0:0=0xFFD2D2D2;0:1=0xFFD2D2D2;0:2=0xFFD2D2D2;0:3=0xFFD2D2D2;0:4=0xFFF0F0F0;0:5=0xFFD2D2D2;1:0=0xFFD2D2D2;1:1=0xFFD2D2D2;1:2=0xFFD2D2D2;1:3=0xFFD2D2D2;1:4=0xFFE6F2FA;1:5=0xFFD2D2D2;2:0=0xFFABABAB;2:1=0xFFABABAB;2:2=0xFFABABAB;2:3=0xFFABABAB;2:4=0xFFF8F8F8;2:5=0xFFABABAB;3:0=0xFFD2D2D2;3:1=0xFFD2D2D2;3:2=0xFFD2D2D2;3:3=0xFFD2D2D2;3:4=0xFFF0F0F0;3:5=0xFFD2D2D2;4:0=0xFFD2D2D2;4:1=0xFFD2D2D2;4:2=0xFFD2D2D2;4:3=0xFFD2D2D2;4:4=0xFFF8F8F8;4:5=0xFFD2D2D2;All" ValueType="System.String" />
+        </Properties>
+        <SizeTouch AllowScale="False" MinSize="Width=20,Height=20" />
+        <ScaleInfo>
+          <ScaleInfo ScaleFactor="2">
+            <Image ImageSize="Width=64,Height=320" ImageCount="5" Layout="Vertical" Stretch="Stretch" SvgImageSize="Width=32,Height=32" ImageName="tab\200dpi_tabheader.png">
+              <SizingMargins Top="2" Left="2" Right="2" />
+            </Image>
+          </ScaleInfo>
+        </ScaleInfo>
+      </TabHeader>
+      <TabPane>
+        <ContentMargins Bottom="1" Top="1" Left="1" Right="1" />
+        <Image ImageSize="Width=32,Height=32" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="tab\tabpane.png">
+          <SvgPalette>
+            <SvgPalette Name="" Index="0">
+              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" UseToneDelta="False" />
+              <SvgColor Name="st01" Value="175,175,175" SkinColorId="Black" />
+              <SvgColor Name="st20" Value="112,112,112" SkinColorId="Red" ToneDelta="-0.25" />
+            </SvgPalette>
+          </SvgPalette>
+          <SvgImageNames>
+            <SvgImage Index="0" Name="tab\tabpane[0].svg" />
+          </SvgImageNames>
+          <SizingMargins Bottom="1" Top="1" Left="1" Right="1" />
+        </Image>
+        <Properties>
+          <AllowTouch Value="False" ValueType="System.Boolean" />
+          <DxSolidColor Value="0:W=0xFFED3D3B;0:4=0xFFF5F5F5;All" ValueType="System.String" />
+        </Properties>
+        <Color ForeColor="@Brush" />
+        <ScaleInfo>
+          <ScaleInfo ScaleFactor="2">
+            <Image ImageSize="Width=64,Height=64" ImageCount="1" Layout="Vertical" Stretch="Stretch" ImageName="tab\200dpi_tabpane.png">
+              <SizingMargins Bottom="2" Top="2" Left="2" Right="2" />
+            </Image>
+            <Color ForeColor="@Brush" />
+          </ScaleInfo>
+        </ScaleInfo>
+      </TabPane>
+    </Elements>
+  </Skin4>
+  <Skin5 SkinProduct="Grid" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin5>
+  <Skin6 SkinProduct="Bars" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin6>
+  <Skin7 SkinProduct="MetroUI" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin7>
+  <Skin8 SkinProduct="Docking" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin8>
+  <Skin9 SkinProduct="VGrid" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin9>
+  <Skin10 SkinProduct="Scheduler" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin10>
+  <Skin11 SkinProduct="NavPane" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin11>
+  <Skin12 SkinProduct="Form" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements>
+      <TabFormPage>
+        <ContentMargins Bottom="9" Top="8" Left="8" Right="8" />
+        <ContentMarginsCompact Left="4" Right="4" Bottom="5" />
+        <Image ImageCount="3" Layout="Horizontal" Stretch="Stretch" ImageName="form\tabformpage.png">
+          <SvgPalette>
+            <SvgPalette Name="" Index="0">
+              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Paint High" />
+              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Minor" />
+              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Minor" />
+            </SvgPalette>
+            <SvgPalette Name="" Index="1">
+              <SvgColor Name="st00" Value="175,175,175" SkinColorId="Accent Paint Lighter" />
+              <SvgColor Name="st10" Value="112,112,112" SkinColorId="Brush Minor" />
+              <SvgColor Name="st11" Value="112,112,112" SkinColorId="Brush Minor" />
+            </SvgPalette>
+            <SvgPalette Name="" Index="2">
+              <SvgColor Name="Paint0" Value="175,175,175" SkinColorId="Accent Paint" />
+            </SvgPalette>
+          </SvgPalette>
+          <SvgImageNames>
+            <SvgImage Index="0" Name="form\tabformpage[0].svg" />
+            <SvgImage Index="2" Name="form\tabformpage[2].svg" />
+          </SvgImageNames>
+          <SizingMargins Bottom="5" Top="5" Left="1" Right="1" />
+        </Image>
+        <Properties>
+          <AllowCompact Value="True" ValueType="System.Boolean" />
+          <AllowTouch Value="True" ValueType="System.Boolean" />
+          <CloseButtonLeftOffset Value="16" ValueType="System.Int32" />
+          <CloseButtonTopOffset Value="1" ValueType="System.Int32" />
+          <DistanceBetweenPages Value="-1" ValueType="System.Int32" />
+          <DxSolidColor Value="0:2=0xFFD2D2D2;0:3=0xFFD2D2D2;0:4=0xFFFFFFFF;0:5=0xFFD2D2D2;0:6=0xFFFFFFFF;0:7=0xFFFFFFFF;0:8=0xFFD2D2D2;1:2=0xFFD2D2D2;1:3=0xFFD2D2D2;1:4=0xFFE6F2FA;1:5=0xFFD2D2D2;1:6=0xFFE6F2FA;1:7=0xFFE6F2FA;1:8=0xFFD2D2D2;2:W=0xFF106EBE;" ValueType="System.String" />
+          <ForeColorDisabled Value="@Brush Light" ValueType="System.Drawing.Color" />
+          <ForeColorHot Value="@Brush" ValueType="System.Drawing.Color" />
+          <ForeColorPressed Value="@Accent Brush" ValueType="System.Drawing.Color" />
+          <LeftIndent Value="-1" ValueType="System.Int32" />
+          <MinWidth Value="80" ValueType="System.Int32" />
+          <PaddingTop Value="10" ValueType="System.Int32" />
+          <RightIndent Value="0" ValueType="System.Int32" />
+        </Properties>
+        <Color ForeColor="@Brush High" />
+        <SvgPalette>
+          <SvgPalette Name="Selected">
+            <SvgColor Name="Black" Value="255,255,255" SkinColorId="Accent Brush" />
+            <SvgColor Name="Blue" Value="255,255,255" SkinColorId="Accent Brush" />
+            <SvgColor Name="Green" Value="255,255,255" SkinColorId="Accent Brush" />
+            <SvgColor Name="Red" Value="255,255,255" SkinColorId="Accent Brush" />
+            <SvgColor Name="Yellow" Value="255,255,255" SkinColorId="Accent Brush" />
+            <SvgColor Name="White" Value="16,110,190" SkinColorId="Accent Paint" />
+          </SvgPalette>
+        </SvgPalette>
+        <ScaleInfo>
+          <ScaleInfo ScaleFactor="2">
+            <Image ImageCount="3" Layout="Horizontal" Stretch="Stretch" ImageName="form\200dpi_tabformpage.png">
+              <SizingMargins Bottom="10" Top="10" Left="2" Right="2" />
+            </Image>
+            <Properties>
+              <CloseButtonLeftOffset Value="32" ValueType="System.Int32" />
+              <CloseButtonTopOffset Value="2" ValueType="System.Int32" />
+              <DistanceBetweenPages Value="-2" ValueType="System.Int32" />
+              <LeftIndent Value="-2" ValueType="System.Int32" />
+              <MinWidth Value="160" ValueType="System.Int32" />
+              <PaddingTop Value="20" ValueType="System.Int32" />
+              <RightIndent Value="0" ValueType="System.Int32" />
+            </Properties>
+            <Color ForeColor="@Brush High" />
+          </ScaleInfo>
+        </ScaleInfo>
+      </TabFormPage>
+    </Elements>
+  </Skin12>
+  <Skin13 SkinProduct="Reports" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin13>
+  <Skin14 SkinProduct="Ribbon" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin14>
+  <Skin15 SkinProduct="Printing" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin15>
+  <Skin16 SkinProduct="RichEdit" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin16>
+  <Skin17 SkinProduct="Chart" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin17>
+  <Skin18 SkinProduct="Gauges" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin18>
+  <Skin19 SkinProduct="Dashboard" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin19>
+  <Skin20 SkinProduct="Sparkline" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin20>
+  <Skin21 SkinProduct="Spreadsheet" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin21>
+  <Skin22 SkinProduct="PdfViewer" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin22>
+  <Skin23 SkinProduct="Map" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <RestrictedColors>
+      <Criteria01 Value="True" ValueType="System.Boolean" />
+      <Criteria02 Value="True" ValueType="System.Boolean" />
+      <Criteria03 Value="True" ValueType="System.Boolean" />
+      <Gradient01 Value="True" ValueType="System.Boolean" />
+      <Gradient02 Value="True" ValueType="System.Boolean" />
+      <Palette01 Value="True" ValueType="System.Boolean" />
+      <Palette02 Value="True" ValueType="System.Boolean" />
+      <Palette03 Value="True" ValueType="System.Boolean" />
+      <Palette04 Value="True" ValueType="System.Boolean" />
+      <Palette05 Value="True" ValueType="System.Boolean" />
+      <Palette06 Value="True" ValueType="System.Boolean" />
+      <Palette07 Value="True" ValueType="System.Boolean" />
+      <Palette08 Value="True" ValueType="System.Boolean" />
+      <Palette09 Value="True" ValueType="System.Boolean" />
+      <Palette10 Value="True" ValueType="System.Boolean" />
+    </RestrictedColors>
+    <Elements />
+  </Skin23>
+  <Skin24 SkinProduct="NavigationPane" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin24>
+  <Skin25 SkinProduct="AccordionControl" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin25>
+  <Skin26 SkinProduct="TreeMap" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin26>
+  <Skin27 SkinProduct="HamburgerMenu" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <SvgPalette>
+      <SvgPalette Name="Normal">
+        <SvgColor Name="Black" Value="255,255,255" SkinColorId="Accent Brush" />
+        <SvgColor Name="Blue" Value="255,255,255" SkinColorId="Accent Brush" />
+        <SvgColor Name="Green" Value="255,255,255" SkinColorId="Accent Brush" />
+        <SvgColor Name="Red" Value="255,255,255" SkinColorId="Accent Brush" />
+        <SvgColor Name="Yellow" Value="255,255,255" SkinColorId="Accent Brush" />
+        <SvgColor Name="White" Value="71,71,71" SkinColorId="Accent Paint" />
+      </SvgPalette>
+    </SvgPalette>
+    <Elements />
+  </Skin27>
+  <Skin28 SkinProduct="Diagram" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin28>
+  <Skin29 SkinProduct="GanttControl" BasedOn="Office 2019 Colorful" SkinName="ENOTES_SKIN">
+    <Elements />
+  </Skin29>
+</Skins>

@@ -33,7 +33,9 @@ public partial class ENOTES : XtraForm
             if (ctl is MdiClient client)
             {
                 client.Dock = DockStyle.Fill;
-                client.BackColor = this.BackColor;
+                //client.BackColor = this.BackColor;
+                client.BackColor = Color.White;
+                client.Padding = new Padding(8, 0, 0, 0);
             }
         }
 
@@ -51,6 +53,7 @@ public partial class ENOTES : XtraForm
         InitializeTree();
         InitializeControl();
         InitializeEvent();
+
     }
 
     private void InitializeTree()
@@ -150,6 +153,43 @@ public partial class ENOTES : XtraForm
         btnFilterMenu.LostFocus += BtnFilterMenu_LostFocus;
         btnFilterMenu.KeyDown += BtnFilterMenu_KeyDown;
         btnFilterMenu.ButtonClick += BtnFilterMenu_ButtonClick;
+
+        xtraTabbedMdiManager1.CustomDrawTabHeader += XtraTabbedMdiManager1_CustomDrawTabHeader;
+
+
+    }
+
+    private void XtraTabbedMdiManager1_CustomDrawTabHeader(object sender, DevExpress.XtraTab.TabHeaderCustomDrawEventArgs e)
+    {
+        bool isActive = e.TabHeaderInfo.IsActiveState;
+
+        if (isActive)
+        {
+
+            using (var brush = new SolidBrush(CHColor.Control_Normal_Tab))
+            {
+                e.Graphics.FillRectangle(brush, e.Bounds);
+            }
+
+            using (var brush = new SolidBrush(Color.FromArgb(32, 130, 188)))
+            {
+                e.Graphics.FillRectangle(brush, new Rectangle(e.Bounds.X, e.Bounds.Y, 5, e.Bounds.Height));
+            }
+        }
+        else
+        {
+            using (var brush = new SolidBrush(SystemColors.Control))
+            {
+                e.Graphics.FillRectangle(brush, e.Bounds);
+            }
+        }
+        e.TabHeaderInfo.PaintAppearance.ForeColor = SystemColors.ControlDark;
+
+        e.DefaultDrawText();
+        e.DefaultDrawImage();
+        e.DefaultDrawButtons();
+
+        e.Handled = true;
     }
     #endregion
 
@@ -312,13 +352,33 @@ public partial class ENOTES : XtraForm
     {
         //mainPanel.Visible = (xtraTabbedMdiManager1.Pages.Count == 0);
     }
-
+    private bool _tabStyleApplied = false;
     private void XtraTabbedMdiManager1_PageAdded(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
     {
+        if (_tabStyleApplied) return;
+        _tabStyleApplied = true;
+        ApplyTabStyle();
         //mainPanel.Visible = !(xtraTabbedMdiManager1.Pages.Count > 0);
     }
 
 
+    private void ApplyTabStyle()
+    {
+        // Match inactive tab color
+        xtraTabbedMdiManager1.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+        xtraTabbedMdiManager1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+
+        xtraTabbedMdiManager1.Appearance.BackColor = Color.White;
+        xtraTabbedMdiManager1.Appearance.Options.UseBackColor = true;
+
+        // Active page content matches active tab
+        xtraTabbedMdiManager1.AppearancePage.PageClient.BorderColor = Color.Red;
+        xtraTabbedMdiManager1.AppearancePage.PageClient.Options.UseBorderColor = true;
+        xtraTabbedMdiManager1.AppearancePage.PageClient.BackColor = Color.Red;
+        xtraTabbedMdiManager1.AppearancePage.PageClient.Options.UseBackColor = true;
+
+
+    }
 
     private void BtnFilterMenu_KeyDown(object sender, KeyEventArgs e)
     {
@@ -505,6 +565,5 @@ public partial class ENOTES : XtraForm
             Application.Exit();
         }
     }
-
     #endregion
 }

@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MsgDialog));
             imgBox = new System.Windows.Forms.PictureBox();
             lblTitle = new System.Windows.Forms.Label();
-            flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            bottomPanel = new System.Windows.Forms.FlowLayoutPanel();
             btnNoCancel = new Controls.CHRoundButton();
             btnYesNo = new Controls.CHRoundButton();
             btnOKYes = new Controls.CHRoundButton();
@@ -41,7 +41,7 @@
             memoEdit_Desc = new DevExpress.XtraEditors.MemoEdit();
             svgImageCollection1 = new DevExpress.Utils.SvgImageCollection(components);
             ((System.ComponentModel.ISupportInitialize)imgBox).BeginInit();
-            flowLayoutPanel2.SuspendLayout();
+            bottomPanel.SuspendLayout();
             topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)memoEdit_Desc.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)svgImageCollection1).BeginInit();
@@ -49,9 +49,9 @@
             // 
             // imgBox
             // 
-            imgBox.Location = new System.Drawing.Point(3, 4);
+            imgBox.Location = new System.Drawing.Point(16, 10);
             imgBox.Name = "imgBox";
-            imgBox.Size = new System.Drawing.Size(25, 25);
+            imgBox.Size = new System.Drawing.Size(32, 32);
             imgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             imgBox.TabIndex = 0;
             imgBox.TabStop = false;
@@ -60,32 +60,32 @@
             // 
             lblTitle.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 204);
             lblTitle.ForeColor = System.Drawing.Color.White;
-            lblTitle.Location = new System.Drawing.Point(32, 4);
+            lblTitle.Location = new System.Drawing.Point(52, 14);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new System.Drawing.Size(131, 25);
             lblTitle.TabIndex = 1;
             lblTitle.Text = "Information";
             lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // flowLayoutPanel2
+            // bottomPanel
             // 
-            flowLayoutPanel2.AutoSize = true;
-            flowLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(42, 56, 75);
-            flowLayoutPanel2.Controls.Add(btnNoCancel);
-            flowLayoutPanel2.Controls.Add(btnYesNo);
-            flowLayoutPanel2.Controls.Add(btnOKYes);
-            flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            flowLayoutPanel2.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            flowLayoutPanel2.Location = new System.Drawing.Point(0, 132);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            flowLayoutPanel2.Size = new System.Drawing.Size(300, 43);
-            flowLayoutPanel2.TabIndex = 2;
+            bottomPanel.AutoSize = true;
+            bottomPanel.BackColor = System.Drawing.Color.FromArgb(31, 42, 56);
+            bottomPanel.Controls.Add(btnNoCancel);
+            bottomPanel.Controls.Add(btnYesNo);
+            bottomPanel.Controls.Add(btnOKYes);
+            bottomPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            bottomPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            bottomPanel.Location = new System.Drawing.Point(0, 152);
+            bottomPanel.Name = "bottomPanel";
+            bottomPanel.Padding = new System.Windows.Forms.Padding(0, 11, 5, 0);
+            bottomPanel.Size = new System.Drawing.Size(370, 63);
+            bottomPanel.TabIndex = 2;
             // 
             // btnNoCancel
             // 
-            btnNoCancel.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            btnNoCancel.BackgroundColor = System.Drawing.SystemColors.ButtonShadow;
+            btnNoCancel.BackColor = System.Drawing.Color.FromArgb(55, 75, 100);
+            btnNoCancel.BackgroundColor = System.Drawing.Color.FromArgb(55, 75, 100);
             btnNoCancel.BorderColor = System.Drawing.Color.FromArgb(147, 112, 147);
             btnNoCancel.BorderRadius = 16;
             btnNoCancel.BorderSize = 0;
@@ -93,13 +93,13 @@
             btnNoCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(140, 140, 140);
             btnNoCancel.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.ActiveBorder;
             btnNoCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnNoCancel.ForeColor = System.Drawing.Color.Black;
-            btnNoCancel.Location = new System.Drawing.Point(212, 5);
+            btnNoCancel.ForeColor = System.Drawing.Color.White;
+            btnNoCancel.Location = new System.Drawing.Point(272, 14);
             btnNoCancel.Name = "btnNoCancel";
-            btnNoCancel.Size = new System.Drawing.Size(85, 32);
+            btnNoCancel.Size = new System.Drawing.Size(90, 34);
             btnNoCancel.TabIndex = 0;
             btnNoCancel.Text = "No";
-            btnNoCancel.TextColor = System.Drawing.Color.Black;
+            btnNoCancel.TextColor = System.Drawing.Color.White;
             btnNoCancel.UseVisualStyleBackColor = false;
             // 
             // btnYesNo
@@ -113,19 +113,19 @@
             btnYesNo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(70, 70, 70);
             btnYesNo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(120, 120, 120);
             btnYesNo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnYesNo.ForeColor = System.Drawing.Color.Black;
-            btnYesNo.Location = new System.Drawing.Point(121, 5);
+            btnYesNo.ForeColor = System.Drawing.Color.White;
+            btnYesNo.Location = new System.Drawing.Point(176, 14);
             btnYesNo.Name = "btnYesNo";
-            btnYesNo.Size = new System.Drawing.Size(85, 32);
+            btnYesNo.Size = new System.Drawing.Size(90, 34);
             btnYesNo.TabIndex = 1;
             btnYesNo.Text = "Yes";
-            btnYesNo.TextColor = System.Drawing.Color.Black;
+            btnYesNo.TextColor = System.Drawing.Color.White;
             btnYesNo.UseVisualStyleBackColor = false;
             // 
             // btnOKYes
             // 
-            btnOKYes.BackColor = System.Drawing.Color.FromArgb(0, 123, 255);
-            btnOKYes.BackgroundColor = System.Drawing.Color.FromArgb(0, 123, 255);
+            btnOKYes.BackColor = System.Drawing.Color.FromArgb(40, 154, 221);
+            btnOKYes.BackgroundColor = System.Drawing.Color.FromArgb(40, 154, 221);
             btnOKYes.BorderColor = System.Drawing.Color.FromArgb(147, 112, 147);
             btnOKYes.BorderRadius = 16;
             btnOKYes.BorderSize = 0;
@@ -133,13 +133,13 @@
             btnOKYes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(0, 100, 210);
             btnOKYes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(51, 153, 255);
             btnOKYes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnOKYes.ForeColor = System.Drawing.Color.Black;
-            btnOKYes.Location = new System.Drawing.Point(30, 5);
+            btnOKYes.ForeColor = System.Drawing.Color.White;
+            btnOKYes.Location = new System.Drawing.Point(80, 14);
             btnOKYes.Name = "btnOKYes";
-            btnOKYes.Size = new System.Drawing.Size(85, 32);
+            btnOKYes.Size = new System.Drawing.Size(90, 34);
             btnOKYes.TabIndex = 2;
             btnOKYes.Text = "OK";
-            btnOKYes.TextColor = System.Drawing.Color.Black;
+            btnOKYes.TextColor = System.Drawing.Color.White;
             btnOKYes.UseVisualStyleBackColor = false;
             // 
             // topPanel
@@ -151,25 +151,28 @@
             topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             topPanel.Location = new System.Drawing.Point(0, 0);
             topPanel.Name = "topPanel";
-            topPanel.Size = new System.Drawing.Size(300, 32);
+            topPanel.Size = new System.Drawing.Size(370, 52);
             topPanel.TabIndex = 3;
             // 
             // btnClose
             // 
+            btnClose.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             btnClose.BackColor = System.Drawing.Color.Transparent;
             btnClose.BackgroundColor = System.Drawing.Color.Transparent;
             btnClose.BorderColor = System.Drawing.Color.FromArgb(147, 112, 147);
-            btnClose.BorderRadius = 0;
+            btnClose.BorderRadius = 34;
             btnClose.BorderSize = 0;
+            btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
             btnClose.FlatAppearance.BorderSize = 0;
             btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(192, 0, 0);
             btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
             btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             btnClose.ForeColor = System.Drawing.Color.White;
             btnClose.Image = (System.Drawing.Image)resources.GetObject("btnClose.Image");
-            btnClose.Location = new System.Drawing.Point(269, 0);
+            btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            btnClose.Location = new System.Drawing.Point(325, 9);
             btnClose.Name = "btnClose";
-            btnClose.Size = new System.Drawing.Size(31, 32);
+            btnClose.Size = new System.Drawing.Size(34, 34);
             btnClose.TabIndex = 2;
             btnClose.TextColor = System.Drawing.Color.White;
             btnClose.UseVisualStyleBackColor = false;
@@ -177,7 +180,8 @@
             // memoEdit_Desc
             // 
             memoEdit_Desc.Dock = System.Windows.Forms.DockStyle.Top;
-            memoEdit_Desc.Location = new System.Drawing.Point(0, 32);
+            memoEdit_Desc.EditValue = "test";
+            memoEdit_Desc.Location = new System.Drawing.Point(0, 52);
             memoEdit_Desc.Name = "memoEdit_Desc";
             memoEdit_Desc.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(42, 56, 75);
             memoEdit_Desc.Properties.Appearance.Font = new System.Drawing.Font("Malgun Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
@@ -186,32 +190,34 @@
             memoEdit_Desc.Properties.Appearance.Options.UseFont = true;
             memoEdit_Desc.Properties.Appearance.Options.UseForeColor = true;
             memoEdit_Desc.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            memoEdit_Desc.Properties.Padding = new System.Windows.Forms.Padding(20, 10, 0, 0);
             memoEdit_Desc.Properties.ReadOnly = true;
-            memoEdit_Desc.Size = new System.Drawing.Size(300, 100);
+            memoEdit_Desc.Size = new System.Drawing.Size(370, 100);
             memoEdit_Desc.TabIndex = 4;
             // 
             // svgImageCollection1
             // 
-            svgImageCollection1.ImageSize = new System.Drawing.Size(24, 24);
-            svgImageCollection1.Add("question", (DevExpress.Utils.Svg.SvgImage)resources.GetObject("svgImageCollection1.question"));
-            svgImageCollection1.Add("error", (DevExpress.Utils.Svg.SvgImage)resources.GetObject("svgImageCollection1.error"));
-            svgImageCollection1.Add("warning", (DevExpress.Utils.Svg.SvgImage)resources.GetObject("svgImageCollection1.warning"));
-            svgImageCollection1.Add("information", (DevExpress.Utils.Svg.SvgImage)resources.GetObject("svgImageCollection1.information"));
+            svgImageCollection1.ImageSize = new System.Drawing.Size(32, 32);
+            svgImageCollection1.Add("question-fill", (DevExpress.Utils.Svg.SvgImage)resources.GetObject("svgImageCollection1.question-fill"));
+            svgImageCollection1.Add("warning-circle-fill", (DevExpress.Utils.Svg.SvgImage)resources.GetObject("svgImageCollection1.warning-circle-fill"));
+            svgImageCollection1.Add("warning-fill", (DevExpress.Utils.Svg.SvgImage)resources.GetObject("svgImageCollection1.warning-fill"));
+            svgImageCollection1.Add("info-fill", (DevExpress.Utils.Svg.SvgImage)resources.GetObject("svgImageCollection1.info-fill"));
             // 
             // MsgDialog
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(300, 175);
-            Controls.Add(flowLayoutPanel2);
+            ClientSize = new System.Drawing.Size(370, 215);
+            Controls.Add(bottomPanel);
             Controls.Add(memoEdit_Desc);
             Controls.Add(topPanel);
             FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             Name = "MsgDialog";
             StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             Text = "MsgDialog";
+            TopMost = true;
             ((System.ComponentModel.ISupportInitialize)imgBox).EndInit();
-            flowLayoutPanel2.ResumeLayout(false);
+            bottomPanel.ResumeLayout(false);
             topPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)memoEdit_Desc.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)svgImageCollection1).EndInit();
@@ -222,7 +228,7 @@
         #endregion
         private System.Windows.Forms.PictureBox imgBox;
         private System.Windows.Forms.Label lblTitle;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel bottomPanel;
         private Controls.CHRoundButton btnNoCancel;
         private Controls.CHRoundButton btnYesNo;
         private Controls.CHRoundButton btnOKYes;

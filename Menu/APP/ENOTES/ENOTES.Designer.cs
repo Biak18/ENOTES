@@ -285,6 +285,7 @@
             leftPanel.Controls.Add(btnFilterMenu);
             leftPanel.Dock = DockStyle.Left;
             leftPanel.Location = new Point(0, 50);
+            leftPanel.Margin = new Padding(3, 3, 50, 3);
             leftPanel.Name = "leftPanel";
             leftPanel.Size = new Size(210, 630);
             leftPanel.TabIndex = 4;
@@ -337,10 +338,12 @@
             ClientSize = new Size(1160, 680);
             Controls.Add(leftPanel);
             Controls.Add(topPanel);
+            FormBorderEffect = DevExpress.XtraEditors.FormBorderEffect.Glow;
             FormBorderStyle = FormBorderStyle.None;
             IsMdiContainer = true;
             MinimumSize = new Size(900, 600);
             Name = "ENOTES";
+            ShowMdiChildCaptionInParentTitle = true;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             topPanel.ResumeLayout(false);

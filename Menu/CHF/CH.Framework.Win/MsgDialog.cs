@@ -1,8 +1,9 @@
 ﻿using CH.Framework.Common;
 using CH.Framework.Win.Controls;
+using CH.Helper;
 using System;
 using System.Drawing;
-using System.Runtime.InteropServices;
+using System.Drawing.Drawing2D;
 using System.Runtime.Versioning;
 using System.Windows.Forms;
 
@@ -16,29 +17,42 @@ namespace CH.Framework.Win
         Point mousePoint;
 
         #region Dll import
-        public enum DwmWindowCornerPreference
-        {
-            Default = 0,
-            DoNotRound = 1,
-            Round = 2,
-            RoundSmall = 3
-        }
+        //    public enum DwmWindowCornerPreference
+        //    {
+        //        Default = 0,
+        //        DoNotRound = 1,
+        //        Round = 2,
+        //        RoundSmall = 3
+        //    }
 
-        [DllImport("dwmapi.dll", CharSet = CharSet.Unicode, SetLastError = true)]
-        private static extern int DwmSetWindowAttribute(
-            IntPtr hwnd,
-            int attr,
-            ref DwmWindowCornerPreference pref,
-            int size);
+        //    [DllImport("dwmapi.dll", CharSet = CharSet.Unicode, SetLastError = true)]
+        //    private static extern int DwmSetWindowAttribute(
+        //        IntPtr hwnd,
+        //        int attr,
+        //        ref DwmWindowCornerPreference pref,
+        //        int size);
 
-        [DllImport("gdi32.dll")]
-        static extern IntPtr CreateRoundRectRgn(
-    int left, int top, int right, int bottom, int width, int height);
+        //    [DllImport("gdi32.dll")]
+        //    static extern IntPtr CreateRoundRectRgn(
+        //int left, int top, int right, int bottom, int width, int height);
 
-        [DllImport("user32.dll")]
-        static extern int SetWindowRgn(IntPtr hWnd, IntPtr hRgn, bool redraw);
+        //    [DllImport("user32.dll")]
+        //    static extern int SetWindowRgn(IntPtr hWnd, IntPtr hRgn, bool redraw);
 
         #endregion
+
+        // Theme colors
+        private readonly Color _backMain = Color.FromArgb(31, 42, 56);
+        private readonly Color _backContent = Color.FromArgb(42, 56, 75);
+        private readonly Color _accent = Color.FromArgb(40, 154, 221);
+        private readonly Color _textPrimary = Color.White;
+        private readonly Color _textSecondary = Color.FromArgb(180, 200, 220);
+        private readonly Color _borderColor = Color.FromArgb(55, 75, 100);
+
+        // Button colors per type
+        private Color _btnPrimaryColor;
+        private string _iconChar;
+        private Color _iconColor;
 
         public MsgDialog()
         {
@@ -62,6 +76,7 @@ namespace CH.Framework.Win
             switch (_msgType)
             {
                 case MessageType.Question:
+                    _btnPrimaryColor = Color.FromArgb(40, 154, 221);
                     btnOKYes.Visible = false;
                     btnYesNo.Text = "Yes";
                     btnNoCancel.Text = "No";
@@ -76,6 +91,7 @@ namespace CH.Framework.Win
                     break;
 
                 case MessageType.YesNoCancel:
+                    _btnPrimaryColor = Color.FromArgb(40, 154, 221);
                     btnOKYes.Text = "Yes";
                     btnYesNo.Text = "No";
                     btnNoCancel.Text = "Cancel";
@@ -86,6 +102,7 @@ namespace CH.Framework.Win
                     break;
 
                 case MessageType.Error:
+                    _btnPrimaryColor = Color.FromArgb(220, 53, 69);
                     btnYesNo.Visible = false;
                     btnNoCancel.Visible = false;
                     btnOKYes.Text = "OK";
@@ -96,6 +113,7 @@ namespace CH.Framework.Win
                     break;
 
                 case MessageType.Warning:
+                    _btnPrimaryColor = Color.FromArgb(255, 152, 0);
                     btnYesNo.Visible = false;
                     btnNoCancel.Visible = false;
                     btnOKYes.Text = "OK";
@@ -106,6 +124,7 @@ namespace CH.Framework.Win
                     break;
 
                 default:
+                    _btnPrimaryColor = Color.FromArgb(40, 154, 221);
                     btnYesNo.Visible = false;
                     btnNoCancel.Visible = false;
                     btnOKYes.Text = "OK";
@@ -115,9 +134,59 @@ namespace CH.Framework.Win
                     imgBox.Image = svgImageCollection1.GetImage(3);
                     break;
             }
-
+            ApplyTheme();
             memoEdit_Desc.Text = _msgText.Replace("\r\n", "\n");
             lblTitle.Text = txtTitle;
+
+            // Fade in
+            this.Opacity = 0;
+            var fade = new Timer { Interval = 12 };
+            fade.Tick += (s, e) =>
+            {
+                this.Opacity += 0.2;
+                if (this.Opacity >= 1) { this.Opacity = 1; fade.Stop(); fade.Dispose(); }
+            };
+            this.Shown += (s, e) => fade.Start();
+        }
+
+        private void ApplyTheme()
+        {
+            Color secBack = Color.FromArgb(55, 75, 100);
+            Color secHover = Color.FromArgb(70, 95, 125);
+            Color secDown = Color.FromArgb(45, 60, 80);
+
+            switch (_msgType)
+            {
+                case MessageType.Question:
+                    btnYesNo.BackColor = _btnPrimaryColor;
+                    btnYesNo.FlatAppearance.MouseOverBackColor = ControlPaint.Light(_btnPrimaryColor, 0.2f);
+                    btnYesNo.FlatAppearance.MouseDownBackColor = ControlPaint.Dark(_btnPrimaryColor, 0.1f);
+
+                    btnNoCancel.BackColor = secBack;
+                    btnNoCancel.FlatAppearance.MouseOverBackColor = secHover;
+                    btnNoCancel.FlatAppearance.MouseDownBackColor = secDown;
+                    break;
+
+                case MessageType.YesNoCancel:
+                    btnOKYes.BackColor = _btnPrimaryColor;
+                    btnOKYes.FlatAppearance.MouseOverBackColor = ControlPaint.Light(_btnPrimaryColor, 0.2f);
+                    btnOKYes.FlatAppearance.MouseDownBackColor = ControlPaint.Dark(_btnPrimaryColor, 0.1f);
+
+                    btnYesNo.BackColor = secBack;
+                    btnYesNo.FlatAppearance.MouseOverBackColor = secBack;
+                    btnYesNo.FlatAppearance.MouseDownBackColor = secBack;
+
+                    btnNoCancel.BackColor = secBack;
+                    btnNoCancel.FlatAppearance.MouseOverBackColor = secHover;
+                    btnNoCancel.FlatAppearance.MouseDownBackColor = secDown;
+                    break;
+
+                default:
+                    btnOKYes.BackColor = _btnPrimaryColor;
+                    btnOKYes.FlatAppearance.MouseOverBackColor = ControlPaint.Light(_btnPrimaryColor, 0.2f);
+                    btnOKYes.FlatAppearance.MouseDownBackColor = ControlPaint.Dark(_btnPrimaryColor, 0.1f);
+                    break;
+            }
         }
 
         private void InitializeEvent()
@@ -126,11 +195,38 @@ namespace CH.Framework.Win
             btnYesNo.Click += Btn_Click;
             btnNoCancel.Click += Btn_Click;
             topPanel.MouseDown += TopPanel_MouseDown;
-            topPanel.MouseMove += TopPanel_MouseMove;
             lblTitle.MouseDown += LblTitle_MouseDown;
-            lblTitle.MouseMove += LblTitle_MouseMove;
             base.KeyDown += MsgDialog_KeyDown;
             btnClose.Click += (s, e) => { DialogResult = DialogResult.Cancel; };
+            topPanel.Paint += TopPanel_Paint;
+            bottomPanel.Paint += BottomPanel_Paint;
+        }
+
+        private void BottomPanel_Paint(object sender, PaintEventArgs e)
+        {
+            var g = e.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+
+            int width = e.ClipRectangle.Width;
+            //top separator line
+            using (var pen = new Pen(_borderColor, 1f))
+            {
+                g.DrawLine(pen, 0, 0, width, 0);
+            }
+        }
+
+        private void TopPanel_Paint(object sender, PaintEventArgs e)
+        {
+            var g = e.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+
+            int width = e.ClipRectangle.Width;
+            int height = e.ClipRectangle.Height;
+            //bottom separator line
+            using (var pen = new Pen(_borderColor, 1f))
+            {
+                g.DrawLine(pen, 0, height - 1, width, height - 1);
+            }
         }
 
         private void MsgDialog_KeyDown(object sender, KeyEventArgs e)
@@ -141,30 +237,14 @@ namespace CH.Framework.Win
             }
         }
 
-        private void LblTitle_MouseMove(object sender, MouseEventArgs e)
-        {
-            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
-            {
-                base.Location = new Point(base.Left - (mousePoint.X - e.X), base.Top - (mousePoint.Y - e.Y));
-            }
-        }
-
         private void LblTitle_MouseDown(object sender, MouseEventArgs e)
         {
-            mousePoint = new Point(e.X, e.Y);
+            BorderlessHelper.MouseMove(this.Handle);
         }
 
         private void TopPanel_MouseDown(object sender, MouseEventArgs e)
         {
-            mousePoint = new Point(e.X, e.Y);
-        }
-
-        private void TopPanel_MouseMove(object sender, MouseEventArgs e)
-        {
-            if ((e.Button & MouseButtons.Left) == MouseButtons.Left)
-            {
-                base.Location = new Point(base.Left - (mousePoint.X - e.X), base.Top - (mousePoint.Y - e.Y));
-            }
+            BorderlessHelper.MouseMove(this.Handle);
         }
 
         private void Btn_Click(object sender, EventArgs e)
@@ -209,30 +289,22 @@ namespace CH.Framework.Win
             return base.ProcessCmdKey(ref msg, keyData);
         }
 
-        private void ApplyWin11RoundedCorners()
+
+        #region Win
+        protected override void OnLoad(EventArgs e)
         {
-            var pref = DwmWindowCornerPreference.Round;
-            DwmSetWindowAttribute(this.Handle, 33, ref pref, sizeof(int));
-        }
+            base.OnLoad(e);
 
-        private void ApplyLegacyRoundedRegion(int radius = 12)
-        {
-            IntPtr region = CreateRoundRectRgn(
-                0, 0, this.Width + 1, this.Height + 1,
-                radius, radius);
-
-            SetWindowRgn(this.Handle, region, true);
-        }
-
-        protected override void OnShown(EventArgs e)
-        {
-            base.OnShown(e);
-
-            if (OperatingSystem.IsWindowsVersionAtLeast(10, 0, 22000))
-                ApplyWin11RoundedCorners();
+            if (Environment.OSVersion.Version.Build >= 22000) // Win11 check
+            {
+                BorderlessHelper.SetWindowCorner(this.Handle, BorderlessHelper.DwmWindowCornerPreference.Round);
+            }
             else
-                ApplyLegacyRoundedRegion();
+            {
+                BorderlessHelper.SetWindowCorner(this, 16); // custom radius for older Windows
+            }
         }
+        #endregion
 
 
     }

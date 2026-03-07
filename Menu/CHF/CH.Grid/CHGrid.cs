@@ -573,7 +573,8 @@ public partial class CHGrid : GridControl
             }
 
             GridViewBandMenu gridViewBandMenu = e.Menu as GridViewBandMenu;
-            gridViewBandMenu?.Items?.Clear();
+            if (gridViewBandMenu == null) return;
+            gridViewBandMenu.Items.Clear();
             if (gridViewBandMenu.Band.Columns.Count > 0)
             {
                 if (gridViewBandMenu.Band.Columns[0] != null)
@@ -1623,6 +1624,7 @@ public partial class CHGrid : GridControl
 
     private void gridView_CustomDrawRowIndicator(object sender, RowIndicatorCustomDrawEventArgs e)
     {
+        if (DesignMode) return;
         GridView view = sender as GridView;
         var font = new Font(_RowFont ?? "맑은 고딕", Convert.ToSingle(_RowFontSize ?? "12"), GraphicsUnit.Pixel);
         var pen = view.PaintAppearance.HorzLine.GetBackPen(e.Cache);
@@ -1647,12 +1649,13 @@ public partial class CHGrid : GridControl
             e.Graphics.DrawString(displayText, font, new SolidBrush(Color.FromArgb(105, 105, 105)), textRect, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
             Size iconSize = ImageCollection.GetImageListSize(e.Info.ImageCollection);
             Rectangle iconRect = new Rectangle(
-                e.Bounds.X + (e.Bounds.Width - (iconSize.Width + 20) - (textSize.Width)) / 2,
+                e.Bounds.X + (e.Bounds.Width - (iconSize.Width + 20) - (textSize.Width)) / 2 + 5,
                 e.Bounds.Y + (e.Bounds.Height - iconSize.Height) / 2,
                 iconSize.Width,
                 iconSize.Height
             );
 
+            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(32, 130, 188)), new Rectangle(e.Bounds.X, e.Bounds.Y, 5, e.Bounds.Height));// side 
             ImageCollection.DrawImageListImage(e.Cache, e.Info.ImageCollection, e.Info.ImageIndex, iconRect);
         }
         if (e.Info.Kind == DevExpress.Utils.Drawing.IndicatorKind.Header)
@@ -1663,6 +1666,7 @@ public partial class CHGrid : GridControl
             e.Appearance.FillRectangle(e.Cache, new Rectangle(e.Bounds.X + 2, e.Bounds.Y + 2, e.Bounds.Width - 4, e.Bounds.Y - 4));
             e.Graphics.DrawRectangle(pen, new Rectangle(e.Bounds.X, e.Bounds.Y - (int)pen.Width, e.Bounds.Width - 1, e.Bounds.Height));//border
             e.Graphics.DrawString(displayText, font, new SolidBrush(Color.FromArgb(38, 143, 205)), e.Bounds, new StringFormat { Alignment = StringAlignment.Center, LineAlignment = StringAlignment.Center });
+            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(32, 130, 188)), new Rectangle(e.Bounds.X, e.Bounds.Y, 5, e.Bounds.Height));// side 
         }
         if (e.Info.Kind == DevExpress.Utils.Drawing.IndicatorKind.Band)
         {
@@ -1671,6 +1675,7 @@ public partial class CHGrid : GridControl
             e.Info.DisplayText = " " + "No.";
             e.Info.Appearance.ForeColor = Color.FromArgb(38, 143, 205);
             e.Info.Appearance.Font = new Font(_RowFont, Convert.ToSingle(_RowFontSize), GraphicsUnit.Pixel);
+            e.Graphics.FillRectangle(new SolidBrush(Color.FromArgb(32, 130, 188)), new Rectangle(e.Bounds.X, e.Bounds.Y, 5, e.Bounds.Height));// side 
         }
     }
 
@@ -2771,6 +2776,16 @@ public partial class CHGrid : GridControl
         }
 
         return ret;
+    }
+
+    protected override void OnLoaded()
+    {
+        base.OnLoaded();
+
+        if (this.MainView is GridView gv)
+        {
+            gv.IndicatorWidth = 50;
+        }
     }
 
     private void InitializeComponent()

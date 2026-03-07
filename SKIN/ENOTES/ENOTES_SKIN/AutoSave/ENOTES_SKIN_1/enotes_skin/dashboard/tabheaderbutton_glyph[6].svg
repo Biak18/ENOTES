@@ -1,0 +1,10 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 26 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" id="Layer_1" tag="Element3">
+  <rect x="0" y="0" width="26" height="26" tag="Element0" />
+  <g id="Inside_Border" tag="Element1">
+    <circle cx="7" cy="13" r="2" fill="#707070" class="st0" tag="st00" />
+    <circle cx="13" cy="13" r="2" fill="#707070" class="st0" tag="st01" />
+    <circle cx="19" cy="13" r="2" fill="#707070" class="st0" tag="st02" />
+  </g>
+  <g id="Layer_2" tag="Element2" />
+</svg>

@@ -1,6 +1,7 @@
 using CH.Helper;
 using System.IO;
 
+
 namespace ENOTES
 {
     internal static class Program
@@ -18,9 +19,16 @@ namespace ENOTES
             Application.SetCompatibleTextRenderingDefault(false);
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             */
+
+            //DevExpress.UserSkins.BonusSkins.Register();
+
+            //Assembly asm = typeof(DevExpress.UserSkins.ENOTESSKIN).Assembly;
+            //DevExpress.XtraEditors.WindowsFormsSettings.RegisterUserSkins(asm);
+
+            //UserLookAndFeel.Default.SetSkinStyle("ENOTES_SKIN");
             ApplicationConfiguration.Initialize();
             Bootstrap();
-            Application.Run(new ENOTES_LOGIN());
+            Application.Run(new AppContextController());
         }
 
         private static void Bootstrap()

@@ -44,6 +44,7 @@
             // 
             // LoadingForm
             // 
+            ActiveGlowColor = System.Drawing.Color.Transparent;
             AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             ClientSize = new System.Drawing.Size(280, 140);

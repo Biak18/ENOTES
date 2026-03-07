@@ -97,8 +97,14 @@ public class CHLayoutPanel : LayoutControl
             UpdateChildren(base.Controls, _readOnly);
         }
     }
+    [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+    public override Color BackColor
+    {
+        get => base.BackColor;
+        set => base.BackColor = value;
+    }
 
-    [DefaultValue(PanelType.MAINFORM)]
+    // [DefaultValue(PanelType.MAINFORM)]
     [Category("ENOTES")]
     public PanelType SetPanelType
     {
@@ -144,6 +150,7 @@ public class CHLayoutPanel : LayoutControl
     {
         base.PopupMenuShowing += ALayoutPanel_PopupMenuShowing;
         base.ParentChanged += CHLayoutPanel_ParentChanged;
+        base.HandleCreated += (s, e) => UserPaint();
     }
 
     private void ALayoutPanel_PopupMenuShowing(object sender, PopupMenuShowingEventArgs e)
@@ -359,6 +366,12 @@ public class CHLayoutPanel : LayoutControl
                 break;
             case PanelType.MAINFORM:
                 BackColor = CHColor.Panel_Main;
+                break;
+
+            case PanelType.CONTAINER:
+                break;
+
+            case PanelType.ETC:
                 break;
         }
 

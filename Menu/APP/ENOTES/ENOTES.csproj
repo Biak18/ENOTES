@@ -41,6 +41,15 @@
 			<SpecificVersion>false</SpecificVersion>
 			<HintPath>$(SolutionDir)\..\Dev_Deploy\CH.dll</HintPath>
 		</Reference>
+		<Reference Include="SNOTES_SKIN">
+		  <HintPath>$(SolutionDir)\..\Dev_Deploy\SNOTES_SKIN.dll</HintPath>
+		</Reference>
+		<Reference Include="ENOTES_SKIN">
+			<HintPath>$(SolutionDir)\..\Dev_Deploy\ENOTES_SKIN.dll</HintPath>
+		</Reference>
+		<Reference Include="DevExpress.BonusSkins.v22.1">
+			<HintPath>$(SolutionDir)\..\Dev_Deploy\DevExpress.BonusSkins.v22.1.dll</HintPath>
+		</Reference>
     </ItemGroup>
     <ItemGroup>
         <Compile Update="Properties\Resources.Designer.cs">

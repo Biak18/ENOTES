@@ -1,0 +1,11 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 50 50" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" id="Layer_1" style="enable-background:new 0 0 50 50" tag="Element3">
+  <style type="text/css" tag="Element1">
+	.st0{fill:#707070;}
+	.st1{fill:#FFFFFF;}
+</style>
+  <polygon points="50,44 50,0 6,0 " class="st0" tag="st00" />
+  <g id="Inside_Border" tag="Element2">
+    <polygon points="44,6 45,7 34,18 29,13 30,12 34,16  " class="st1" tag="st10" />
+  </g>
+</svg>

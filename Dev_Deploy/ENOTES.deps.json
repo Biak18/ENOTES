@@ -20,7 +20,10 @@
           "CH.Framework.Win.Controls": "0.0.0.0",
           "CH.Framework.Win": "0.0.0.0",
           "CH.Grid": "0.0.0.0",
-          "CH.Helper": "0.0.0.0"
+          "CH.Helper": "0.0.0.0",
+          "DevExpress.BonusSkins.v22.1": "22.1.6.0",
+          "ENOTES_SKIN": "22.1.6.0",
+          "SNOTES_SKIN": "22.1.6.0"
         },
         "runtime": {
           "ENOTES.dll": {}
@@ -2333,6 +2336,30 @@
             "fileVersion": "0.0.0.0"
           }
         }
+      },
+      "DevExpress.BonusSkins.v22.1/22.1.6.0": {
+        "runtime": {
+          "DevExpress.BonusSkins.v22.1.dll": {
+            "assemblyVersion": "22.1.6.0",
+            "fileVersion": "22.1.6.0"
+          }
+        }
+      },
+      "ENOTES_SKIN/22.1.6.0": {
+        "runtime": {
+          "ENOTES_SKIN.dll": {
+            "assemblyVersion": "22.1.6.0",
+            "fileVersion": "22.1.6.0"
+          }
+        }
+      },
+      "SNOTES_SKIN/22.1.6.0": {
+        "runtime": {
+          "SNOTES_SKIN.dll": {
+            "assemblyVersion": "22.1.6.0",
+            "fileVersion": "22.1.6.0"
+          }
+        }
       }
     }
   },
@@ -3565,6 +3592,21 @@
       "sha512": ""
     },
     "CH.Helper/0.0.0.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "DevExpress.BonusSkins.v22.1/22.1.6.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "ENOTES_SKIN/22.1.6.0": {
+      "type": "reference",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "SNOTES_SKIN/22.1.6.0": {
       "type": "reference",
       "serviceable": false,
       "sha512": ""

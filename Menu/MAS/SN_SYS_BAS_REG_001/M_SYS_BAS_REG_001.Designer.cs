@@ -46,12 +46,12 @@
             // 
             // chLayoutPanel1
             // 
-            chLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(243, 252, 251);
             chLayoutPanel1.Controls.Add(txt_Search);
             chLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             chLayoutPanel1.Location = new System.Drawing.Point(0, 50);
             chLayoutPanel1.Name = "chLayoutPanel1";
             chLayoutPanel1.Root = Root;
+            chLayoutPanel1.SetPanelType = CH.Framework.Win.Controls.CHLayoutPanel.PanelType.MAINFORM;
             chLayoutPanel1.Size = new System.Drawing.Size(1158, 50);
             chLayoutPanel1.TabIndex = 3;
             chLayoutPanel1.Text = "chLayoutPanel1";
@@ -125,6 +125,7 @@
             // gridView1
             // 
             gridView1.GridControl = chGrid1;
+            gridView1.IndicatorWidth = 50;
             gridView1.Name = "gridView1";
             // 
             // M_SYS_BAS_REG_001

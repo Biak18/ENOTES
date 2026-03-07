@@ -12,7 +12,7 @@ public partial class ENOTES_LOGIN : Form
     Point mousePoint;
     string dirPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AppSettings.ini");
     ENOTES_D _D = new ENOTES_D();
-
+    public event EventHandler LoginSuccess;
     #region Initialize
     public ENOTES_LOGIN()
     {
@@ -188,21 +188,7 @@ public partial class ENOTES_LOGIN : Form
                 return;
             }
             CH.AppContext.Login(dt_user_info.Rows[0]);
-            this.Hide();
-            //LoadingHelper.StartLoading(this, "Loading...", "Loading form");
-            using (ENOTES mainPage = new ENOTES())
-            {
-                IniFile.IniWriteSingle("LoginInfo", "CompanyCode", cdCom, dirPath);
-                IniFile.IniWriteSingle("LoginInfo", "CompanyName", "", dirPath);
-                IniFile.IniWriteSingle("LoginInfo", "UserId", cdUser, dirPath);
-                IniFile.IniWriteSingle("LoginInfo", "UserName", "", dirPath);
-                LoadingHelper.EndLoading();
-                Thread.Sleep(50);
-                mainPage.ShowDialog(this);
-            }
-
-            this.Show();
-
+            LoginSuccess?.Invoke(this, EventArgs.Empty);
         }
         catch (Exception ex)
         {

@@ -4,8 +4,14 @@
         <TargetFramework>net8.0-windows</TargetFramework>
         <Nullable>disable</Nullable>
         <UseWindowsForms>true</UseWindowsForms>
-        <ImplicitUsings>enable</ImplicitUsings>	
-    </PropertyGroup>
+        <ImplicitUsings>enable</ImplicitUsings>
+		<AssemblyName>ENOTES_App</AssemblyName>
+		<RootNamespace>ENOTES</RootNamespace>
+		<ApplicationIcon>enotes.ico</ApplicationIcon>
+	</PropertyGroup>
+    <ItemGroup>
+      <Content Include="enotes.ico" />
+    </ItemGroup>
 	
     <ItemGroup>
         <PackageReference Include="DevExpress.Win" Version="22.1.6" />
@@ -44,9 +50,6 @@
 		<Reference Include="SNOTES_SKIN">
 		  <HintPath>$(SolutionDir)\..\Dev_Deploy\SNOTES_SKIN.dll</HintPath>
 		</Reference>
-		<Reference Include="ENOTES_SKIN">
-			<HintPath>$(SolutionDir)\..\Dev_Deploy\ENOTES_SKIN.dll</HintPath>
-		</Reference>
 		<Reference Include="DevExpress.BonusSkins.v22.1">
 			<HintPath>$(SolutionDir)\..\Dev_Deploy\DevExpress.BonusSkins.v22.1.dll</HintPath>
 		</Reference>
@@ -58,9 +61,9 @@
             <DependentUpon>Resources.resx</DependentUpon>
         </Compile>
     </ItemGroup>
-    <PropertyGroup>
-        <PostBuildEvent>copy "$(TargetDir)$(MSBuildProjectName).dll" "$(SolutionDir)..\Dev_Deploy\"</PostBuildEvent>
-    </PropertyGroup>
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+		<Exec Command="copy &quot;$(TargetPath)&quot; &quot;$(SolutionDir)..\Dev_Deploy\&quot;" />
+	</Target>
     <ItemGroup>
         <EmbeddedResource Update="Properties\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>

@@ -1,0 +1,10 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" tag="Element3">
+  <g id="Inside_Border" tag="Element1">
+    <g tag="Element">
+      <circle cx="15" cy="15" r="15" fill="#AFAFAF" class="Paint" tag="Paint" />
+    </g>
+    <path d="M6, 16L21, 16L14.5, 22.5C14.2, 22.8 14.1, 23.3 14.3, 23.7L14.3, 23.7C14.6, 24.3 15.5, 24.5 16, 24L25, 15L16, 6C15.5, 5.5 14.6, 5.6 14.3, 6.3L14.3, 6.3C14.1, 6.7 14.2, 7.2 14.5, 7.5L21, 14L6, 14C5.4, 14 5, 14.4 5, 15C5, 15.6 5.4, 16 6, 16z" fill="#707070" class="Mask" tag="Mask" />
+  </g>
+  <g id="Layer_2" tag="Element2" />
+</svg>

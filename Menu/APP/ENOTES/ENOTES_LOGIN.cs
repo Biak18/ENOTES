@@ -9,7 +9,6 @@ namespace ENOTES;
 
 public partial class ENOTES_LOGIN : Form
 {
-    Point mousePoint;
     string dirPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "AppSettings.ini");
     ENOTES_D _D = new ENOTES_D();
     public event EventHandler LoginSuccess;

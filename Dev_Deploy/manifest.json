@@ -1,0 +1,10 @@
+{
+  "version": "1.0.5",
+  "modules": [
+    {
+      "name": "M_SYS_MENU_REG_001.dll",
+      "version": "1.0.2",
+      "size": 204800
+    }
+  ]
+}

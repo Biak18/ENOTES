@@ -5,13 +5,25 @@
         <Nullable>disable</Nullable>
         <UseWindowsForms>true</UseWindowsForms>
         <ImplicitUsings>disable</ImplicitUsings>
+		<RootNamespace>SYS</RootNamespace>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
         <UseVSHostingProcess>true</UseVSHostingProcess>
         <StartAction>Program</StartAction>
-        <StartProgram>D:\NET\ENOTES\Dev_Deploy\ENOTES.exe</StartProgram>
+        <StartProgram>$(SolutionDir)\..\Dev_Deploy\ENOTES.exe</StartProgram>
         <Optimize>False</Optimize>
     </PropertyGroup>
+
+	<!-- Debug config → skip launcher, go direct -->
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+		<StartProgram>$(SolutionDir)\..\Dev_Deploy\ENOTES_App.exe</StartProgram>
+	</PropertyGroup>
+
+	<!-- Release config → use launcher -->
+	<PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+		<StartProgram>$(SolutionDir)\..\Dev_Deploy\ENOTES.exe</StartProgram>
+	</PropertyGroup>
+	
     <ItemGroup>
         <Reference Include="CH.Framework.Win">
             <SpecificVersion>false</SpecificVersion>

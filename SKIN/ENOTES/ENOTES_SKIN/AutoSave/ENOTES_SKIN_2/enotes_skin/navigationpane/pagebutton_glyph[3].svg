@@ -1,0 +1,6 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 18 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" id="Layer_1" tag="Element0">
+  <path d="M0, 0L0, 16L18, 16L18, 0L0, 0zM17, 15L1, 15L1, 1L17, 1L17, 15z" fill="#707070" class="st0" tag="st00" />
+  <path d="M0, 0L0, 16L2, 16L2, 0L0, 0z" fill="#707070" class="st0" tag="st01" />
+  <polygon points="4,8 8,12 9,11 6,8 9,5 8,4 " fill="#707070" class="st0" tag="st02" />
+</svg>

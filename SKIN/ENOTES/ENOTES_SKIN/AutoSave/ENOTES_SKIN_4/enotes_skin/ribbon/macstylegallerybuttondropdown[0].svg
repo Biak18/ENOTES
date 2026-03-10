@@ -1,0 +1,7 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 11 11" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" tag="Element2">
+  <g id="Inside_Border" tag="Element">
+    <path d="M5.5, 0C2.5, 0 0, 2.5 0, 5.5C0, 8.5 2.5, 11 5.5, 11C8.5, 11 11, 8.5 11, 5.5C11, 2.5 8.5, 0 5.5, 0zM5.5, 9L3, 6L5, 6L5, 3L6, 3L6, 6L8, 6L5.5, 9z" fill="#707070" class="Mask" tag="Mask" />
+  </g>
+  <g id="Layer_2" tag="Element1" />
+</svg>

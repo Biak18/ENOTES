@@ -99,7 +99,7 @@ public partial class ENOTES : XtraForm
         menuTree.OptionsView.ExpandButtonCentered = true;
 
         //menuTree.Appearance.Row.Font = new Font("Malgun gothic", 10);
-
+        menuTree.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
 
 
 
@@ -119,6 +119,28 @@ public partial class ENOTES : XtraForm
     {
         btnFilterMenu.Text = filterText;
         btnFilterMenu.ForeColor = Color.White;
+
+        InitializeDocumentManager();
+    }
+
+    private void InitializeDocumentManager()
+    {
+        tabbedView1.AppearancePage.Header.BackColor = SystemColors.Control;
+        tabbedView1.AppearancePage.Header.Options.UseBackColor = true;
+
+        tabbedView1.AppearancePage.HeaderActive.BackColor = CHColor.Control_Normal_Tab;
+        tabbedView1.AppearancePage.HeaderActive.Options.UseBackColor = true;
+
+        tabbedView1.AppearancePage.HeaderHotTracked.BackColor = SystemColors.ControlLight;
+        tabbedView1.AppearancePage.HeaderHotTracked.Options.UseBackColor = true;
+
+        tabbedView1.AppearancePage.PageClient.BackColor = Color.White;
+        tabbedView1.AppearancePage.PageClient.Options.UseBackColor = true;
+        tabbedView1.AppearancePage.PageClient.BorderColor = Color.White;
+        tabbedView1.AppearancePage.PageClient.Options.UseBorderColor = true;
+
+        tabbedView1.ShowDocumentSelectorMenuOnCtrlAltDownArrow = DevExpress.Utils.DefaultBoolean.False;
+        //tabbedView1.all = DevExpress.Utils.DefaultBoolean.False;
     }
 
     private void InitializeEvent()
@@ -142,10 +164,6 @@ public partial class ENOTES : XtraForm
         btnDel.MouseEnter += Btn_MouseEnter;
         btnSave.MouseEnter += Btn_MouseEnter;
         btnPrint.MouseEnter += Btn_MouseEnter;
-
-        xtraTabbedMdiManager1.PageAdded += XtraTabbedMdiManager1_PageAdded;
-        xtraTabbedMdiManager1.PageRemoved += XtraTabbedMdiManager1_PageRemoved;
-
         menuTree.GetSelectImage += MenuTree_GetSelectImage;
         menuTree.DoubleClick += MenuTree_DoubleClick;
 
@@ -154,9 +172,43 @@ public partial class ENOTES : XtraForm
         btnFilterMenu.KeyDown += BtnFilterMenu_KeyDown;
         btnFilterMenu.ButtonClick += BtnFilterMenu_ButtonClick;
 
-        xtraTabbedMdiManager1.CustomDrawTabHeader += XtraTabbedMdiManager1_CustomDrawTabHeader;
+        tabbedView1.CustomDrawTabHeader += TabbedView1_CustomDrawTabHeader1;
 
+        //tabbedView1.DocumentAdded += TabbedView1_DocumentAdded;
+        //tabbedView1.DocumentRemoved += TabbedView1_DocumentRemoved;
+    }
 
+    private void TabbedView1_CustomDrawTabHeader1(object sender, DevExpress.XtraTab.TabHeaderCustomDrawEventArgs e)
+    {
+        bool isActive = e.TabHeaderInfo.IsActiveState;
+
+        if (isActive)
+        {
+
+            using (var brush = new SolidBrush(CHColor.Control_Normal_Tab))
+            {
+                e.Graphics.FillRectangle(brush, e.Bounds);
+            }
+
+            using (var brush = new SolidBrush(Color.FromArgb(32, 130, 188)))
+            {
+                e.Graphics.FillRectangle(brush, new Rectangle(e.Bounds.X, e.Bounds.Y, 5, e.Bounds.Height));
+            }
+        }
+        else
+        {
+            using (var brush = new SolidBrush(SystemColors.Control))
+            {
+                e.Graphics.FillRectangle(brush, e.Bounds);
+            }
+        }
+        e.TabHeaderInfo.PaintAppearance.ForeColor = SystemColors.ControlDark;
+
+        e.DefaultDrawText();
+        e.DefaultDrawImage();
+        e.DefaultDrawButtons();
+
+        e.Handled = true;
     }
 
     private void XtraTabbedMdiManager1_CustomDrawTabHeader(object sender, DevExpress.XtraTab.TabHeaderCustomDrawEventArgs e)
@@ -248,10 +300,16 @@ public partial class ENOTES : XtraForm
     #endregion
 
     #region ▶ Buttons Events
+    private Form GetActiveForm()
+    {
+        var doc = tabbedView1.ActiveDocument;
+        return doc?.Control as Form;
+    }
+
     private void Btn_Click(object sender, EventArgs e)
     {
         Button btn = (Button)sender;
-        if (ActiveMdiChild is not CHFormBase frm)
+        if (GetActiveForm() is not CHFormBase frm)
             return;
         try
         {
@@ -348,38 +406,6 @@ public partial class ENOTES : XtraForm
                 : FormWindowState.Normal;
     }
 
-    private void XtraTabbedMdiManager1_PageRemoved(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
-    {
-        //mainPanel.Visible = (xtraTabbedMdiManager1.Pages.Count == 0);
-    }
-    private bool _tabStyleApplied = false;
-    private void XtraTabbedMdiManager1_PageAdded(object sender, DevExpress.XtraTabbedMdi.MdiTabPageEventArgs e)
-    {
-        if (_tabStyleApplied) return;
-        _tabStyleApplied = true;
-        ApplyTabStyle();
-        //mainPanel.Visible = !(xtraTabbedMdiManager1.Pages.Count > 0);
-    }
-
-
-    private void ApplyTabStyle()
-    {
-        // Match inactive tab color
-        xtraTabbedMdiManager1.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-        xtraTabbedMdiManager1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-
-        xtraTabbedMdiManager1.Appearance.BackColor = Color.White;
-        xtraTabbedMdiManager1.Appearance.Options.UseBackColor = true;
-
-        // Active page content matches active tab
-        xtraTabbedMdiManager1.AppearancePage.PageClient.BorderColor = Color.Red;
-        xtraTabbedMdiManager1.AppearancePage.PageClient.Options.UseBorderColor = true;
-        xtraTabbedMdiManager1.AppearancePage.PageClient.BackColor = Color.Red;
-        xtraTabbedMdiManager1.AppearancePage.PageClient.Options.UseBackColor = true;
-
-
-    }
-
     private void BtnFilterMenu_KeyDown(object sender, KeyEventArgs e)
     {
         if (e.KeyCode == Keys.Enter)
@@ -438,22 +464,32 @@ public partial class ENOTES : XtraForm
             return;
         }
 
-        // Prevent duplicate open
-        foreach (Form f in MdiChildren)
+        // Prevent duplicate — activate existing
+        foreach (var doc in tabbedView1.Documents)
         {
-            if (f.GetType() == type)
+            if (doc.Control?.GetType() == type)
             {
-                f.Activate();
+                tabbedView1.ActivateDocument(doc.Control);
                 return;
             }
         }
+        //foreach (Form f in MdiChildren)
+        //{
+        //    if (f.GetType() == type)
+        //    {
+        //        f.Activate();
+        //        return;
+        //    }
+        //}
 
         CHFormBase form = Activator.CreateInstance(type) as CHFormBase;
         if (form == null) return;
 
         form.IsTopPanelVisible = false;
-        form.MdiParent = this;
         form.Text = tabTitle;
+
+        documentManager1.View.AddDocument(form);
+        tabbedView1.ActivateDocument(form);
         form.Show();
     }
 

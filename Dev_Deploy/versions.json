@@ -1,0 +1,70 @@
+{
+  "version": "2026.03.09.0423",
+  "modules": [
+    {
+      "name": "CH.Grid.dll",
+      "version": "0.0.0.0",
+      "size": 74752
+    },
+    {
+      "name": "CH.Framework.Win.Controls.dll",
+      "version": "0.0.0.0",
+      "size": 55808
+    },
+    {
+      "name": "CH.Helper.dll",
+      "version": "0.0.0.0",
+      "size": 78336
+    },
+    {
+      "name": "CH.dll",
+      "version": "0.0.0.0",
+      "size": 6656
+    },
+    {
+      "name": "CH.Framework.Common.dll",
+      "version": "0.0.0.0",
+      "size": 3584
+    },
+    {
+      "name": "CH.Framework.Win.dll",
+      "version": "0.0.0.0",
+      "size": 36352
+    },
+    {
+      "name": "SNOTES_SKIN.dll",
+      "version": "22.1.6.0",
+      "size": 10228736
+    },
+    {
+      "name": "M_MAS_ORG_REG_001.dll",
+      "version": "1.0.0.0",
+      "size": 24064
+    },
+    {
+      "name": "DevExpress.XtraLayout.v22.1.dll",
+      "version": "22.1.6.0",
+      "size": 2151312
+    },
+    {
+      "name": "DevExpress.XtraMap.v22.1.dll",
+      "version": "22.1.6.0",
+      "size": 1712016
+    },
+    {
+      "name": "DevExpress.XtraNavBar.v22.1.dll",
+      "version": "22.1.6.0",
+      "size": 441744
+    },
+    {
+      "name": "M_TEST_001.dll",
+      "version": "1.0.0.0",
+      "size": 15360
+    },
+    {
+      "name": "CH.DbInfo.dll",
+      "version": "0.0.0.0",
+      "size": 4608
+    }
+  ]
+}

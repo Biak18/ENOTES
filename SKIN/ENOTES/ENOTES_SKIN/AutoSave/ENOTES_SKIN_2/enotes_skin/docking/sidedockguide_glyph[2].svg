@@ -1,0 +1,10 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 40 40" xml:space="preserve" id="Layer_1" tag="Element3">
+  <style type="text/css" tag="Element1">
+	.st0{fill:#B0B0B0;}
+	.st1{fill:#FFFFFF;}
+</style>
+  <path d="M35, 36L5, 36C4.4, 36 4, 35.6 4, 35L4, 5C4, 4.4 4.4, 4 5, 4L35, 4C35.6, 4 36, 4.4 36, 5L36, 35C36, 35.6 35.6, 36 35, 36z" fill="#B0B0B0" class="st0" tag="st00" />
+  <path d="M36, 11L36, 10L30, 10L30, 4L29, 4L29, 10L11, 10L11, 4L10, 4L10, 10L4, 10L4, 11L10, 11L10, 29L4, 29L4, 30L10, 30L10, 36L11, 36L11, 30L29, 30L29, 36L30, 36L30, 30L36, 30L36, 29L30, 29L30, 11L36, 11zM29, 29L11, 29L11, 11L29, 11L29, 29z" fill="#FFFFFF" class="st1" tag="st10" />
+  <rect x="29" y="10" width="7" height="20" tag="Element2" />
+</svg>

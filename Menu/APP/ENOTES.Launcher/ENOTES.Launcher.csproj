@@ -1,0 +1,23 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+	  <AssemblyName>ENOTES</AssemblyName>
+	  <Nullable>disable</Nullable>
+	  <ApplicationIcon>enotes.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="enotes.ico" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="devexpress.win.navigation" Version="22.1.6" />
+		<PackageReference Include="Supabase" Version="1.1.1" />
+	</ItemGroup>
+
+</Project>

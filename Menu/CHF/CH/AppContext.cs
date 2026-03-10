@@ -17,6 +17,8 @@ public static class AppContext
 
     public static string Key { get; private set; }
 
+    public static string ServiceKey { get; private set; }
+
     // Init
     public static void Configure(ConnectionMode mode)
     {
@@ -28,6 +30,7 @@ public static class AppContext
 
             Url = IniFile.IniReadValue("Web", "Url", webInfo);
             Key = IniFile.IniReadValue("Web", "Key", webInfo);
+            ServiceKey = IniFile.IniReadValue("Web", "ServiceKey", webInfo);
         }
     }
 

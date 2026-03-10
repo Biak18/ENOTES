@@ -47,17 +47,19 @@
             logo = new DevExpress.XtraEditors.PictureEdit();
             imageCollection1 = new DevExpress.Utils.ImageCollection(components);
             myTooltip = new ToolTip(components);
-            xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(components);
             leftPanel = new Panel();
             menuTree = new DevExpress.XtraTreeList.TreeList();
             btnFilterMenu = new DevExpress.XtraEditors.ButtonEdit();
+            documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(components);
+            tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(components);
             topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)imageCollection1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)xtraTabbedMdiManager1).BeginInit();
             leftPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)menuTree).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnFilterMenu.Properties).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)documentManager1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)tabbedView1).BeginInit();
             SuspendLayout();
             // 
             // topPanel
@@ -265,20 +267,6 @@
             imageCollection1.Images.SetKeyName(1, "open-folder_12075797.png");
             imageCollection1.Images.SetKeyName(2, "notes_6988438.png");
             // 
-            // xtraTabbedMdiManager1
-            // 
-            xtraTabbedMdiManager1.AppearancePage.Header.Font = new Font("Myanmar Text", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            xtraTabbedMdiManager1.AppearancePage.Header.Options.UseFont = true;
-            xtraTabbedMdiManager1.AppearancePage.HeaderActive.BackColor = Color.White;
-            xtraTabbedMdiManager1.AppearancePage.HeaderActive.Options.UseBackColor = true;
-            xtraTabbedMdiManager1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            xtraTabbedMdiManager1.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
-            xtraTabbedMdiManager1.FloatOnDrag = DevExpress.Utils.DefaultBoolean.True;
-            xtraTabbedMdiManager1.MdiParent = this;
-            xtraTabbedMdiManager1.PinPageButtonShowMode = DevExpress.XtraTab.PinPageButtonShowMode.InActiveTabPageHeader;
-            xtraTabbedMdiManager1.UseDocumentSelector = DevExpress.Utils.DefaultBoolean.True;
-            // 
             // leftPanel
             // 
             leftPanel.Controls.Add(menuTree);
@@ -323,11 +311,20 @@
             btnFilterMenu.Properties.Appearance.Options.UseFont = true;
             btnFilterMenu.Properties.AutoHeight = false;
             btnFilterMenu.Properties.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            editorButtonImageOptions1.Image = (Image)resources.GetObject("editorButtonImageOptions1.Image");
             btnFilterMenu.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] { new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Glyph, "", 25, false, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default) });
             btnFilterMenu.Properties.ButtonsStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             btnFilterMenu.Size = new Size(210, 38);
             btnFilterMenu.TabIndex = 0;
+            // 
+            // documentManager1
+            // 
+            documentManager1.MdiParent = this;
+            // 
+            // tabbedView1
+            // 
+            tabbedView1.AppearancePage.PageClient.BorderColor = Color.Transparent;
+            tabbedView1.AppearancePage.PageClient.Options.UseBorderColor = true;
+            tabbedView1.Style = DevExpress.XtraBars.Docking2010.Views.DockingViewStyle.Light;
             // 
             // ENOTES
             // 
@@ -349,10 +346,11 @@
             topPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)logo.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)imageCollection1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)xtraTabbedMdiManager1).EndInit();
             leftPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)menuTree).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnFilterMenu.Properties).EndInit();
+            ((System.ComponentModel.ISupportInitialize)documentManager1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)tabbedView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -369,10 +367,11 @@
         private CH.Framework.Win.Controls.CHRoundButton btnMaximize;
         private CH.Framework.Win.Controls.CHRoundButton btnClose;
         private ToolTip myTooltip;
-        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
         private DevExpress.Utils.ImageCollection imageCollection1;
         private Panel leftPanel;
         private DevExpress.XtraTreeList.TreeList menuTree;
         private DevExpress.XtraEditors.ButtonEdit btnFilterMenu;
+        private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
+        private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
     }
 }

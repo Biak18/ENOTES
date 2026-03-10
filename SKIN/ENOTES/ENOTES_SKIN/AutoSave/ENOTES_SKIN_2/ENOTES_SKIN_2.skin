@@ -1,0 +1,8 @@
+﻿<SkinItems version="1.0" application="DevExpress Skin Editor v2" assembly="ENOTES_SKIN" class="" extranamespace="">
+  <Item>
+    <ItemName>ENOTES_SKIN</ItemName>
+    <TemplateName>Office 2019 Colorful</TemplateName>
+    <SkinMaskColor />
+    <SkinMaskColor2 />
+  </Item>
+</SkinItems>

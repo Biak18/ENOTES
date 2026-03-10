@@ -1,0 +1,5 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" id="Layer_1" tag="Element0">
+  <circle cx="7" cy="7" r="7" fill="#AFAFAF" class="st0" tag="st00" />
+  <path d="M7, 0C3.1, 0 0, 3.1 0, 7C0, 10.9 3.1, 14 7, 14C10.9, 14 14, 10.8 14, 7C14, 3.2 10.8, 0 7, 0zM7, 13C3.7, 13 1, 10.3 1, 7C1, 3.7 3.7, 1 7, 1C10.3, 1 13, 3.7 13, 7C13, 10.3 10.3, 13 7, 13z" fill="#707070" class="st1" tag="st10" />
+</svg>

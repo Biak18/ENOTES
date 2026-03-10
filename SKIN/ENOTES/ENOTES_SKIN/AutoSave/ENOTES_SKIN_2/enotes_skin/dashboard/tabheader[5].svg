@@ -1,0 +1,12 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg x="0px" y="0px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" enable-background="new 0 0 32 32" xml:space="preserve" id="Layer_1" tag="Element6">
+  <style type="text/css" tag="Element1">
+	.st0{fill:#AFAFAF;}
+</style>
+  <g tag="Element2">
+    <rect x="0" y="0" width="32" height="32" fill="#AFAFAF" class="st0" tag="st00" />
+  </g>
+  <rect x="0" y="0" width="1" height="32" tag="Element3" />
+  <rect x="31" y="0" width="1" height="32" tag="Element4" />
+  <path d="M3, 2L3, 29L29, 29L29, 2L3, 2zM28, 28L4, 28L4, 3L28, 3L28, 28z" tag="Element5" />
+</svg>

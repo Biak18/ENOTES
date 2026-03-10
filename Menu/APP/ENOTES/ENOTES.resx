@@ -258,17 +258,7 @@
   <metadata name="myTooltip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>203, 17</value>
   </metadata>
-  <metadata name="xtraTabbedMdiManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>311, 17</value>
+  <metadata name="documentManager1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>644, 17</value>
   </metadata>
-  <data name="editorButtonImageOptions1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAARFJREFUOE+V
-        0rErhWEUx/E7sZiYFGUzKVlks92BDBZxR0mxkE2JRTLfmOwkk81ktSjJPyCKKGW1fPRwrp736d7wXd7e
-        3+93zvO857y1Wgbq2MUd3uN5juk81xas+uYWe5jBCo5DT436y7ovsB2hC/S08Rt4xlnpJXMYb2iWXk58
-        XmKnNA5xje6K0QYc4aoUb347vQXm4xaDufiK2UqyA+iNBmO5+JKmXUl2AKPRYCAXD9KqKskOYA1P6MrF
-        uejaqKTbgEfsl3oymrHneum1SOvDR8dt4SRuklaVpp0GNo6N+KUfwp8sa3/AMu4jmHOKCSzE+1RZ+0Ma
-        EIaiYAR9hb8UTRZz/V9gPZpslt6fwRYuPwE1B2c01C9LrAAAAABJRU5ErkJggg==
-</value>
-  </data>
 </root>

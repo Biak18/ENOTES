@@ -3,8 +3,6 @@ using CH.Framework.Win;
 using CH.Framework.Win.Controls;
 using CH.Helper;
 using DevExpress.XtraEditors;
-using DevExpress.XtraTreeList;
-using DevExpress.XtraTreeList.Nodes;
 using System.Data;
 using System.IO;
 using System.Reflection;
@@ -56,91 +54,68 @@ public partial class ENOTES : XtraForm
 
     }
 
+    public class MenuNodeData
+    {
+        public string CdMenu { get; set; }
+        public string NmMenu { get; set; }
+        public string NmNetWindow { get; set; }
+        public string FgType { get; set; }
+        public string CdModule { get; set; }
+    }
+
     private void InitializeTree()
     {
-        menuTree.OptionsBehavior.Editable = false;
-        menuTree.OptionsSelection.KeepSelectedOnClick = false;
-        menuTree.OptionsSelection.EnableAppearanceFocusedCell = false;
-        menuTree.OptionsView.ShowButtons = false;
-        menuTree.OptionsView.ShowIndentAsRowStyle = true;
-        menuTree.OptionsView.ShowHorzLines = false;
-        menuTree.OptionsView.ShowVertLines = false;
-        menuTree.OptionsView.ShowColumns = false;
-        menuTree.LookAndFeel.UseDefaultLookAndFeel = false;
-        menuTree.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-        menuTree.OptionsSelection.EnableAppearanceFocusedRow = true;
-        menuTree.OptionsView.FocusRectStyle = DrawFocusRectStyle.None;
-        menuTree.OptionsSelection.InvertSelection = false;
-        menuTree.OptionsSelection.MultiSelect = false;
-        menuTree.OptionsSelection.EnableAppearanceHotTrackedRow = DevExpress.Utils.DefaultBoolean.True;
-
-        //menuTree.OptionsView.ShowIndicator = false;
-        //menuTree.StateImageList = imageCollection1;    // this can also be used for node images
-        menuTree.SelectImageList = imageCollection1;   // used for node icons
-
-        Color backColor = Color.FromArgb(31, 42, 56);
-        Color hoverColor = Color.FromArgb(42, 56, 75);
-
-        menuTree.Appearance.Empty.BackColor = backColor;
-        menuTree.Appearance.Row.BackColor = backColor;
-        menuTree.Appearance.FocusedRow.BackColor = backColor;
-        menuTree.Appearance.HideSelectionRow.BackColor = backColor;
-        menuTree.Appearance.TreeLine.BackColor = backColor;
-        menuTree.Appearance.HotTrackedRow.BackColor = hoverColor;
-
-        menuTree.Appearance.Row.ForeColor = Color.White;
-        menuTree.Appearance.FocusedRow.ForeColor = /*Color.White*/CHColor.Label_Normal;
-        menuTree.Appearance.HideSelectionRow.ForeColor = Color.White;
-        menuTree.Appearance.HotTrackedRow.ForeColor = Color.White;
-
-        menuTree.Appearance.FocusedCell.BackColor = hoverColor;
-        menuTree.Appearance.FocusedCell.ForeColor = Color.White;
-
-        menuTree.OptionsView.ExpandButtonCentered = true;
-
-        //menuTree.Appearance.Row.Font = new Font("Malgun gothic", 10);
-        menuTree.Appearance.Row.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Near;
-
-
-
+        menuTree.ImageList = imageList1;
         DataTable dataTable = _D.SearchMenu(new object[] { "", "" });
-        menuTree.DataSource = dataTable;
-        menuTree.KeyFieldName = "CD_MENU";
-        menuTree.ParentFieldName = "CD_MENU_PARENT";
+        LoadNavTree(dataTable);
+    }
 
-        foreach (var col in menuTree.Columns)
+    private void LoadNavTree(DataTable dt)
+    {
+        menuTree.BeginUpdate();
+        menuTree.Nodes.Clear();
+        var nodeMap = new Dictionary<string, TreeNode>();
+
+        foreach (DataRow row in dt.Rows)
         {
-            col.Visible = col.FieldName == "NM_MENU";
+            string cd = row["CD_MENU"].ToString();
+            string nm = row["NM_MENU"].ToString();
+            string fgType = row["FG_TYPE"]?.ToString();
+            string cdMenu = cd.Replace("SN", "M");
+
+            var node = new TreeNode(nm)
+            {
+                Tag = new MenuNodeData
+                {
+                    CdMenu = cdMenu,
+                    NmMenu = nm,
+                    NmNetWindow = row["NM_NETWINDOW"]?.ToString(),
+                    FgType = fgType,
+                    CdModule = row["CD_MODULE"]?.ToString()
+                }
+            };
+
+            nodeMap[cd] = node;
         }
-        menuTree.ExpandToLevel(0);
+
+        foreach (DataRow row in dt.Rows)
+        {
+            string cd = row["CD_MENU"].ToString();
+            string parent = row["CD_MENU_PARENT"]?.ToString();
+
+            if (string.IsNullOrEmpty(parent) || !nodeMap.ContainsKey(parent))
+                menuTree.Nodes.Add(nodeMap[cd]);  // root
+            else
+                nodeMap[parent].Nodes.Add(nodeMap[cd]); // child
+        }
+        menuTree.EndUpdate();
+        menuTree.ExpandAll();
     }
 
     private void InitializeControl()
     {
         btnFilterMenu.Text = filterText;
         btnFilterMenu.ForeColor = Color.White;
-
-        InitializeDocumentManager();
-    }
-
-    private void InitializeDocumentManager()
-    {
-        tabbedView1.AppearancePage.Header.BackColor = SystemColors.Control;
-        tabbedView1.AppearancePage.Header.Options.UseBackColor = true;
-
-        tabbedView1.AppearancePage.HeaderActive.BackColor = CHColor.Control_Normal_Tab;
-        tabbedView1.AppearancePage.HeaderActive.Options.UseBackColor = true;
-
-        tabbedView1.AppearancePage.HeaderHotTracked.BackColor = SystemColors.ControlLight;
-        tabbedView1.AppearancePage.HeaderHotTracked.Options.UseBackColor = true;
-
-        tabbedView1.AppearancePage.PageClient.BackColor = Color.White;
-        tabbedView1.AppearancePage.PageClient.Options.UseBackColor = true;
-        tabbedView1.AppearancePage.PageClient.BorderColor = Color.White;
-        tabbedView1.AppearancePage.PageClient.Options.UseBorderColor = true;
-
-        tabbedView1.ShowDocumentSelectorMenuOnCtrlAltDownArrow = DevExpress.Utils.DefaultBoolean.False;
-        //tabbedView1.all = DevExpress.Utils.DefaultBoolean.False;
     }
 
     private void InitializeEvent()
@@ -164,7 +139,7 @@ public partial class ENOTES : XtraForm
         btnDel.MouseEnter += Btn_MouseEnter;
         btnSave.MouseEnter += Btn_MouseEnter;
         btnPrint.MouseEnter += Btn_MouseEnter;
-        menuTree.GetSelectImage += MenuTree_GetSelectImage;
+        //menuTree.GetSelectImage += MenuTree_GetSelectImage;
         menuTree.DoubleClick += MenuTree_DoubleClick;
 
         btnFilterMenu.GotFocus += BtnFilterMenu_GotFocus;
@@ -172,10 +147,7 @@ public partial class ENOTES : XtraForm
         btnFilterMenu.KeyDown += BtnFilterMenu_KeyDown;
         btnFilterMenu.ButtonClick += BtnFilterMenu_ButtonClick;
 
-        tabbedView1.CustomDrawTabHeader += TabbedView1_CustomDrawTabHeader1;
-
-        //tabbedView1.DocumentAdded += TabbedView1_DocumentAdded;
-        //tabbedView1.DocumentRemoved += TabbedView1_DocumentRemoved;
+        //xtraTabbedMdiManager1.CustomDrawTabHeader += XtraTabbedMdiManager1_CustomDrawTabHeader;
     }
 
     private void TabbedView1_CustomDrawTabHeader1(object sender, DevExpress.XtraTab.TabHeaderCustomDrawEventArgs e)
@@ -245,71 +217,31 @@ public partial class ENOTES : XtraForm
     }
     #endregion
 
-    #region ▶ Tree Events
-    private void MenuTree_GetSelectImage(object sender, GetSelectImageEventArgs e)
-    {
-        //hide child
-        if (e.Node.ParentNode != null)
-        {
-            string @string = A.GetString(e.Node.GetValue("CD_MENU"));
-
-            if (@string.Contains("REG"))
-            {
-                e.NodeImageIndex = e.Node.IsSelected ? 5 : 4;
-                return;
-            }
-            if (@string.Contains("REP"))
-            {
-                e.NodeImageIndex = e.Node.IsSelected ? 7 : 6;
-                return;
-            }
-        }
-
-        if (e.Node.Expanded)
-        {
-            e.NodeImageIndex = 1;     // expanded icon
-        }
-        else
-            e.NodeImageIndex = 0;     // collapsed icon
-    }
-
+    #region ▶ Tree Events  
     private void MenuTree_DoubleClick(object sender, EventArgs e)
     {
         try
         {
-            TreeListNode node = menuTree.FocusedNode;
-            if (node == null) return;
+            if (menuTree.SelectedNode?.Tag is not MenuNodeData data) return;
+            if (data.FgType != "M") return;
 
-            string tpType = node.GetValue("FG_TYPE").ToString();
-            string cdMenu = node.GetValue("CD_MENU").ToString().Replace("SN", "M");
-            string nmMenu = node.GetValue("NM_MENU").ToString();
-            string nmNetWindow = node.GetValue("NM_NETWINDOW").ToString();
-            string cdModule = node.GetValue("CD_MODULE").ToString();
-            if (tpType != "M") return;
-
-            OpenFormFromDll(cdMenu, nmNetWindow, nmMenu, cdModule);
+            OpenFormFromDll(data.CdMenu, data.NmNetWindow, data.NmMenu, data.CdModule);
         }
         catch (Exception ex)
         {
             using (var dlg = new MsgDialog(MessageType.Error, ex.Message))
-            {
                 dlg.ShowDialog(this);
-            }
         }
     }
     #endregion
 
     #region ▶ Buttons Events
-    private Form GetActiveForm()
-    {
-        var doc = tabbedView1.ActiveDocument;
-        return doc?.Control as Form;
-    }
+
 
     private void Btn_Click(object sender, EventArgs e)
     {
         Button btn = (Button)sender;
-        if (GetActiveForm() is not CHFormBase frm)
+        if (ActiveMdiChild is not CHFormBase frm)
             return;
         try
         {
@@ -406,13 +338,64 @@ public partial class ENOTES : XtraForm
                 : FormWindowState.Normal;
     }
 
+    //private void BtnFilterMenu_KeyDown(object sender, KeyEventArgs e)
+    //{
+    //    if (e.KeyCode == Keys.Enter)
+    //    {
+    //        menuTree.ExpandAll();
+    //        menuTree.ActiveFilterString = "NM_MENU like '%" + btnFilterMenu.Text.ToString() + "%'";
+    //    }
+    //}
+
     private void BtnFilterMenu_KeyDown(object sender, KeyEventArgs e)
     {
         if (e.KeyCode == Keys.Enter)
+            FilterTree(btnFilterMenu.Text);
+    }
+
+
+    private void FilterTree(string keyword)
+    {
+        if (string.IsNullOrWhiteSpace(keyword) || keyword == filterText)
         {
-            menuTree.ExpandAll();
-            menuTree.ActiveFilterString = "NM_MENU like '%" + btnFilterMenu.Text.ToString() + "%'";
+            // Restore all nodes
+            menuTree.Nodes.Clear();
+            LoadNavTree(_D.SearchMenu(new object[] { "", "" }));
+            return;
         }
+
+        // Show only matching nodes + their parents
+        menuTree.Nodes.Clear();
+        DataTable dt = _D.SearchMenu(new object[] { "", "" });
+        var allRows = dt.AsEnumerable().ToList();
+
+        // Find matching rows
+        var matched = allRows
+            .Where(r => r["NM_MENU"].ToString()
+                .Contains(keyword, StringComparison.OrdinalIgnoreCase))
+            .Select(r => r["CD_MENU"].ToString())
+            .ToHashSet();
+
+        // Include all parents of matched nodes
+        foreach (var cd in matched.ToList())
+        {
+            var row = allRows.FirstOrDefault(r => r["CD_MENU"].ToString() == cd);
+            string parent = row?["CD_MENU_PARENT"]?.ToString();
+            while (!string.IsNullOrEmpty(parent))
+            {
+                matched.Add(parent);
+                var parentRow = allRows.FirstOrDefault(r => r["CD_MENU"].ToString() == parent);
+                parent = parentRow?["CD_MENU_PARENT"]?.ToString();
+            }
+        }
+
+        // Rebuild tree with only matched nodes
+        var filtered = dt.AsEnumerable()
+            .Where(r => matched.Contains(r["CD_MENU"].ToString()));
+        var filteredDt = filtered.Any() ? filtered.CopyToDataTable() : dt.Clone();
+
+        LoadNavTree(filteredDt);
+        menuTree.ExpandAll();
     }
 
     private void BtnFilterMenu_LostFocus(object sender, EventArgs e)
@@ -431,10 +414,16 @@ public partial class ENOTES : XtraForm
         }
     }
 
-    private void BtnFilterMenu_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+    //private void BtnFilterMenu_ButtonClick(object sender, DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
+    //{
+    //    menuTree.ExpandAll();
+    //    menuTree.ActiveFilterString = "NM_MENU like '%" + btnFilterMenu.Text.ToString() + "%'";
+    //}
+
+    private void BtnFilterMenu_ButtonClick(object sender,
+    DevExpress.XtraEditors.Controls.ButtonPressedEventArgs e)
     {
-        menuTree.ExpandAll();
-        menuTree.ActiveFilterString = "NM_MENU like '%" + btnFilterMenu.Text.ToString() + "%'";
+        FilterTree(btnFilterMenu.Text);
     }
     #endregion
 
@@ -464,55 +453,24 @@ public partial class ENOTES : XtraForm
             return;
         }
 
-        // Prevent duplicate — activate existing
-        foreach (var doc in tabbedView1.Documents)
+        // Prevent duplicate open
+        foreach (Form f in MdiChildren)
         {
-            if (doc.Control?.GetType() == type)
+            if (f.GetType() == type)
             {
-                tabbedView1.ActivateDocument(doc.Control);
+                f.Activate();
                 return;
             }
         }
-        //foreach (Form f in MdiChildren)
-        //{
-        //    if (f.GetType() == type)
-        //    {
-        //        f.Activate();
-        //        return;
-        //    }
-        //}
 
         CHFormBase form = Activator.CreateInstance(type) as CHFormBase;
         if (form == null) return;
 
         form.IsTopPanelVisible = false;
+        form.MdiParent = this;
         form.Text = tabTitle;
-
-        documentManager1.View.AddDocument(form);
-        tabbedView1.ActivateDocument(form);
         form.Show();
     }
-
-    //private void SetNodeIcons(TreeListNode parentNode)
-    //{
-    //    foreach (TreeListNode node in parentNode.Nodes)
-    //    {
-    //        string tpType = node.GetValue("FG_TYPE").ToString();
-
-    //        if (tpType == "M")
-    //            node.SelectImageIndex = 2; // child/menu
-    //        else
-    //            node.SelectImageIndex = 0; // folder or parent
-
-    //        // Recursively set icons for children
-    //        if (node.HasChildren)
-    //            SetNodeIcons(node);
-
-    //        // Force redraw
-    //        node.TreeList.RefreshNode(node);
-    //    }
-    //}
-
     #region Borderless Aero Snap
     const int WM_NCCALCSIZE = 0x83;
     const int WM_NCHITTEST = 0x84;

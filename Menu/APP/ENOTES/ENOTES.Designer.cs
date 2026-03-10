@@ -48,18 +48,16 @@
             imageCollection1 = new DevExpress.Utils.ImageCollection(components);
             myTooltip = new ToolTip(components);
             leftPanel = new Panel();
-            menuTree = new DevExpress.XtraTreeList.TreeList();
+            menuTree = new NavTreeView();
             btnFilterMenu = new DevExpress.XtraEditors.ButtonEdit();
-            documentManager1 = new DevExpress.XtraBars.Docking2010.DocumentManager(components);
-            tabbedView1 = new DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView(components);
+            imageList1 = new ImageList(components);
+            xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(components);
             topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)logo.Properties).BeginInit();
             ((System.ComponentModel.ISupportInitialize)imageCollection1).BeginInit();
             leftPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)menuTree).BeginInit();
             ((System.ComponentModel.ISupportInitialize)btnFilterMenu.Properties).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)documentManager1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)tabbedView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)xtraTabbedMdiManager1).BeginInit();
             SuspendLayout();
             // 
             // topPanel
@@ -280,24 +278,21 @@
             // 
             // menuTree
             // 
-            menuTree.Appearance.Row.Font = new Font("Malgun Gothic", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            menuTree.Appearance.Row.Options.UseFont = true;
-            menuTree.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            menuTree.BackColor = Color.FromArgb(31, 42, 56);
+            menuTree.BorderStyle = BorderStyle.None;
             menuTree.Dock = DockStyle.Fill;
-            menuTree.Font = new Font("Malgun Gothic", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            menuTree.DrawMode = TreeViewDrawMode.OwnerDrawAll;
+            menuTree.Font = new Font("Segoe UI", 9.5F);
+            menuTree.FullRowSelect = true;
+            menuTree.Indent = 16;
+            menuTree.ItemHeight = 36;
             menuTree.Location = new Point(0, 38);
-            menuTree.LookAndFeel.UseDefaultLookAndFeel = false;
             menuTree.Name = "menuTree";
-            menuTree.OptionsBehavior.Editable = false;
-            menuTree.OptionsBehavior.ReadOnly = true;
-            menuTree.OptionsView.FocusRectStyle = DevExpress.XtraTreeList.DrawFocusRectStyle.None;
-            menuTree.OptionsView.RowImagesShowMode = DevExpress.XtraTreeList.RowImagesShowMode.InIndent;
-            menuTree.OptionsView.ShowFilterPanelMode = DevExpress.XtraTreeList.ShowFilterPanelMode.Never;
-            menuTree.RowHeight = 40;
+            menuTree.ShowLines = false;
+            menuTree.ShowPlusMinus = false;
+            menuTree.ShowRootLines = false;
             menuTree.Size = new Size(210, 592);
-            menuTree.StateImageList = imageCollection1;
-            menuTree.TabIndex = 0;
-            menuTree.ViewStyle = DevExpress.XtraTreeList.TreeListViewStyle.TreeView;
+            menuTree.TabIndex = 1;
             // 
             // btnFilterMenu
             // 
@@ -316,15 +311,26 @@
             btnFilterMenu.Size = new Size(210, 38);
             btnFilterMenu.TabIndex = 0;
             // 
-            // documentManager1
+            // imageList1
             // 
-            documentManager1.MdiParent = this;
+            imageList1.ColorDepth = ColorDepth.Depth32Bit;
+            imageList1.ImageStream = (ImageListStreamer)resources.GetObject("imageList1.ImageStream");
+            imageList1.TransparentColor = Color.Transparent;
+            imageList1.Images.SetKeyName(0, "folder.png");
+            imageList1.Images.SetKeyName(1, "folder_open.png");
+            imageList1.Images.SetKeyName(2, "menu.png");
             // 
-            // tabbedView1
+            // xtraTabbedMdiManager1
             // 
-            tabbedView1.AppearancePage.PageClient.BorderColor = Color.Transparent;
-            tabbedView1.AppearancePage.PageClient.Options.UseBorderColor = true;
-            tabbedView1.Style = DevExpress.XtraBars.Docking2010.Views.DockingViewStyle.Light;
+            xtraTabbedMdiManager1.AllowDragDrop = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabbedMdiManager1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            xtraTabbedMdiManager1.BorderStylePage = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            xtraTabbedMdiManager1.ClosePageButtonShowMode = DevExpress.XtraTab.ClosePageButtonShowMode.InAllTabPageHeaders;
+            xtraTabbedMdiManager1.FloatOnDrag = DevExpress.Utils.DefaultBoolean.True;
+            xtraTabbedMdiManager1.FloatPageDragMode = DevExpress.XtraTabbedMdi.FloatPageDragMode.Preview;
+            xtraTabbedMdiManager1.MdiParent = this;
+            xtraTabbedMdiManager1.PinPageButtonShowMode = DevExpress.XtraTab.PinPageButtonShowMode.InActiveTabPageHeader;
+            xtraTabbedMdiManager1.UseDocumentSelector = DevExpress.Utils.DefaultBoolean.True;
             // 
             // ENOTES
             // 
@@ -347,10 +353,8 @@
             ((System.ComponentModel.ISupportInitialize)logo.Properties).EndInit();
             ((System.ComponentModel.ISupportInitialize)imageCollection1).EndInit();
             leftPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)menuTree).EndInit();
             ((System.ComponentModel.ISupportInitialize)btnFilterMenu.Properties).EndInit();
-            ((System.ComponentModel.ISupportInitialize)documentManager1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)tabbedView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)xtraTabbedMdiManager1).EndInit();
             ResumeLayout(false);
         }
 
@@ -369,9 +373,9 @@
         private ToolTip myTooltip;
         private DevExpress.Utils.ImageCollection imageCollection1;
         private Panel leftPanel;
-        private DevExpress.XtraTreeList.TreeList menuTree;
         private DevExpress.XtraEditors.ButtonEdit btnFilterMenu;
-        private DevExpress.XtraBars.Docking2010.DocumentManager documentManager1;
-        private DevExpress.XtraBars.Docking2010.Views.Tabbed.TabbedView tabbedView1;
+        private NavTreeView menuTree;
+        private ImageList imageList1;
+        private DevExpress.XtraTabbedMdi.XtraTabbedMdiManager xtraTabbedMdiManager1;
     }
 }

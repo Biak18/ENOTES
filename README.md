@@ -17,9 +17,9 @@ It uses **MDI (Multiple Document Interface)**, allowing you to manage multiple p
 
 ## Setup
 1. Clone the repo
-2. Run Database/schema.sql
-3. Update connection string
-4. Run the WinForms project
+2. Run the ENOTES.exe from the Dev_Deploy
+3. Login with SYSTEM\SYSTEM\1 for the first time
+4. Add some menu in Master Menu/Company registration for your company
 
 ## Status
 This project is under active development.

@@ -1,24 +1,56 @@
-# ENOTES ERP System
+#ENOTES ERP System
 
-ENOTES ERP is a modular ERP platform currently focused on company management, user administration, and role-based authorization. The system is designed to support future business modules including inventory, sales, purchasing, production, and quality control while maintaining a scalable and secure architecture.
+ENOTES ERP is a desktop Enterprise Resource Planning (ERP) system built with .NET 8 and WinForms. The application follows a modular architecture and uses an MDI (Multiple Document Interface) design, allowing users to manage multiple business modules within a single workspace.
 
+The system currently focuses on company management, user administration, role-based authorization, and notes management, while providing a scalable foundation for future ERP modules.
 
-## Tech Stack
-- .NET 8 (WinForms)
-- SQL Server
-- DevExpress UI
+Planned Modules
+Inventory Management
+Sales Management
+Purchase Management
+Production Management
+Quality Control (QC)
+Reporting & Analytics
+Tech Stack
+C#
+.NET 8 (WinForms)
+SQL Server
+DevExpress UI Components
+Current Features
+Multi-company management
+User authentication
+Role-based access control (RBAC)
+User and role management
+Menu authorization and configuration
+Notes management
+MDI-based desktop interface
+ERP-style navigation and workflow
+Architecture Goals
+Modular and maintainable design
+Database-driven configuration
+Scalable business logic layer
+Secure authentication and authorization
+Support for enterprise business processes
+Getting Started
+Installation
+Clone the repository.
+Navigate to the Dev_Deploy folder.
+Run ENOTES.exe.
+Initial Login
+User ID : SYSTEM
+Password: SYSTEM
+Company : 1
+First-Time Setup
+Create a company through Company Registration.
+Configure menus through Master Menu.
+Create users and assign roles.
+Configure menu permissions.
+Screenshots
 
-## Features
-- User authentication
-- Role-based access control
-- Notes management
-- Clean ERP-style UI
+Screenshots will be added as development progresses.
 
-## Setup
-1. Clone the repo
-2. Run the ENOTES.exe from the Dev_Deploy
-3. Login with SYSTEM\SYSTEM\1 for the first time
-4. Add some menu in Master Menu/Company registration for your company
+Project Status
 
-## Status
-This project is under active development.
+🚧 Active Development
+
+The system is currently in the foundation phase, focusing on administration, security, and core framework components before implementing business modules such as Inventory, Sales, Purchasing, Production, and Quality Control.

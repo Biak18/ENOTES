@@ -1,7 +1,6 @@
 # ENOTES ERP System
 
-ENOTES is a desktop ERP system built with .NET WinForms.  
-It uses **MDI (Multiple Document Interface)**, allowing you to manage multiple projects within a single application.
+ENOTES ERP is a modular ERP platform currently focused on company management, user administration, and role-based authorization. The system is designed to support future business modules including inventory, sales, purchasing, production, and quality control while maintaining a scalable and secure architecture.
 
 
 ## Tech Stack

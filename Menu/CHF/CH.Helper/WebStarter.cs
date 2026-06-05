@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Newtonsoft.Json;
 using Supabase;
 using Supabase.Postgrest.Attributes;
 using Supabase.Postgrest.Models;
@@ -97,8 +98,6 @@ public static class WebStarter
         }
     }
     #endregion
-
-
 
     public static async Task Init()
     {
@@ -213,7 +212,17 @@ public static class WebStarter
             string[] paramNames = await GetFuncArgs(fnName);
             object rpcParam = ConvertParams(parameterValues, paramNames);
             var json = await _client.Rpc(fnName.ToLower(), rpcParam);
-            DataTable dataTable = Newtonsoft.Json.JsonConvert.DeserializeObject<DataTable>(json.Content);
+            DataTable dataTable;
+
+            if (string.IsNullOrEmpty(json.Content) || json.Content.Trim() == "[]")
+            {
+                dataTable = await BuildEmptyTable(fnName);
+            }
+            else
+            {
+                dataTable = Newtonsoft.Json.JsonConvert.DeserializeObject<DataTable>(json.Content);
+            }
+
 
             foreach (DataColumn column in dataTable.Columns)
             {
@@ -230,10 +239,55 @@ public static class WebStarter
         }
         catch (Exception ex)
         {
-            Msg.ShowMessageBox(ex.Message, Framework.Common.MessageType.Error);
-            return null;
+            throw new Exception(ex.Message);
         }
     }
+
+    private static async Task<DataTable> BuildEmptyTable(string fnName)
+    {
+        try
+        {
+            var json = await _client.Rpc("get_function_return_columns", new { p_fn_name = fnName.ToLower() });
+
+            if (string.IsNullOrEmpty(json.Content) || json.Content.Trim() == "[]")
+                return new DataTable();
+
+            var columns = JsonConvert.DeserializeObject<List<ReturnColumn>>(json.Content);
+
+            var dt = new DataTable();
+
+            foreach (var col in columns)
+            {
+                dt.Columns.Add(col.ColumnName.ToUpperInvariant(), PgTypeToClr(col.DataType));
+            }
+
+            return dt;
+        }
+        catch
+        {
+            return new DataTable();
+        }
+    }
+
+    private class ReturnColumn
+    {
+        [JsonProperty("column_name")]
+        public string ColumnName { get; set; }
+
+        [JsonProperty("data_type")]
+        public string DataType { get; set; }
+    }
+
+    private static Type PgTypeToClr(string pgType) => pgType?.ToLower() switch
+    {
+        "int4" or "int2" or "integer" => typeof(int),
+        "int8" or "bigint" => typeof(long),
+        "bool" or "boolean" => typeof(bool),
+        "numeric" or "decimal" or "float8" => typeof(decimal),
+        "timestamp" or "timestamptz" => typeof(DateTime),
+        "text" or "varchar" or "bpchar" => typeof(string),
+        _ => typeof(string)
+    };
 
     private static async Task<string[]> GetFuncArgs(string fnName)
     {
@@ -261,8 +315,7 @@ public static class WebStarter
         }
         catch (Exception ex)
         {
-            Msg.ShowMessageBox(ex.Message, Framework.Common.MessageType.Error);
-            return Array.Empty<string>();
+            throw new Exception(ex.Message);
         }
     }
 
@@ -332,8 +385,7 @@ public static class WebStarter
         }
         catch (Exception ex)
         {
-            Msg.ShowMessageBox(ex.Message, Framework.Common.MessageType.Error);
-            return false;
+            throw new Exception(ex.Message);
         }
     }
 
@@ -358,8 +410,7 @@ public static class WebStarter
         }
         catch (Exception ex)
         {
-            Msg.ShowMessageBox(ex.Message, Framework.Common.MessageType.Error);
-            return false;
+            throw new Exception(ex.Message);
         }
     }
 
@@ -380,9 +431,15 @@ public static class WebStarter
         for (int i = 0; i < colNames.Length; i++)
         {
             string colName = colNames[i];
+
             object value = dataRow.RowState == DataRowState.Deleted
                 ? dataRow[colName, DataRowVersion.Original]
                 : dataRow[colName];
+
+            if (colName.StartsWith("dt") && value != null && value.ToString().Length > 8)
+            {
+                value = value.ToString().Substring(0, 10).Replace("-", "");
+            }
 
             dict[paramNames[i]] = value ?? DBNull.Value;
 

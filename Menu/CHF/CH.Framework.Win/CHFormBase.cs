@@ -1,10 +1,11 @@
 ﻿using CH.Framework.Win.Controls;
+using CH.Grid;
 using CH.Helper;
+using DevExpress.XtraGrid.Views.Grid;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Versioning;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CH.Framework.Win;
@@ -105,18 +106,35 @@ public partial class CHFormBase : FormBase
         }
     }
 
-    public virtual async Task OnSaveAsync()
+    private bool FN_ModifiedCheck_Grid(bool yn_nullchk)
     {
-        try
+        GridView gridView = null;
+        IEnumerable<Control> all = GetAll(this, typeof(CHGrid));
+        if (all.Any())
         {
-
+            foreach (Control item in all)
+            {
+                CHGrid grid = item as CHGrid;
+                if (grid != null)
+                {
+                    gridView = grid.MainView as GridView;
+                    if (GH.GridModifyCheck(grid, yn_nullchk))
+                    {
+                        return true;
+                    }
+                }
+            }
         }
-        catch (Exception ex)
-        {
-            HandleException(ex);
-        }
+        return false;
     }
 
+    private IEnumerable<Control> GetAll(Control control, Type type)
+    {
+        IEnumerable<Control> enumerable = control.Controls.Cast<Control>();
+        return from c in enumerable.SelectMany((Control ctrl) => GetAll(ctrl, type)).Concat(enumerable)
+               where c.GetType() == type
+               select c;
+    }
 
     public virtual void OnPrint()
     {

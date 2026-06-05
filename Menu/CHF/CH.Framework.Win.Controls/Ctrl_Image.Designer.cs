@@ -63,6 +63,76 @@ namespace CH.Framework.Win.Controls {
         /// <summary>
         ///   Looks up a localized resource of type System.Byte[].
         /// </summary>
+        internal static byte[] ctl_calendar {
+            get {
+                object obj = ResourceManager.GetObject("ctl_calendar", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ctl_calendar_main {
+            get {
+                object obj = ResourceManager.GetObject("ctl_calendar_main", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ctl_calendar_on {
+            get {
+                object obj = ResourceManager.GetObject("ctl_calendar_on", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ctl_calendar_on_main {
+            get {
+                object obj = ResourceManager.GetObject("ctl_calendar_on_main", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ctl_calendar_on_tab {
+            get {
+                object obj = ResourceManager.GetObject("ctl_calendar_on_tab", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ctl_calendar_readonly {
+            get {
+                object obj = ResourceManager.GetObject("ctl_calendar_readonly", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] ctl_calendar_tab {
+            get {
+                object obj = ResourceManager.GetObject("ctl_calendar_tab", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
         internal static byte[] ctl_drop {
             get {
                 object obj = ResourceManager.GetObject("ctl_drop", resourceCulture);

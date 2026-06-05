@@ -11,6 +11,7 @@ using System.Windows.Forms;
 
 namespace CH.Framework.Win.Controls;
 [SupportedOSPlatform("windows")]
+[ToolboxItem(false)]
 public class CHNumericText : TextEdit
 {
 

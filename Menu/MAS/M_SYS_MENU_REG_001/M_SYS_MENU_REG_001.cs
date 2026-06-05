@@ -3,12 +3,14 @@ using CH.Framework.Win;
 using CH.Helper;
 using DevExpress.XtraTreeList.Nodes;
 using System;
+using System.Collections.Generic;
 using System.Data;
 
 namespace SYS
 {
     public partial class M_SYS_MENU_REG_001 : CHFormBase
     {
+        Dictionary<string, string> VerifyNotNull;
         M_SYS_MENU_REG_001_D _D = null;
         public M_SYS_MENU_REG_001()
         {
@@ -43,6 +45,7 @@ namespace SYS
             chTree1.ParentFieldName = "CD_MENU_PARENT";
             chTree1.ColumnVislble(new string[] { "NM_NETWINDOW", "FG_TYPE", "CD_MODULE", "NO_POS" });
             chTree1.ColumnReadOnly(new string[] { "NM_MENU" });
+            VerifyNotNull = new Dictionary<string, string> { { "CD_MENU", "Menu Code" }, { "NM_MENU", "Menu Name" }, { "FG_TYPE", "Menu Type" }, { "NM_NETWINDOW", "DLL" }, };
         }
 
         private void InitializeControl()
@@ -136,6 +139,8 @@ namespace SYS
                     return;
                 }
 
+                NullCheck(dtChanges);
+
                 bool result = _D.Save(dtChanges);
 
                 if (!result)
@@ -149,6 +154,34 @@ namespace SYS
             catch (Exception ex)
             {
                 HandleException(ex);
+            }
+        }
+
+        private void NullCheck(DataTable dtChanges)
+        {
+            foreach (DataRow dataRow in dtChanges.Rows)
+            {
+                if (dataRow.RowState == DataRowState.Deleted) continue;
+
+                foreach (string col in VerifyNotNull.Keys)
+                {
+                    if (col == "NM_NETWINDOW" && A.GetString(dataRow["FG_TYPE"]) == "F") continue;
+                    if (dtChanges.Columns[col].DataType != typeof(decimal))
+                    {
+                        if (A.GetString(dataRow[col]) == string.Empty)
+                        {
+                            throw new System.Exception(string.Format("[{0}] is Required.", VerifyNotNull[col]));
+                        }
+                    }
+
+                    //if (dtChanges.Columns[col].DataType == typeof(decimal))
+                    //{
+                    //    if (A.GetDecimal(dataRow[col]) == decimal.Zero)
+                    //    {
+                    //        throw new System.Exception(string.Format("[{0}] is Required.", VerifyNotNull[col]));
+                    //    }
+                    //}
+                }
             }
         }
     }

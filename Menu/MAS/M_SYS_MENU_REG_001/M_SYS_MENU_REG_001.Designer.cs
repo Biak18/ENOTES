@@ -37,6 +37,7 @@
             splitContainerControl1 = new DevExpress.XtraEditors.SplitContainerControl();
             chTree1 = new CH.Grid.CHTree();
             chLayoutPanel2 = new CH.Framework.Win.Controls.CHLayoutPanel();
+            Txt_DLL = new CH.Framework.Win.Controls.CHLTextEdit();
             Txt_Parent = new CH.Framework.Win.Controls.CHLTextEdit();
             LookUp_Module = new CH.Framework.Win.Controls.CHLLookupEdit();
             LookUp_Type = new CH.Framework.Win.Controls.CHLLookupEdit();
@@ -50,7 +51,6 @@
             layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
             emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
-            Txt_DLL = new CH.Framework.Win.Controls.CHLTextEdit();
             layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)chLayoutPanel1).BeginInit();
             chLayoutPanel1.SuspendLayout();
@@ -79,12 +79,12 @@
             // 
             // chLayoutPanel1
             // 
-            chLayoutPanel1.BackColor = System.Drawing.Color.FromArgb(243, 252, 251);
             chLayoutPanel1.Controls.Add(Txt_MenuName);
             chLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             chLayoutPanel1.Location = new System.Drawing.Point(0, 50);
             chLayoutPanel1.Name = "chLayoutPanel1";
             chLayoutPanel1.Root = Root;
+            chLayoutPanel1.SetPanelType = CH.Framework.Win.Controls.CHLayoutPanel.PanelType.MAINFORM;
             chLayoutPanel1.Size = new System.Drawing.Size(864, 46);
             chLayoutPanel1.TabIndex = 3;
             chLayoutPanel1.Text = "chLayoutPanel1";
@@ -174,7 +174,6 @@
             // 
             // chLayoutPanel2
             // 
-            chLayoutPanel2.BackColor = System.Drawing.Color.FromArgb(243, 252, 251);
             chLayoutPanel2.Controls.Add(Txt_DLL);
             chLayoutPanel2.Controls.Add(Txt_Parent);
             chLayoutPanel2.Controls.Add(LookUp_Module);
@@ -186,9 +185,21 @@
             chLayoutPanel2.Name = "chLayoutPanel2";
             chLayoutPanel2.OptionsCustomizationForm.DesignTimeCustomizationFormPositionAndSize = new System.Drawing.Rectangle(-650, 190, 650, 400);
             chLayoutPanel2.Root = layoutControlGroup1;
+            chLayoutPanel2.SetPanelType = CH.Framework.Win.Controls.CHLayoutPanel.PanelType.MAINFORM;
             chLayoutPanel2.Size = new System.Drawing.Size(600, 386);
             chLayoutPanel2.TabIndex = 0;
             chLayoutPanel2.Text = "chLayoutPanel2";
+            // 
+            // Txt_DLL
+            // 
+            Txt_DLL.BackColor = System.Drawing.Color.FromArgb(243, 252, 251);
+            Txt_DLL.EditValue = null;
+            Txt_DLL.LabelText = "DLL";
+            Txt_DLL.Location = new System.Drawing.Point(20, 190);
+            Txt_DLL.Name = "Txt_DLL";
+            Txt_DLL.Size = new System.Drawing.Size(282, 24);
+            Txt_DLL.TabIndex = 7;
+            Txt_DLL.Tag = "NM_NETWINDOW";
             // 
             // Txt_Parent
             // 
@@ -197,6 +208,7 @@
             Txt_Parent.LabelText = "Parent Menu";
             Txt_Parent.Location = new System.Drawing.Point(20, 155);
             Txt_Parent.Name = "Txt_Parent";
+            Txt_Parent.ReadOnly = true;
             Txt_Parent.Size = new System.Drawing.Size(282, 24);
             Txt_Parent.TabIndex = 6;
             Txt_Parent.Tag = "CD_MENU_PARENT";
@@ -339,17 +351,6 @@
             emptySpaceItem3.Name = "emptySpaceItem3";
             emptySpaceItem3.Size = new System.Drawing.Size(302, 156);
             emptySpaceItem3.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // Txt_DLL
-            // 
-            Txt_DLL.BackColor = System.Drawing.Color.FromArgb(243, 252, 251);
-            Txt_DLL.EditValue = null;
-            Txt_DLL.LabelText = "DLL";
-            Txt_DLL.Location = new System.Drawing.Point(20, 190);
-            Txt_DLL.Name = "Txt_DLL";
-            Txt_DLL.Size = new System.Drawing.Size(282, 24);
-            Txt_DLL.TabIndex = 7;
-            Txt_DLL.Tag = "NM_NETWINDOW";
             // 
             // layoutControlItem7
             // 

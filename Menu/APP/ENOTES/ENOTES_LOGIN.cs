@@ -26,7 +26,7 @@ public partial class ENOTES_LOGIN : Form
         string comCode = IniFile.IniReadValue("LoginInfo", "CompanyCode", dirPath);
         string userId = IniFile.IniReadValue("LoginInfo", "UserId", dirPath);
 
-        BtnTxt_Company.EditValue = userId;
+        BtnTxt_Company.EditValue = comCode;
         BtnTxt_CdUser.EditValue = userId;
     }
 
@@ -98,7 +98,8 @@ public partial class ENOTES_LOGIN : Form
                 {
 
                 }
-            };
+            }
+            ;
         }
         catch (Exception ex)
         {
@@ -143,17 +144,7 @@ public partial class ENOTES_LOGIN : Form
             }
             var hasher2 = new PasswordHasher<string>();
             string hashedPassword = hasher2.HashPassword(null, inputPassword);
-            SysUser user = new SysUser
-            {
-                CdCom = "SYS",
-                CdUser = "SYSTEM",
-                DcPassword = hashedPassword,
-                NmUser = "SYSTEM",
-                FgRole = "SYSTEM",
-                DtReg = DateTime.UtcNow.ToString("yyyyMMdd"),
-                YnActive = "Y",
-                TmReg = DateTime.UtcNow
-            };
+
             //await Init();
             //await _client.From<SysUser>().Insert(user);
             //var json = await _client.Rpc("ap_enotes_002_s", new Dictionary<string, object> { { "p_cd_com", "SYS" }, { "p_cd_user", "SYSTEM" } });
@@ -171,6 +162,18 @@ public partial class ENOTES_LOGIN : Form
                 Msg.ShowMessageBox("User is disabled.", MessageType.Error);
                 return;
             }
+            DataRow drUser = dt_user_info.Rows[0];
+            //SysUser user = new SysUser
+            //{
+            //    CdCom = A.GetString(drUser["CD_COM"]),
+            //    CdUser = A.GetString(drUser["CD_USER"]),
+            //    DcPassword = hashedPassword,
+            //    NmUser = A.GetString(drUser["NM_USER"]),
+            //    FgRole = A.GetString(drUser["FG_ROLE"]),
+            //    DtReg = A.GetString(drUser["DT_REG"]),
+            //    YnActive = A.GetString(drUser["YN_ACTIVE"]),
+            //    //TmReg = Convert.ToDateTime((drUser["DT_REG"]))
+            //};
 
             string storedHash = A.GetString(dt_user_info.Rows[0]["DC_PASSWORD"]);
 
@@ -186,6 +189,12 @@ public partial class ENOTES_LOGIN : Form
                 Msg.ShowMessageBox("Invalid user or password.", MessageType.Error);
                 return;
             }
+            IniFile.IniWriteSingle("App", "CompanyCode", A.GetString(drUser["CD_COM"]), dirPath);
+            IniFile.IniWriteSingle("App", "UserId", A.GetString(drUser["CD_USER"]), dirPath);
+
+            IniFile.IniWriteSingle("LoginInfo", "CompanyCode", A.GetString(drUser["CD_COM"]), dirPath);
+            IniFile.IniWriteSingle("LoginInfo", "UserId", A.GetString(drUser["CD_USER"]), dirPath);
+
             CH.AppContext.Login(dt_user_info.Rows[0]);
             LoginSuccess?.Invoke(this, EventArgs.Empty);
         }

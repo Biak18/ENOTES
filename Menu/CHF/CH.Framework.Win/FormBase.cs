@@ -21,6 +21,12 @@ public partial class FormBase : RibbonForm
         return new MsgDialog(messageType, message).ShowDialog(this);
     }
 
+    public virtual DialogResult ShowMessageBox(string message)
+    {
+        LoadingHelper.EndLoading();
+        return new MsgDialog(MessageType.Information, message).ShowDialog(this);
+    }
+
 
     protected virtual void HandleException(Exception ex)
     {

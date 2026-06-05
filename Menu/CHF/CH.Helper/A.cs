@@ -67,6 +67,15 @@ public class A
         }
     }
 
+    public static bool GetBool(object obj)
+    {
+        if (obj == null || obj == DBNull.Value)
+        {
+            return false;
+        }
+        return Convert.ToBoolean(obj);
+    }
+
     public static string WildCardToRegular(string value)
     {
         return "^" + Regex.Escape(value).Replace("\\?", ".").Replace("\\*", ".*") + "$";

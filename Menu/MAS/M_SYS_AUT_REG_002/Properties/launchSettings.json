@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "M_SYS_AUT_REG_002": {
+      "commandName": "Project",
+      "workingDirectory": "D:\\NET\\ENOTES\\Dev_Deploy"
+    }
+  }
+}

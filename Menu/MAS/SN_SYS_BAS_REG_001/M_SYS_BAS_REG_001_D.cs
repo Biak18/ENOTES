@@ -1,14 +1,13 @@
 ﻿using CH.Helper;
 using System.Data;
 
-namespace SN_SYS;
+namespace SYS;
 
 public class M_SYS_BAS_REG_001_D
 {
     public DataTable Search(object[] obj)
     {
-        //return DataHelper.GetDataTable("AP_SYS_BAS_REG_001_01_S", obj);
-        return DataHelper.GetDataTable("AP_CUS_REG_001_S", obj);
+        return DataHelper.GetDataTable("AP_SYS_BAS_REG_001_01_S", obj);
     }
 
     //public async Task<DataTable> Search(object[] obj)

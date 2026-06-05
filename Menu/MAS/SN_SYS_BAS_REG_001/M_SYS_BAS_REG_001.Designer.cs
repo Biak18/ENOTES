@@ -1,4 +1,4 @@
-﻿namespace SN_SYS
+﻿namespace SYS
 {
     partial class M_SYS_BAS_REG_001
     {

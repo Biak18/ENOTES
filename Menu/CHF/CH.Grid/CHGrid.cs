@@ -700,29 +700,29 @@ public partial class CHGrid : GridControl
         if (view.GetFocusedRowCellValue("CONDITION") != null && (bool)view.GetFocusedRowCellValue("CONDITION"))
             e.Cancel = true;
 
-        if (view.FocusedColumn.ColumnEdit != null)
-        {
-            if (view.FocusedColumn.ColumnEdit.GetType() == typeof(RepositoryItemTextEdit) || view.FocusedColumn.ColumnEdit.GetType() == typeof(RepositoryItemMemoEdit))
-            {
-                if (!_doubleClick && !_keydown)
-                    e.Cancel = true;
-                else
-                {
-                    _doubleClick = false;
-                    _keydown = false;
-                }
-            }
-        }
-        else
-        {
-            if (!_doubleClick && !_keydown)
-                e.Cancel = true;
-            else
-            {
-                _doubleClick = false;
-                _keydown = false;
-            }
-        }
+        //if (view.FocusedColumn.ColumnEdit != null)
+        //{
+        //    if (view.FocusedColumn.ColumnEdit.GetType() == typeof(RepositoryItemTextEdit) || view.FocusedColumn.ColumnEdit.GetType() == typeof(RepositoryItemMemoEdit))
+        //    {
+        //        if (!_doubleClick && !_keydown)
+        //            e.Cancel = true;
+        //        else
+        //        {
+        //            _doubleClick = false;
+        //            _keydown = false;
+        //        }
+        //    }
+        //}
+        //else
+        //{
+        //    if (!_doubleClick && !_keydown)
+        //        e.Cancel = true;
+        //    else
+        //    {
+        //        _doubleClick = false;
+        //        _keydown = false;
+        //    }
+        //}
 
     }
 
@@ -1855,6 +1855,10 @@ public partial class CHGrid : GridControl
     {
         GridView view = this.FocusedView as GridView;
 
+        if (e.Button != MouseButtons.Right || Control.ModifierKeys != (Keys.Shift | Keys.Control))
+        {
+            return;
+        }
 
         DataTable dtGrid = new DataTable();
         DataTable dtData = new DataTable();

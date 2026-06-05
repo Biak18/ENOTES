@@ -148,4 +148,25 @@
   <data name="ctl_drop_on_mainform" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\ctl_drop_on_mainform.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="ctl_calendar" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ctl_calendar.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ctl_calendar_main" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ctl_calendar_main.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ctl_calendar_tab" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ctl_calendar_tab.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ctl_calendar_on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ctl_calendar_on.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ctl_calendar_on_main" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ctl_calendar_on_main.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ctl_calendar_on_tab" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ctl_calendar_on_tab.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="ctl_calendar_readonly" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\ctl_calendar_readonly.png;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

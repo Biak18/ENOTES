@@ -15,6 +15,8 @@ namespace CH.Grid;
 [SupportedOSPlatform("windows")]
 internal class SetControlBinding
 {
+    private DataView _dv = new DataView();
+
     private DataTable _dt = new DataTable();
 
     private Dictionary<string, Control> _controls = null;
@@ -25,12 +27,150 @@ internal class SetControlBinding
 
     private int Selected_Row = 0;
 
-
-    #region TreeBinding
+    #region GridBinding
     public SetControlBinding(GridView chGrid, Control container, object[] EnableControlsIfAdded)
     {
+        _view = chGrid;
+        CHGrid chGrid2 = chGrid.GridControl as CHGrid;
+        chGrid2.GridMode = "FREEFORM";
+        chGrid.DataSourceChanged += ChGrid_DataSourceChanged;
+        chGrid.FocusedRowChanged += ChGrid_FocusedRowChanged;
+        chGrid.RowCountChanged += ChGrid_RowCountChanged;
 
+        _controls = new Dictionary<string, Control>();
+
+        InitControls(container);
+        chGrid.UpdateCurrentRow();
+
+        if (chGrid.DataSource != null)
+        {
+            _dv = chGrid.DataSource as DataView;
+            _dt = _dv.Table;
+        }
+
+        InitControlEvent();
+        if (EnableControlsIfAdded != null)
+        {
+            _enableObjects = EnableControlsIfAdded;
+        }
     }
+
+    private void ChGrid_RowCountChanged(object sender, EventArgs e)
+    {
+        GridView gridView = sender as GridView;
+        if (gridView.RowCount == 0)
+        {
+            DataRow valueToControl = null;
+            InitControlEventDelete();
+            SetValueToControl(valueToControl);
+            InitControlEvent();
+        }
+        else
+        {
+            InitControlEventDelete();
+            SetValueToControl(gridView.GetFocusedDataSourceRowIndex());
+            InitControlEvent();
+        }
+    }
+
+    private void ChGrid_FocusedRowChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowChangedEventArgs e)
+    {
+        GridView gridView = sender as GridView;
+        if (gridView.GetFocusedDataSourceRowIndex() < 0 || gridView.FocusedRowHandle < 0)
+        {
+            return;
+        }
+
+        Selected_Row = gridView.FocusedRowHandle;
+        InitControlEventDelete();
+        SetValueToControl(Selected_Row);
+        InitControlEvent();
+
+        if (gridView.GetDataRow(Selected_Row).RowState == DataRowState.Added)
+        {
+            if (_enableObjects == null) return;
+
+            object[] enableObjects = _enableObjects;
+
+            for (int i = 0; i < enableObjects.Length; i++)
+            {
+                Control ctrl = enableObjects[i] as Control;
+
+                switch (ctrl.GetType().Name)
+                {
+                    case "CHLTextEdit":
+                        ((CHLTextEdit)ctrl).ReadOnly = false;
+                        break;
+
+
+                    case "LookUpEdit":
+                        ((LookUpEdit)ctrl).ReadOnly = false;
+                        break;
+
+                    case "CHLLookupEdit":
+                        ((CHLLookupEdit)ctrl).ReadOnly = false;
+                        break;
+
+                    case "CHLNumericText":
+                        ((CHLNumericText)ctrl).ReadOnly = false;
+                        break;
+
+                    default:
+                        ctrl.Enabled = true;
+                        break;
+                }
+            }
+        }
+        else
+        {
+            if (_enableObjects == null)
+                return;
+
+            object[] enableObjects = _enableObjects;
+
+            for (int i = 0; i < enableObjects.Length; i++)
+            {
+                Control ctrl = enableObjects[i] as Control;
+
+                switch (ctrl.GetType().Name)
+                {
+                    case "CHLTextEdit":
+                        ((CHLTextEdit)ctrl).ReadOnly = true;
+                        break;
+
+                    case "LookUpEdit":
+                        ((LookUpEdit)ctrl).ReadOnly = true;
+                        break;
+
+                    case "CHLLookupEdit":
+                        ((CHLLookupEdit)ctrl).ReadOnly = true;
+                        break;
+
+                    case "CHLNumericText":
+                        ((CHLNumericText)ctrl).ReadOnly = true;
+                        break;
+
+                    default:
+                        ctrl.Enabled = false;
+                        break;
+                }
+            }
+        }
+    }
+
+    private void ChGrid_DataSourceChanged(object sender, EventArgs e)
+    {
+        GridView gridView = sender as GridView;
+        Selected_Row = 0;
+        InitControlEventDelete();
+        _dv = gridView.DataSource as DataView;
+        _dt = _dv.Table;
+        SetValueToControl(gridView.GetFocusedDataSourceRowIndex());
+        InitControlEvent();
+    }
+    #endregion
+
+    #region TreeBinding
     public SetControlBinding(CHTree chTree, Control container, object[] EnableControlsIfAdded)
     {
         chTree.DataSourceChanged += ChTree_DataSourceChanged;
@@ -219,6 +359,20 @@ internal class SetControlBinding
                     ((CHLNumericText)ctrl).EditValueChangedByUser += Control_Validated;
                     ((CHLNumericText)ctrl).DecimalValueChangedByUser += Control_Validated;
                     break;
+
+                case "CHLPeriodEdit":
+                    string[] array = ((CHPeriodEdit)ctrl).Tag.ToString().Split(';');
+                    if (array == null || array.Length != 2)
+                    {
+                        throw new Exception("Tag properties must be specified in the form of <Start Date Data Column Name; To Date Data Column Name>.");
+                    }
+                    ((CHPeriodEdit)ctrl).txtDtFrom.Tag = array[0];
+                    ((CHPeriodEdit)ctrl).txtDtTo.Tag = array[1];
+                    ((CHPeriodEdit)ctrl).txtDtFrom.TextChanged += Control_CodeChanged;
+                    ((CHPeriodEdit)ctrl).txtDtTo.TextChanged += Control_CodeChanged;
+                    ((CHPeriodEdit)ctrl).txtDtFrom.EditValueChanged += Control_Validated;
+                    ((CHPeriodEdit)ctrl).txtDtTo.EditValueChanged += Control_Validated;
+                    break;
             }
         }
     }
@@ -251,7 +405,55 @@ internal class SetControlBinding
                     ((CHLNumericText)ctrl).EditValueChangedByUser -= Control_Validated;
                     ((CHLNumericText)ctrl).DecimalValueChangedByUser -= Control_Validated;
                     break;
+
+                case "CHPeriodEdit":
+                    ((CHPeriodEdit)ctrl).txtDtFrom.TextChanged -= Control_CodeChanged;
+                    ((CHPeriodEdit)ctrl).txtDtTo.TextChanged -= Control_CodeChanged;
+                    ((CHPeriodEdit)ctrl).txtDtFrom.EditValueChanged -= Control_Validated;
+                    ((CHPeriodEdit)ctrl).txtDtTo.EditValueChanged -= Control_Validated;
+                    break;
             }
+        }
+    }
+
+    private void Control_CodeChanged(object sender, EventArgs e)
+    {
+        try
+        {
+            if (!(((TextEdit)sender).Parent.GetType().Name == "CHPeriodEdit") || _dt.Rows.Count <= 0)
+            {
+                return;
+            }
+
+            if (((CHPeriodEdit)((TextEdit)sender).Parent).DtStart == string.Empty)
+            {
+                string[] array = ((CHPeriodEdit)((TextEdit)sender).Parent).Tag.ToString().Split(';');
+                if (array == null || array.Length != 2)
+                {
+                    throw new Exception("Tag properties must be specified in the form of <Start Date Data Column Name; To Date Data Column Name>.");
+                }
+
+                _dt.Rows[Selected_Row][array[0].ToString()] = string.Empty;
+                _dt.Rows[Selected_Row][array[1].ToString()] = string.Empty;
+                SetValueToDataRow(((TextEdit)sender).Parent);
+            }
+            else
+            {
+                string[] array2 = ((CHPeriodEdit)((TextEdit)sender).Parent).Tag.ToString().Split(';');
+                if (array2 == null || array2.Length != 2)
+                {
+                    throw new Exception("Tag properties must be specified in the form of <Start Date Data Column Name; To Date Data Column Name>.");
+                }
+
+                _dt.Rows[Selected_Row][array2[0].ToString()] = ((CHPeriodEdit)((TextEdit)sender).Parent).DtStart;
+                _dt.Rows[Selected_Row][array2[1].ToString()] = ((CHPeriodEdit)((TextEdit)sender).Parent).DtEnd;
+                SetValueToDataRow(((TextEdit)sender).Parent);
+            }
+        }
+        catch
+        {
+
+            throw;
         }
     }
 
@@ -364,7 +566,7 @@ internal class SetControlBinding
     private void SetValueToControl(DataRow row)
     {
         Control control = null;
-        if (_controls == null || row == null || (row != null && row.RowState == DataRowState.Deleted))
+        if (_controls == null || /*row == null ||*/ (row != null && row.RowState == DataRowState.Deleted))
         {
             return;
         }
@@ -393,6 +595,21 @@ internal class SetControlBinding
                 case "CHLNumericText":
                     ((CHLNumericText)control).EditValue = ((row == null) ? string.Empty : A.GetString(row[key]));
                     break;
+            }
+        }
+    }
+
+    private void SetValueToControl(int selectedRowNo)
+    {
+        if (_dt.Rows.Count != 0 && _dt.Rows.Count > selectedRowNo && selectedRowNo >= 0)
+        {
+            if (_view != null)
+            {
+                SetValueToControl(_view.GetDataRow(Selected_Row));
+            }
+            else
+            {
+                SetValueToControl(_dt.Rows[selectedRowNo]);
             }
         }
     }

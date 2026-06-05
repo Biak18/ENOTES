@@ -9,9 +9,10 @@
 		<RootNamespace>ENOTES</RootNamespace>
 		<ApplicationIcon>enotes.ico</ApplicationIcon>
 	</PropertyGroup>
-    <ItemGroup>
-      <Content Include="enotes.ico" />
-    </ItemGroup>
+	<ItemGroup>
+		<None Remove="enotes.ico" />
+		<Resource Include="enotes.ico" />
+	</ItemGroup>
 	
     <ItemGroup>
         <PackageReference Include="DevExpress.Win" Version="22.1.6" />

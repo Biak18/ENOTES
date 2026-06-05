@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="enotes.ico" />
+    <Resource Include="enotes.ico" />
   </ItemGroup>
 
 	<ItemGroup>

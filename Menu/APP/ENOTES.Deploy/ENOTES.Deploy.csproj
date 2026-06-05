@@ -27,6 +27,10 @@
 			<SpecificVersion>false</SpecificVersion>
 			<HintPath>$(SolutionDir)\..\Dev_Deploy\CH.Helper.dll</HintPath>
 		</Reference>
+		<Reference Include="CH">
+			<SpecificVersion>false</SpecificVersion>
+			<HintPath>$(SolutionDir)\..\Dev_Deploy\CH.dll</HintPath>
+		</Reference>
 		<!--<Reference Include="DevExpress.XtraEditors.v22.1">
 			
 		</Reference>-->

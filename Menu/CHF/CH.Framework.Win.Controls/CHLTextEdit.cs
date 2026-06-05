@@ -1,7 +1,9 @@
-﻿using DevExpress.XtraLayout;
+﻿using DevExpress.XtraEditors.Repository;
+using DevExpress.XtraLayout;
 using System;
 using System.ComponentModel;
 using System.Drawing;
+using System.Reflection;
 using System.Runtime.Versioning;
 using System.Windows.Forms;
 
@@ -113,6 +115,34 @@ namespace CH.Framework.Win.Controls
             set
             {
                 chTextEdit1.ReadOnly = value;
+            }
+        }
+
+        public RepositoryItemButtonEdit Properties
+        {
+            get
+            {
+                return CHTextEdit.Properties;
+            }
+            set
+            {
+                if (base.DesignMode)
+                {
+                    return;
+                }
+                object obj = null;
+                PropertyInfo[] properties = value.GetType().GetProperties();
+                foreach (PropertyInfo propertyInfo in properties)
+                {
+                    if (propertyInfo.GetSetMethod(nonPublic: true) != null)
+                    {
+                        obj = propertyInfo.GetValue(value, null);
+                        if (obj != null && obj.GetType() == propertyInfo.GetValue(CHTextEdit.Properties, null).GetType())
+                        {
+                            propertyInfo.SetValue(CHTextEdit.Properties, obj, null);
+                        }
+                    }
+                }
             }
         }
 

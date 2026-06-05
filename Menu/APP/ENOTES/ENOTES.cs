@@ -66,7 +66,7 @@ public partial class ENOTES : XtraForm
     private void InitializeTree()
     {
         menuTree.ImageList = imageList1;
-        DataTable dataTable = _D.SearchMenu(new object[] { "", "" });
+        DataTable dataTable = _D.SearchMenu(new object[] { "", "", "", CH.AppContext.User.CompanyCode, CH.AppContext.User.UserID, CH.AppContext.User.Role });
         LoadNavTree(dataTable);
     }
 
@@ -81,7 +81,11 @@ public partial class ENOTES : XtraForm
             string cd = row["CD_MENU"].ToString();
             string nm = row["NM_MENU"].ToString();
             string fgType = row["FG_TYPE"]?.ToString();
-            string cdMenu = cd.Replace("SN", "M");
+            string cdMenu = cd;
+            if (cd.StartsWith("EN"))
+            {
+                cdMenu = "M" + cd.Substring(2);
+            }
 
             var node = new TreeNode(nm)
             {
@@ -360,13 +364,13 @@ public partial class ENOTES : XtraForm
         {
             // Restore all nodes
             menuTree.Nodes.Clear();
-            LoadNavTree(_D.SearchMenu(new object[] { "", "" }));
+            LoadNavTree(_D.SearchMenu(new object[] { "", "", "", CH.AppContext.User.CompanyCode, CH.AppContext.User.UserID, CH.AppContext.User.Role }));
             return;
         }
 
         // Show only matching nodes + their parents
         menuTree.Nodes.Clear();
-        DataTable dt = _D.SearchMenu(new object[] { "", "" });
+        DataTable dt = _D.SearchMenu(new object[] { "", "", "", CH.AppContext.User.CompanyCode, CH.AppContext.User.UserID, CH.AppContext.User.Role });
         var allRows = dt.AsEnumerable().ToList();
 
         // Find matching rows

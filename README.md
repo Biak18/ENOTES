@@ -68,6 +68,12 @@ Password: 1
 
 <img width="1203" height="707" alt="image" src="https://github.com/user-attachments/assets/204f7f31-83bc-415e-a21f-0a24a6447a67" />
 
+<img width="1192" height="1029" alt="image" src="https://github.com/user-attachments/assets/5792caee-25f7-4500-b59a-4267b85505ea" />
+
+<img width="1613" height="1020" alt="image" src="https://github.com/user-attachments/assets/11e61c93-d71a-43db-a7fa-c7c39e9ddebd" />
+
+
+
 
 
 ## Project Status
